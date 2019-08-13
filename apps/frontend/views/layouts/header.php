@@ -1,123 +1,331 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: SMART DIGITECH
- * Date: 10/16/2018
- * Time: 5:18 AM
- */
+<style>
 
-use common\models\Category;
-use common\models\Business;
+    .revo-slider-emphasis-text {
+        font-size: 58px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        font-family: 'Raleway', sans-serif;
+        padding: 15px 20px;
+        border-top: 2px solid #FFF;
+        border-bottom: 2px solid #FFF;
+    }
 
-$category = Category::find()->orderBy(['priority' => SORT_ASC])->visible()->all();
-$business = Business::find()->one();
-?>
-<div class="top-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 fast-ship">
-                <div class="fast-ship-inner"><a href="tel:091 533 87 47" class="fast-ship-btn"><i
-                                class="fa fa-phone"></i><span class="txt">Đặt hàng nhanh</span><span class="phone-numb"><?php echo $business->hot_line ?></span></a>
-                </div>
+    .revo-slider-desc-text {
+        font-size: 20px;
+        font-family: 'Lato', sans-serif;
+        width: 650px;
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    .revo-slider-caps-text {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 3px;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .tp-video-play-button { display: none !important; }
+
+    .tp-caption { white-space: nowrap; }
+
+</style>
+    <!-- Top Bar
+    ============================================= -->
+    <div id="top-bar" class="d-none d-md-block">
+
+        <div class="container clearfix">
+
+            <div class="col_half nobottommargin">
+
+                <p class="nobottommargin"><strong>Call:</strong> 1800-547-2145 | <strong>Email:</strong> info@canvas.com</p>
+
             </div>
-            <div class="col-md-4 logo-blk">
-                <div class="logo-inner text-center"><a href="/" class="logo-btn"><img src="<?php echo $business->fullPathImageThumbnail?>" alt></a>
-                </div>
-            </div>
-            <div class="col-md-4 account-blk text-right"><a href="javascript:;" class="account-btn"><span>Đăng nhập / Đăng ký</span><i
-                            class="ico"></i></a></div>
-        </div>
-    </div>
-</div>
-<!-- END: Top header-->
-<div class="main-menu-blk">
-    <div class="container">
-        <div class="main-menu-inner">
-            <a href="javascript:;" class="responsive-menu"><i class="fa fa-bars"></i></a><a href="javascript:;"
-                                                                                            class="close-menu"><i
-                        class="fa fa-close"></i></a>
-            <ul class="main-menu-ul">
-                <li><a href="/" class="menu-itm"><span>Trang chủ</span></a></li>
-                <li><a href="/product/index" class="menu-itm"><span>Sản phẩm</span></a>
-                    <div class="sub-menu">
-                        <?php if ($category): ?>
-                            <ul class="sub-menu-ul">
-                                <?php foreach ($category as $item): ?>
-                                    <li><a href="/<?= $item->urls->route ?>" class="sub-menu-itm">
-                                            <span><?php echo $item->name ?></span></a></li>
-                                <?php endforeach; ?>
+
+            <div class="col_half col_last fright nobottommargin">
+
+                <!-- Top Links
+                ============================================= -->
+                <div class="top-links">
+                    <ul>
+                        <li><a href="#">USD</a>
+                            <ul>
+                                <li><a href="#">EUR</a></li>
+                                <li><a href="#">AUD</a></li>
+                                <li><a href="#">GBP</a></li>
                             </ul>
-                        <?php endif; ?>
-                    </div>
-                </li>
-                <li><a href="/page/<?php echo \common\models\Page::RULE ?>"
-                       class="menu-itm"><span>Chính sách & quy định</span></a></li>
-                <li><a href="/site/blog" class="menu-itm"><span>Blog</span></a></li>
-            </ul>
-        </div>
-        <!-- END: Main menu-->
-        <div class="search-blk">
-            <div class="search-inner clearfix">
-                <form action="/search/" method="get">
-                    <input type="text" name="filter" placeholder="Nhập tên sản phẩm" class="search-ipt">
-                    <button class="search-submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-        </div>
-        <!-- END: Search block-->
-        <div class="shopping-cart-blk">
-            <?php
-            \yii\widgets\Pjax::begin(['id' => 'header-cart-pjax', 'timeout' => 5000]);
-            ?>
-            <a href="javascript:;" class="shopping-cart-btn"></a>
-            <span class="cart-numb"><?= Yii::$app->carts->getCount() ?></span>
-            <div class="shopping-cart-popup">
-                <div class="popup-inner">
-                    <div id="h-cart-body" class="popup-body">
-                        <?php
-                        /* @var $item \common\models\Product */
-                        $product = Yii::$app->carts->getItems();
-                        foreach ($product as $item) {
-                            ?>
-                            <div class="h-cart-itm clearfix">
-                                <div class="h-cart-img"><img src="<?= $item->fullPathImageThumbnail ?>" alt></div>
-                                <div class="h-cart-info">
-                                    <h3><?= $item->name ?></h3>
-                                    <p><span class="ttl">Số lượng: </span><span
-                                                class="val"><?= $item->quantity ?></span></p>
-                                    <p><span class="ttl">Đơn giá: </span><span
-                                                class="val"><?php
-                                            if ($item->discount != null || $item->discount != '') {
-                                                echo ($item->unit_price != null ? number_format($item->discount, 0, '', '.') . ' đ' : 'Liên Hệ');
-                                            } else {
-                                                echo ($item->unit_price != null ? number_format($item->unit_price, 0, '', '.') . ' đ' : 'Liên Hệ');
-                                            }
+                        </li>
+                        <li><a href="#">EN</a>
+                            <ul>
+                                <li><a href="#"><img src="images/icons/flags/french.png" alt="French"> FR</a></li>
+                                <li><a href="#"><img src="images/icons/flags/italian.png" alt="Italian"> IT</a></li>
+                                <li><a href="#"><img src="images/icons/flags/german.png" alt="German"> DE</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Login</a>
+                            <div class="top-link-section">
+                                <form id="top-login" role="form">
+                                    <div class="input-group" id="top-login-username">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-user"></i></div>
+                                        </div>
+                                        <input type="email" class="form-control" placeholder="Email address" required="">
+                                    </div>
+                                    <div class="input-group" id="top-login-password">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-key"></i></div>
+                                        </div>
+                                        <input type="password" class="form-control" placeholder="Password" required="">
+                                    </div>
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="remember-me"> Remember me
+                                    </label>
+                                    <button class="btn btn-danger btn-block" type="submit">Sign in</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- .top-links end -->
 
-                                            ?></span>
-                                    </p>
+            </div>
+
+        </div>
+
+    </div><!-- #top-bar end -->
+
+<header id="header">
+
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
+                <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+            </div><!-- #logo end -->
+
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu">
+
+                <ul>
+                    <li class="current"><a href="#"><div>Home</div><span>Lets Start</span></a>
+                        <ul>
+                            <li><a href="index-corporate.html"><div>Home - Corporate</div></a>
+                                <ul>
+                                    <li><a href="index-corporate.html"><div>Corporate - Layout 1</div></a></li>
+                                    <li><a href="index-corporate-2.html"><div>Corporate - Layout 2</div></a></li>
+                                    <li><a href="index-corporate-3.html"><div>Corporate - Layout 3</div></a></li>
+                                    <li><a href="index-corporate-4.html"><div>Corporate - Layout 4</div></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-portfolio.html"><div>Home - Portfolio</div></a>
+                                <ul>
+                                    <li><a href="index-portfolio.html"><div>Portfolio - Layout 1</div></a></li>
+                                    <li><a href="index-portfolio-2.html"><div>Portfolio - Layout 2</div></a></li>
+                                    <li><a href="index-portfolio-3.html"><div>Portfolio - Masonry</div></a></li>
+                                    <li><a href="index-portfolio-4.html"><div>Portfolio - AJAX</div></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-blog.html"><div>Home - Blog</div></a>
+                                <ul>
+                                    <li><a href="index-blog.html"><div>Blog - Layout 1</div></a></li>
+                                    <li><a href="index-blog-2.html"><div>Blog - Layout 2</div></a></li>
+                                    <li><a href="index-blog-3.html"><div>Blog - Layout 3</div></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-shop.html"><div>Home - Shop</div></a>
+                                <ul>
+                                    <li><a href="index-shop.html"><div>Shop - Layout 1</div></a></li>
+                                    <li><a href="index-shop-2.html"><div>Shop - Layout 2</div></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-magazine.html"><div>Home - Magazine</div></a>
+                                <ul>
+                                    <li><a href="index-magazine.html"><div>Magazine - Layout 1</div></a></li>
+                                    <li><a href="index-magazine-2.html"><div>Magazine - Layout 2</div></a></li>
+                                    <li><a href="index-magazine-3.html"><div>Magazine - Layout 3</div></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="landing.html"><div>Home - Landing Page</div></a>
+                                <ul>
+                                    <li><a href="landing.html"><div>Landing Page - Layout 1</div></a></li>
+                                    <li><a href="landing-2.html"><div>Landing Page - Layout 2</div></a></li>
+                                    <li><a href="landing-3.html"><div>Landing Page - Layout 3</div></a></li>
+                                    <li><a href="landing-4.html"><div>Landing Page - Layout 4</div></a></li>
+                                    <li><a href="landing-5.html"><div>Landing Page - Layout 5</div></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-fullscreen-image.html"><div>Home - Full Screen</div></a>
+                                <ul>
+                                    <li><a href="index-fullscreen-image.html"><div>Full Screen - Image</div></a></li>
+                                    <li><a href="index-fullscreen-slider.html"><div>Full Screen - Slider</div></a></li>
+                                    <li><a href="index-fullscreen-video.html"><div>Full Screen - Video</div></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-onepage.html"><div>Home - One Page</div></a>
+                                <ul>
+                                    <li><a href="index-onepage.html"><div>One Page - Default</div></a></li>
+                                    <li><a href="index-onepage-2.html"><div>One Page - Submenu</div></a></li>
+                                    <li><a href="index-onepage-3.html"><div>One Page - Dots Style</div></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-wedding.html"><div>Home - Wedding</div></a></li>
+                            <li><a href="index-restaurant.html"><div>Home - Restaurant</div></a></li>
+                            <li><a href="index-events.html"><div>Home - Events</div></a></li>
+                            <li><a href="index-parallax.html"><div>Home - Parallax</div></a></li>
+                            <li><a href="index-app-showcase.html"><div>Home - App Showcase</div></a></li>
+                        </ul>
+                    </li>
+                    <!-- Mega Menu
+                    ============================================= -->
+                    <li class="mega-menu"><a href="#"><div>Men</div><span>Out of the Box</span></a>
+                        <div class="mega-menu-content style-2 clearfix" style="display: none;">
+                            <ul class="mega-menu-column col-lg-3">
+                                <li class="mega-menu-title"><a href="#"><div>Footwear</div></a>
+                                    <ul>
+                                        <li><a href="#"><div>Casual Shoes</div></a></li>
+                                        <li><a href="#"><div>Formal Shoes</div></a></li>
+                                        <li><a href="#"><div>Sports shoes</div></a></li>
+                                        <li><a href="#"><div>Flip Flops</div></a></li>
+                                        <li><a href="#"><div>Slippers</div></a></li>
+                                        <li><a href="#"><div>Sports Sandals</div></a></li>
+                                        <li><a href="#"><div>Party Shoes</div></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="mega-menu-column col-lg-3">
+                                <li class="mega-menu-title"><a href="#"><div>Clothing</div></a>
+                                    <ul>
+                                        <li><a href="#"><div>Casual Shirts</div></a></li>
+                                        <li><a href="#"><div>T-Shirts</div></a></li>
+                                        <li><a href="#"><div>Collared Tees</div></a></li>
+                                        <li><a href="#"><div>Pants / Trousers</div></a></li>
+                                        <li><a href="#"><div>Ethnic Wear</div></a></li>
+                                        <li><a href="#"><div>Jeans</div></a></li>
+                                        <li><a href="#"><div>Sweamwear</div></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="mega-menu-column col-lg-3">
+                                <li class="mega-menu-title"><a href="#"><div>Accessories</div></a>
+                                    <ul>
+                                        <li><a href="#"><div>Bags &amp; Backpacks</div></a></li>
+                                        <li><a href="#"><div>Watches</div></a></li>
+                                        <li><a href="#"><div>Sunglasses</div></a></li>
+                                        <li><a href="#"><div>Wallets</div></a></li>
+                                        <li><a href="#"><div>Caps &amp; Hats</div></a></li>
+                                        <li><a href="#"><div>Jewellery</div></a></li>
+                                        <li><a href="#"><div>Belts, Ties</div></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="mega-menu-column col-lg-3">
+                                <li class="mega-menu-title"><a href="#"><div>New Arrivals</div></a>
+                                    <ul>
+                                        <li><a href="#"><div>T-Shirts</div></a></li>
+                                        <li><a href="#"><div>Formal Shoes</div></a></li>
+                                        <li><a href="#"><div>Accessories</div></a></li>
+                                        <li><a href="#"><div>Watches</div></a></li>
+                                        <li><a href="#"><div>Perfumes</div></a></li>
+                                        <li><a href="#"><div>Belts, Ties</div></a></li>
+                                        <li><a href="#"><div>Formal Shirts</div></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li><!-- .mega-menu end -->
+                    <li><a href="#"><div>Women</div><span>Out of the Box</span></a>
+                        <div class="mega-menu-content style-2 clearfix" style="display: none;">
+                            <ul class="mega-menu-column col-lg-6">
+                                <li class="mega-menu-title"><a href="#"><div>Footwear</div></a>
+                                    <ul>
+                                        <li><a href="#"><div>Casual Shoes</div></a></li>
+                                        <li><a href="#"><div>Formal Shoes</div></a></li>
+                                        <li><a href="#"><div>Sports shoes</div></a></li>
+                                        <li><a href="#"><div>Flip Flops</div></a></li>
+                                        <li><a href="#"><div>Slippers</div></a></li>
+                                        <li><a href="#"><div>Sports Sandals</div></a></li>
+                                        <li><a href="#"><div>Party Shoes</div></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="mega-menu-column col-lg-6">
+                                <li class="mega-menu-title"><a href="#"><div>Clothing</div></a>
+                                    <ul>
+                                        <li><a href="#"><div>Casual Shirts</div></a></li>
+                                        <li><a href="#"><div>T-Shirts</div></a></li>
+                                        <li><a href="#"><div>Collared Tees</div></a></li>
+                                        <li><a href="#"><div>Pants / Trousers</div></a></li>
+                                        <li><a href="#"><div>Ethnic Wear</div></a></li>
+                                        <li><a href="#"><div>Jeans</div></a></li>
+                                        <li><a href="#"><div>Sweamwear</div></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li><!-- .mega-menu end -->
+                    <li><a href="#"><div>Accessories</div><span>Awesome Works</span></a></li>
+                    <li><a href="#"><div>Sale</div><span>Awesome Works</span></a></li>
+                    <li><a href="#"><div>Blog</div><span>Latest News</span></a></li>
+                    <li><a href="#"><div>Videos</div><span>Latest News</span></a></li>
+                    <li><a href="#"><div>Contact</div><span>Get In Touch</span></a></li>
+                </ul>
+
+                <!-- Top Cart
+                ============================================= -->
+                <div id="top-cart">
+                    <a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i><span>5</span></a>
+                    <div class="top-cart-content">
+                        <div class="top-cart-title">
+                            <h4>Shopping Cart</h4>
+                        </div>
+                        <div class="top-cart-items">
+                            <div class="top-cart-item clearfix">
+                                <div class="top-cart-item-image">
+                                    <a href="#"><img src="images/shop/small/1.jpg" alt="Blue Round-Neck Tshirt" /></a>
+                                </div>
+                                <div class="top-cart-item-desc">
+                                    <a href="#">Blue Round-Neck Tshirt</a>
+                                    <span class="top-cart-item-price">$19.99</span>
+                                    <span class="top-cart-item-quantity">x 2</span>
                                 </div>
                             </div>
-                            <!-- END: Header cart item-->
-                            <?php
-                        }
-                        ?>
+                            <div class="top-cart-item clearfix">
+                                <div class="top-cart-item-image">
+                                    <a href="#"><img src="images/shop/small/6.jpg" alt="Light Blue Denim Dress" /></a>
+                                </div>
+                                <div class="top-cart-item-desc">
+                                    <a href="#">Light Blue Denim Dress</a>
+                                    <span class="top-cart-item-price">$24.99</span>
+                                    <span class="top-cart-item-quantity">x 3</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="top-cart-action clearfix">
+                            <span class="fleft top-checkout-price">$114.95</span>
+                            <button class="button button-3d button-small nomargin fright">View Cart</button>
+                        </div>
                     </div>
-                    <div class="popup-ft"><a href="javascript:;" class="go-to-cart">Xem giỏ hàng</a></div>
-                </div>
-            </div>
-            <?php
-            $js = <<<JS
-    $('.go-to-cart').click(function() {
-        window.location.href = '/cart/index';
-    })
-JS;
-            $this->registerJs($js);
-            ?>
-            <?php
-            \yii\widgets\Pjax::end();
-            ?>
+                </div><!-- #top-cart end -->
+
+                <!-- Top Search
+                ============================================= -->
+                <div id="top-search">
+                    <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                    <form action="search.html" method="get">
+                        <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                    </form>
+                </div><!-- #top-search end -->
+
+            </nav><!-- #primary-menu end -->
 
         </div>
 
     </div>
-</div>
+
+</header><!-- #header end -->

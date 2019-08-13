@@ -12,6 +12,9 @@ $config = [
         ],
     ],
     'components' => [
+        'assetManager' => [
+            'linkAssets' => false
+        ],
         'authClientCollection' => [
             'class' => yii\authclient\Collection::class,
             'clients' => [
