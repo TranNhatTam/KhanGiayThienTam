@@ -150,13 +150,11 @@ class ProductController extends Controller
     {
         $model = $this->findModel($id);
         $modelUrls = $model->urls;
-        if($modelUrls == null)
-        {
+        if ($modelUrls == null) {
             $modelUrls = new Urls();
-
-                $modelUrls->route = SlugHelper::to_slug($model->name);
-                $modelUrls->type = Urls::PRODUCT;
-                $modelUrls->created_at = time();
+            $modelUrls->route = SlugHelper::to_slug($model->name);
+            $modelUrls->type = Urls::PRODUCT;
+            $modelUrls->created_at = time();
         }
         $tags = [];
 
@@ -225,8 +223,7 @@ class ProductController extends Controller
 
             if ($modelUrls->validate() && $modelUrls->save()) {
                 // check different id url with product
-                if ($modelUrls->id != $model->url_id)
-                {
+                if ($modelUrls->id != $model->url_id) {
                     $model->url_id = $modelUrls->id;
                 }
                 if ($model->validate() && $model->save()) {
@@ -259,12 +256,11 @@ class ProductController extends Controller
     {
         $product = $this->findModel($id);
         $productName = "";
-        if ($product)
-        {
+        if ($product) {
             $productName = $product->name;
             Yii::$app->session->setFlash('alert', [
                 'options' => ['class' => 'alert-success'],
-                'body' => Yii::t('backend', '{product_name} has been deleted....', ['product_name'=> $productName])
+                'body' => Yii::t('backend', '{product_name} has been deleted....', ['product_name' => $productName])
             ]);
             $product->delete();
         }

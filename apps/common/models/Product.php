@@ -61,6 +61,7 @@ class Product extends ActiveRecord
     {
         return 'product';
     }
+
     /**
      * @return ActiveQuery
      */
@@ -110,21 +111,22 @@ class Product extends ActiveRecord
 //            ],
         ];
     }
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['name', 'category_id', 'brand_id', 'unit_price', 'description', 'short_detail','weight','code','url_id'], 'required','message' => '{attribute} không được bỏ trống'],
-            [['category_id', 'brand_id', 'discount', 'star_rating', 'total_view', 'group_id', 'suppiler_id','weight','url_id', 'priority'], 'integer'],
+            [['name', 'category_id', 'brand_id', 'unit_price', 'description', 'short_detail', 'weight', 'code', 'url_id'], 'required', 'message' => '{attribute} không được bỏ trống'],
+            [['category_id', 'brand_id', 'discount', 'star_rating', 'total_view', 'group_id', 'suppiler_id', 'weight', 'url_id', 'priority'], 'integer'],
             [['unit_price'], 'number'],
             [['description', 'short_detail', 'technical_detail'], 'string'],
             [['name', 'status', 'warranty', 'additional_detail', 'product_ref'], 'string', 'max' => 255],
-            [['thumbnail', 'attachments','tags'], 'safe'],
+            [['thumbnail', 'attachments', 'tags'], 'safe'],
             [['thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 255],
-            [['code'],'unique','message' => '{attribute} đã tồn tại'],
-            [['quantity_in_stock','unit_in_stock'],'integer','min' => 0,'message' => '{attribute} không được nhỏ hơn 0.'],
+            [['code'], 'unique', 'message' => '{attribute} đã tồn tại'],
+            [['quantity_in_stock', 'unit_in_stock'], 'integer', 'min' => 0, 'message' => '{attribute} không được nhỏ hơn 0.'],
         ];
     }
 
@@ -158,19 +160,19 @@ class Product extends ActiveRecord
             'weight' => 'Khối lượng',
             'thumbnail' => 'Hình Ảnh',
             'code' => 'Mã sản phẩm',
-            'tags'=>'Nhãn',
+            'tags' => 'Nhãn',
             'priority' => 'Độ ưu tiên',
         ];
     }
 
     public function getProductImage()
     {
-        return $this->hasMany(ProductImage::className(),['product_id'=>'id']);
+        return $this->hasMany(ProductImage::className(), ['product_id' => 'id']);
     }
 
     public function getBrand()
     {
-        return $this->hasOne(Brand::className(),['id'=>'brand_id']);
+        return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
     }
 
     /**
@@ -178,7 +180,7 @@ class Product extends ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(Category::className(),['id'=>'category_id']);
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
     /**
@@ -186,7 +188,7 @@ class Product extends ActiveRecord
      */
     public function getUrls()
     {
-        return $this->hasOne(Urls::class,['id'=>'url_id']);
+        return $this->hasOne(Urls::class, ['id' => 'url_id']);
     }
 
     /**
@@ -194,7 +196,7 @@ class Product extends ActiveRecord
      */
     public function getProductTag()
     {
-        return $this->hasMany(ProductTag::class,['product_id'=>'id']);
+        return $this->hasMany(ProductTag::class, ['product_id' => 'id']);
     }
 
     /**
@@ -210,7 +212,7 @@ class Product extends ActiveRecord
      */
     public function getOrderDetails()
     {
-        return $this->hasMany(OrderDetails::class,['product_id'=>'id']);
+        return $this->hasMany(OrderDetails::class, ['product_id' => 'id']);
     }
 
     /**

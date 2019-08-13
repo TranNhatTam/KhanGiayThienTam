@@ -13,7 +13,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
         <?= $this->render('header') ?>
     </header>
 <?php echo $content ?>
-    <footer class="footer" >
+    <footer class="footer">
         <?= $this->render('footer') ?>
     </footer>
 <?php $this->endContent() ?>

@@ -27,27 +27,27 @@ class FrontendAsset extends AssetBundle
      * @var array
      */
     public $css = [
-        //'https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,700i,900,900i&amp;amp;subset=vietnamese',
-        'css/style.css',
-        'css/animate.css',
+//        'https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i',
         'css/bootstrap.css',
+        'style.css',
         'css/dark.css',
         'css/font-icons.css',
-        //'css/magnific-popup.css',
+        'css/animate.css',
+        'css/magnific-popup.css',
         'css/responsive.css',
-        'css/swiper.css',
         'include/rs-plugin/css/settings.css',
         'include/rs-plugin/css/layers.css',
         'include/rs-plugin/css/navigation.css',
+        'css/custom.css',
     ];
 
     /**
      * @var array
      */
     public $js = [
+        'js/jquery.js',
         'js/plugins.js',
         'js/functions.js',
-//        'js/jquery.js',
         'include/rs-plugin/js/jquery.themepunch.tools.min.js',
         'include/rs-plugin/js/jquery.themepunch.revolution.min.js',
         'include/rs-plugin/js/extensions/revolution.extension.video.min.js',
@@ -58,14 +58,15 @@ class FrontendAsset extends AssetBundle
         'include/rs-plugin/js/extensions/revolution.extension.navigation.min.js',
         'include/rs-plugin/js/extensions/revolution.extension.migration.min.js',
         'include/rs-plugin/js/extensions/revolution.extension.parallax.min.js',
+        'js/custom.js',
     ];
 
     /**
      * @var array
      */
     public $depends = [
-        YiiAsset::class,
-        BootstrapAsset::class,
-        Html5shiv::class,
+//        YiiAsset::class,
+//        BootstrapAsset::class,
+//        Html5shiv::class,
     ];
 }

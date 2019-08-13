@@ -14,6 +14,14 @@
       <executable />
     </execution>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -168,8 +176,18 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../e-commerce-default" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/frontend/web/css" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web\css" />
+      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -195,6 +213,9 @@
       <updated>1565366112478</updated>
       <workItem from="1565366113699" duration="2125000" />
       <workItem from="1565398964864" duration="284000" />
+      <workItem from="1565409833353" duration="3421000" />
+      <workItem from="1565487765042" duration="9840000" />
+      <workItem from="1565708137246" duration="1024000" />
     </task>
     <servers />
   </component>

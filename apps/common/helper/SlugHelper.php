@@ -15,14 +15,13 @@ namespace common\helper;
  */
 class SlugHelper
 {
-
-
     /**
      * Convert text to Slug String . Example : dai ca toi => dai-ca-toi
      * @param string $str
      * @return null|string
      */
-    public static function to_slug($str = "") {
+    public static function to_slug($str = "")
+    {
         // to slug string
         $str = trim(mb_strtolower($str));
         $str = preg_replace('/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/', 'a', $str);
