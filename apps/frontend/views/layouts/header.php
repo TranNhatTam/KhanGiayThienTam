@@ -48,20 +48,6 @@
                 ============================================= -->
                 <div class="top-links">
                     <ul>
-                        <li><a href="#">USD</a>
-                            <ul>
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">AUD</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">EN</a>
-                            <ul>
-                                <li><a href="#"><img src="images/icons/flags/french.png" alt="French"> FR</a></li>
-                                <li><a href="#"><img src="images/icons/flags/italian.png" alt="Italian"> IT</a></li>
-                                <li><a href="#"><img src="images/icons/flags/german.png" alt="German"> DE</a></li>
-                            </ul>
-                        </li>
                         <li><a href="#">Login</a>
                             <div class="top-link-section">
                                 <form id="top-login" role="form">
@@ -113,167 +99,13 @@
             <nav id="primary-menu">
 
                 <ul>
-                    <li class="current"><a href="#"><div>Home</div><span>Lets Start</span></a>
-                        <ul>
-                            <li><a href="index-corporate.html"><div>Home - Corporate</div></a>
-                                <ul>
-                                    <li><a href="index-corporate.html"><div>Corporate - Layout 1</div></a></li>
-                                    <li><a href="index-corporate-2.html"><div>Corporate - Layout 2</div></a></li>
-                                    <li><a href="index-corporate-3.html"><div>Corporate - Layout 3</div></a></li>
-                                    <li><a href="index-corporate-4.html"><div>Corporate - Layout 4</div></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-portfolio.html"><div>Home - Portfolio</div></a>
-                                <ul>
-                                    <li><a href="index-portfolio.html"><div>Portfolio - Layout 1</div></a></li>
-                                    <li><a href="index-portfolio-2.html"><div>Portfolio - Layout 2</div></a></li>
-                                    <li><a href="index-portfolio-3.html"><div>Portfolio - Masonry</div></a></li>
-                                    <li><a href="index-portfolio-4.html"><div>Portfolio - AJAX</div></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-blog.html"><div>Home - Blog</div></a>
-                                <ul>
-                                    <li><a href="index-blog.html"><div>Blog - Layout 1</div></a></li>
-                                    <li><a href="index-blog-2.html"><div>Blog - Layout 2</div></a></li>
-                                    <li><a href="index-blog-3.html"><div>Blog - Layout 3</div></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-shop.html"><div>Home - Shop</div></a>
-                                <ul>
-                                    <li><a href="index-shop.html"><div>Shop - Layout 1</div></a></li>
-                                    <li><a href="index-shop-2.html"><div>Shop - Layout 2</div></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-magazine.html"><div>Home - Magazine</div></a>
-                                <ul>
-                                    <li><a href="index-magazine.html"><div>Magazine - Layout 1</div></a></li>
-                                    <li><a href="index-magazine-2.html"><div>Magazine - Layout 2</div></a></li>
-                                    <li><a href="index-magazine-3.html"><div>Magazine - Layout 3</div></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="landing.html"><div>Home - Landing Page</div></a>
-                                <ul>
-                                    <li><a href="landing.html"><div>Landing Page - Layout 1</div></a></li>
-                                    <li><a href="landing-2.html"><div>Landing Page - Layout 2</div></a></li>
-                                    <li><a href="landing-3.html"><div>Landing Page - Layout 3</div></a></li>
-                                    <li><a href="landing-4.html"><div>Landing Page - Layout 4</div></a></li>
-                                    <li><a href="landing-5.html"><div>Landing Page - Layout 5</div></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-fullscreen-image.html"><div>Home - Full Screen</div></a>
-                                <ul>
-                                    <li><a href="index-fullscreen-image.html"><div>Full Screen - Image</div></a></li>
-                                    <li><a href="index-fullscreen-slider.html"><div>Full Screen - Slider</div></a></li>
-                                    <li><a href="index-fullscreen-video.html"><div>Full Screen - Video</div></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-onepage.html"><div>Home - One Page</div></a>
-                                <ul>
-                                    <li><a href="index-onepage.html"><div>One Page - Default</div></a></li>
-                                    <li><a href="index-onepage-2.html"><div>One Page - Submenu</div></a></li>
-                                    <li><a href="index-onepage-3.html"><div>One Page - Dots Style</div></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-wedding.html"><div>Home - Wedding</div></a></li>
-                            <li><a href="index-restaurant.html"><div>Home - Restaurant</div></a></li>
-                            <li><a href="index-events.html"><div>Home - Events</div></a></li>
-                            <li><a href="index-parallax.html"><div>Home - Parallax</div></a></li>
-                            <li><a href="index-app-showcase.html"><div>Home - App Showcase</div></a></li>
-                        </ul>
-                    </li>
-                    <!-- Mega Menu
-                    ============================================= -->
-                    <li class="mega-menu"><a href="#"><div>Men</div><span>Out of the Box</span></a>
-                        <div class="mega-menu-content style-2 clearfix" style="display: none;">
-                            <ul class="mega-menu-column col-lg-3">
-                                <li class="mega-menu-title"><a href="#"><div>Footwear</div></a>
-                                    <ul>
-                                        <li><a href="#"><div>Casual Shoes</div></a></li>
-                                        <li><a href="#"><div>Formal Shoes</div></a></li>
-                                        <li><a href="#"><div>Sports shoes</div></a></li>
-                                        <li><a href="#"><div>Flip Flops</div></a></li>
-                                        <li><a href="#"><div>Slippers</div></a></li>
-                                        <li><a href="#"><div>Sports Sandals</div></a></li>
-                                        <li><a href="#"><div>Party Shoes</div></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="mega-menu-column col-lg-3">
-                                <li class="mega-menu-title"><a href="#"><div>Clothing</div></a>
-                                    <ul>
-                                        <li><a href="#"><div>Casual Shirts</div></a></li>
-                                        <li><a href="#"><div>T-Shirts</div></a></li>
-                                        <li><a href="#"><div>Collared Tees</div></a></li>
-                                        <li><a href="#"><div>Pants / Trousers</div></a></li>
-                                        <li><a href="#"><div>Ethnic Wear</div></a></li>
-                                        <li><a href="#"><div>Jeans</div></a></li>
-                                        <li><a href="#"><div>Sweamwear</div></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="mega-menu-column col-lg-3">
-                                <li class="mega-menu-title"><a href="#"><div>Accessories</div></a>
-                                    <ul>
-                                        <li><a href="#"><div>Bags &amp; Backpacks</div></a></li>
-                                        <li><a href="#"><div>Watches</div></a></li>
-                                        <li><a href="#"><div>Sunglasses</div></a></li>
-                                        <li><a href="#"><div>Wallets</div></a></li>
-                                        <li><a href="#"><div>Caps &amp; Hats</div></a></li>
-                                        <li><a href="#"><div>Jewellery</div></a></li>
-                                        <li><a href="#"><div>Belts, Ties</div></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="mega-menu-column col-lg-3">
-                                <li class="mega-menu-title"><a href="#"><div>New Arrivals</div></a>
-                                    <ul>
-                                        <li><a href="#"><div>T-Shirts</div></a></li>
-                                        <li><a href="#"><div>Formal Shoes</div></a></li>
-                                        <li><a href="#"><div>Accessories</div></a></li>
-                                        <li><a href="#"><div>Watches</div></a></li>
-                                        <li><a href="#"><div>Perfumes</div></a></li>
-                                        <li><a href="#"><div>Belts, Ties</div></a></li>
-                                        <li><a href="#"><div>Formal Shirts</div></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li><!-- .mega-menu end -->
-                    <li><a href="#"><div>Women</div><span>Out of the Box</span></a>
-                        <div class="mega-menu-content style-2 clearfix" style="display: none;">
-                            <ul class="mega-menu-column col-lg-6">
-                                <li class="mega-menu-title"><a href="#"><div>Footwear</div></a>
-                                    <ul>
-                                        <li><a href="#"><div>Casual Shoes</div></a></li>
-                                        <li><a href="#"><div>Formal Shoes</div></a></li>
-                                        <li><a href="#"><div>Sports shoes</div></a></li>
-                                        <li><a href="#"><div>Flip Flops</div></a></li>
-                                        <li><a href="#"><div>Slippers</div></a></li>
-                                        <li><a href="#"><div>Sports Sandals</div></a></li>
-                                        <li><a href="#"><div>Party Shoes</div></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="mega-menu-column col-lg-6">
-                                <li class="mega-menu-title"><a href="#"><div>Clothing</div></a>
-                                    <ul>
-                                        <li><a href="#"><div>Casual Shirts</div></a></li>
-                                        <li><a href="#"><div>T-Shirts</div></a></li>
-                                        <li><a href="#"><div>Collared Tees</div></a></li>
-                                        <li><a href="#"><div>Pants / Trousers</div></a></li>
-                                        <li><a href="#"><div>Ethnic Wear</div></a></li>
-                                        <li><a href="#"><div>Jeans</div></a></li>
-                                        <li><a href="#"><div>Sweamwear</div></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li><!-- .mega-menu end -->
-                    <li><a href="#"><div>Accessories</div><span>Awesome Works</span></a></li>
-                    <li><a href="#"><div>Sale</div><span>Awesome Works</span></a></li>
-                    <li><a href="#"><div>Blog</div><span>Latest News</span></a></li>
-                    <li><a href="#"><div>Videos</div><span>Latest News</span></a></li>
-                    <li><a href="#"><div>Contact</div><span>Get In Touch</span></a></li>
+                    <li class="current"><a href="#"><div>Trang Chủ</div></a></li>
+                    <li><a href="#"><div>Giới Thiệu</div></a></li>
+                    <li><a href="#"><div>Sản Phẩm</div></a></li>
+                    <li><a href="#"><div>Dịch Vụ</div></a></li>
+                    <li><a href="#"><div>Ưu Đãi</div></a></li>
+                    <li><a href="#"><div>Tin Tức</div></a></li>
+                    <li><a href="#"><div>Liên Hệ</div></a></li>
                 </ul>
 
                 <!-- Top Cart

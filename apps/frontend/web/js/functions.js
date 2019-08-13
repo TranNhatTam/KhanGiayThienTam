@@ -15,7 +15,7 @@ $.fn.doOnce = function( func ) {
 	for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
 		window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
 		window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame']
-									|| window[vendors[x]+'CancelRequestAnimationFrame'];
+			|| window[vendors[x]+'CancelRequestAnimationFrame'];
 	}
 
 	if (!window.requestAnimationFrame)
@@ -23,7 +23,7 @@ $.fn.doOnce = function( func ) {
 			var currTime = new Date().getTime();
 			var timeToCall = Math.max(0, 16 - (currTime - lastTime));
 			var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-			  timeToCall);
+				timeToCall);
 			lastTime = currTime + timeToCall;
 			return id;
 		};
@@ -297,7 +297,7 @@ var SEMICOLON = SEMICOLON || {};
 					maxHeight = elementChild.outerHeight();
 				} else {
 					if (elementChild.outerHeight() > maxHeight)
-					maxHeight = elementChild.outerHeight();
+						maxHeight = elementChild.outerHeight();
 				}
 			});
 
@@ -312,7 +312,7 @@ var SEMICOLON = SEMICOLON || {};
 					var maxHeight = 0;
 					$testimonialsGridEl.each( function(){
 						$(this).find("li > .testimonial").each(function(){
-						   if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
+							if ($(this).height() > maxHeight) { maxHeight = $(this).height(); }
 						});
 						$(this).find("li").height(maxHeight);
 						maxHeight = 0;
@@ -1976,12 +1976,12 @@ var SEMICOLON = SEMICOLON || {};
 				$portfolioAjaxLoader.fadeIn();
 				var portfolioDataLoader = $('#' + portPostId).attr('data-loader');
 				$portfolioDetailsContainer.load(portfolioDataLoader, { portid: portPostId, portnext: portNext, portprev: portPrev },
-				function(){
-					SEMICOLON.portfolio.initializeAjax(portPostId);
-					SEMICOLON.portfolio.openItem();
-					$portfolioItems.removeClass('portfolio-active');
-					$('#' + portPostId).addClass('portfolio-active');
-				});
+					function(){
+						SEMICOLON.portfolio.initializeAjax(portPostId);
+						SEMICOLON.portfolio.openItem();
+						$portfolioItems.removeClass('portfolio-active');
+						$('#' + portPostId).addClass('portfolio-active');
+					});
 			}
 		},
 
@@ -2740,8 +2740,8 @@ var SEMICOLON = SEMICOLON || {};
 							id: flickrFeedID
 						},
 						itemTemplate: '<a href="{{image_b}}" title="{{title}}" data-lightbox="gallery-item">' +
-											'<img src="{{image_s}}" alt="{{title}}" />' +
-									  '</a>'
+							'<img src="{{image_s}}" alt="{{title}}" />' +
+							'</a>'
 					}, function(data) {
 						SEMICOLON.initialize.lightbox();
 					});
