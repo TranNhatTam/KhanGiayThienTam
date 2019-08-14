@@ -178,4 +178,8 @@ class SiteController extends Controller
         $slider = Slider::find()->where(['status' => Slider::STATUS_PUBLISHED])->all();
         return $this->render('blog', ['blog'=>$dataProvider->getModels(), 'page'=>$page, 'total_page'=>(integer)$total_page, 'slider'=>$slider]);
     }
+    public function actionAbout()
+    {
+        return $this->render('about');
+    }
 }
