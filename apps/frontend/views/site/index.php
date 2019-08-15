@@ -30,7 +30,7 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-elementdelay="0.01"
                          data-endelementdelay="0.1"
                          data-endspeed="1000"
-                         data-endeasing="Power4.easeIn" style=""><img src="images/slider/rev/shop/girl1.jpg" alt="Girl">
+                         data-endeasing="Power4.easeIn" style=""><img src="/images/slider/rev/shop/girl1.jpg" alt="Girl">
                     </div>
 
                     <div class="tp-caption ltl tp-resizeme revo-slider-caps-text uppercase"
@@ -114,7 +114,7 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-elementdelay="0.01"
                          data-endelementdelay="0.1"
                          data-endspeed="1000"
-                         data-endeasing="Power4.easeIn" style=""><img src="images/slider/rev/shop/bag.png" alt="Bag">
+                         data-endeasing="Power4.easeIn" style=""><img src="/images/slider/rev/shop/bag.png" alt="Bag">
                     </div>
 
                     <!-- LAYER NR. 2 -->
@@ -193,7 +193,7 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-elementdelay="0.01"
                          data-endelementdelay="0.1"
                          data-endspeed="1000"
-                         data-endeasing="Power4.easeIn" style=""><img src="images/slider/rev/shop/tag.png" alt="Bag">
+                         data-endeasing="Power4.easeIn" style=""><img src="/images/slider/rev/shop/tag.png" alt="Bag">
                     </div>
 
                 </li>
@@ -213,24 +213,24 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                     <div class="row">
                         <div class="col-lg-6 norightpadding" style="margin-bottom: 15px;">
-                            <a href="#"><img src="images/shop/banners/2.jpg" alt="Image"></a>
+                            <a href="#"><img src="/images/shop/banners/2.jpg" alt="Image"></a>
                         </div>
 
                         <div class="col-lg-6 norightpadding" style="margin-bottom: 15px;">
-                            <a href="#"><img src="images/shop/banners/8.jpg" alt="Image"></a>
+                            <a href="#"><img src="/images/shop/banners/8.jpg" alt="Image"></a>
                         </div>
 
                         <div class="w-100"></div>
 
                         <div class="col-lg-12 norightpadding">
-                            <a href="#"><img src="images/shop/banners/4.jpg" alt="Image"></a>
+                            <a href="#"><img src="/images/shop/banners/4.jpg" alt="Image"></a>
                         </div>
                     </div>
 
                 </div>
 
                 <div class="col-lg-4">
-                    <a href="#"><img src="images/shop/banners/9.jpg" alt="Image"></a>
+                    <a href="#"><img src="/images/shop/banners/9.jpg" alt="Image"></a>
                 </div>
             </div>
 
@@ -252,8 +252,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/dress/1.jpg" alt="Checked Short Dress"></a>
-                                    <a href="#"><img src="images/shop/dress/1-1.jpg" alt="Checked Short Dress"></a>
+                                    <a href="#"><img src="/images/shop/dress/1.jpg" alt="Checked Short Dress"></a>
+                                    <a href="#"><img src="/images/shop/dress/1-1.jpg" alt="Checked Short Dress"></a>
                                     <div class="sale-flash">50% Off*</div>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
@@ -280,8 +280,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/pants/1-1.jpg" alt="Slim Fit Chinos"></a>
-                                    <a href="#"><img src="images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a>
+                                    <a href="#"><img src="/images/shop/pants/1-1.jpg" alt="Slim Fit Chinos"></a>
+                                    <a href="#"><img src="/images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -304,8 +304,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/pants/1-1.jpg" alt="Slim Fit Chinos"></a>
-                                    <a href="#"><img src="images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a>
+                                    <a href="#"><img src="/images/shop/pants/1-1.jpg" alt="Slim Fit Chinos"></a>
+                                    <a href="#"><img src="/images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -328,8 +328,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/dress/2.jpg" alt="Light Blue Denim Dress"></a>
-                                    <a href="#"><img src="images/shop/dress/2-2.jpg" alt="Light Blue Denim Dress"></a>
+                                    <a href="#"><img src="/images/shop/dress/2.jpg" alt="Light Blue Denim Dress"></a>
+                                    <a href="#"><img src="/images/shop/dress/2-2.jpg" alt="Light Blue Denim Dress"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -360,8 +360,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/sunglasses/1.jpg" alt="Unisex Sunglasses"></a>
-                                    <a href="#"><img src="images/shop/sunglasses/1-1.jpg" alt="Unisex Sunglasses"></a>
+                                    <a href="#"><img src="/images/shop/sunglasses/1.jpg" alt="Unisex Sunglasses"></a>
+                                    <a href="#"><img src="/images/shop/sunglasses/1-1.jpg" alt="Unisex Sunglasses"></a>
                                     <div class="sale-flash">Sale!</div>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
@@ -388,8 +388,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/tshirts/1.jpg" alt="Blue Round-Neck Tshirt"></a>
-                                    <a href="#"><img src="images/shop/tshirts/1-1.jpg" alt="Blue Round-Neck Tshirt"></a>
+                                    <a href="#"><img src="/images/shop/tshirts/1.jpg" alt="Blue Round-Neck Tshirt"></a>
+                                    <a href="#"><img src="/images/shop/tshirts/1-1.jpg" alt="Blue Round-Neck Tshirt"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -412,8 +412,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/watches/1.jpg" alt="Silver Chrome Watch"></a>
-                                    <a href="#"><img src="images/shop/watches/1-1.jpg" alt="Silver Chrome Watch"></a>
+                                    <a href="#"><img src="/images/shop/watches/1.jpg" alt="Silver Chrome Watch"></a>
+                                    <a href="#"><img src="/images/shop/watches/1-1.jpg" alt="Silver Chrome Watch"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -436,8 +436,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/shoes/2.jpg" alt="Men Grey Casual Shoes"></a>
-                                    <a href="#"><img src="images/shop/shoes/2-1.jpg" alt="Men Grey Casual Shoes"></a>
+                                    <a href="#"><img src="/images/shop/shoes/2.jpg" alt="Men Grey Casual Shoes"></a>
+                                    <a href="#"><img src="/images/shop/shoes/2-1.jpg" alt="Men Grey Casual Shoes"></a>
                                     <div class="sale-flash">Sale!</div>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
@@ -474,11 +474,11 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                                     <div class="fslider" data-arrows="false">
                                         <div class="flexslider">
                                             <div class="slider-wrap">
-                                                <div class="slide"><a href="#"><img src="images/shop/dress/3.jpg"
+                                                <div class="slide"><a href="#"><img src="/images/shop/dress/3.jpg"
                                                                                     alt="Pink Printed Dress"></a></div>
-                                                <div class="slide"><a href="#"><img src="images/shop/dress/3-1.jpg"
+                                                <div class="slide"><a href="#"><img src="/images/shop/dress/3-1.jpg"
                                                                                     alt="Pink Printed Dress"></a></div>
-                                                <div class="slide"><a href="#"><img src="images/shop/dress/3-2.jpg"
+                                                <div class="slide"><a href="#"><img src="/images/shop/dress/3-2.jpg"
                                                                                     alt="Pink Printed Dress"></a></div>
                                             </div>
                                         </div>
@@ -505,8 +505,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/pants/5.jpg" alt="Green Trousers"></a>
-                                    <a href="#"><img src="images/shop/pants/5-1.jpg" alt="Green Trousers"></a>
+                                    <a href="#"><img src="/images/shop/pants/5.jpg" alt="Green Trousers"></a>
+                                    <a href="#"><img src="/images/shop/pants/5-1.jpg" alt="Green Trousers"></a>
                                     <div class="sale-flash">Sale!</div>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
@@ -533,9 +533,9 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/sunglasses/2.jpg"
+                                    <a href="#"><img src="/images/shop/sunglasses/2.jpg"
                                                      alt="Men Aviator Sunglasses"></a>
-                                    <a href="#"><img src="images/shop/sunglasses/2-1.jpg" alt="Men Aviator Sunglasses"></a>
+                                    <a href="#"><img src="/images/shop/sunglasses/2-1.jpg" alt="Men Aviator Sunglasses"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -558,8 +558,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="images/shop/tshirts/4.jpg" alt="Black Polo Tshirt"></a>
-                                    <a href="#"><img src="images/shop/tshirts/4-1.jpg" alt="Black Polo Tshirt"></a>
+                                    <a href="#"><img src="/images/shop/tshirts/4.jpg" alt="Black Polo Tshirt"></a>
+                                    <a href="#"><img src="/images/shop/tshirts/4-1.jpg" alt="Black Polo Tshirt"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -708,24 +708,24 @@ $this->title = 'Khăn Giấy Thiện Tâm'
             </div>
 
             <ul class="clients-grid grid-6 nobottommargin clearfix">
-                <li><a href="#"><img src="images/clients/logo/1.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/2.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/3.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/4.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/5.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/6.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/7.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/8.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/9.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/10.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/11.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/12.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/13.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/14.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/15.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/16.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/19.png" alt="Clients"></a></li>
-                <li><a href="#"><img src="images/clients/logo/18.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/1.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/2.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/3.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/4.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/5.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/6.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/7.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/8.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/9.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/10.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/11.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/12.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/13.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/14.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/15.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/16.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/19.png" alt="Clients"></a></li>
+                <li><a href="#"><img src="/images/clients/logo/18.png" alt="Clients"></a></li>
             </ul>
 
         </div>
@@ -780,7 +780,7 @@ $this->title = 'Khăn Giấy Thiện Tâm'
             <div class="container clearfix">
 
                 <div class="col_half nobottommargin topmargin">
-                    <img src="images/services/4.jpg" alt="Image" class="nobottommargin">
+                    <img src="/images/services/4.jpg" alt="Image" class="nobottommargin">
                 </div>
 
                 <div class="col_half subscribe-widget nobottommargin col_last">
@@ -816,82 +816,4 @@ $this->title = 'Khăn Giấy Thiện Tâm'
     </div>
 
 </section><!-- #content end -->
-
-<?php
-$js = <<<JS
-$('.buy-prod').click(function() {
-    var id = $(this).attr('data-id');
-    var quantity = 1;
-    var name = $(this).attr('data-name');
-  $.ajax({
-    'url':'/cart/add-cart',
-    'method':'GET',
-    'data':{
-        'id':id,
-        'quantity':quantity
-    },
-    'success': function(data) {
-      if (data.result == 'success') {
-          $('.buy-product').html("<i class='fa fa-check-circle' style='font-size:30px;color:#5cb85c'></i> <span style='font-size:20px'>Thêm sản phẩm "+name+" thành công.</span>");
-         $('#myModal').modal('show');
-          $.pjax.reload({container:"#header-cart-pjax",'timeout':5000});
-      } 
-    }
-  });
-});
-$('.view-prod').click(function() {
-  var id = $(this).attr('data-id');
-  $.ajax({
-    'url':'/product/quick-view',
-    'method':'GET',
-    'data': {
-        'id':id,
-    },
-    'success':function(data) {
-      $('.quick-view').html(data.result);
-      $('#quickViewModal').modal('show');
-    }
-  })
-});
-$('.cate-1').css('background-color','#5b8827');
-$('.cate-2').css('background-color','#c8e34c');
-$('.cate-3').css('background-color','#96b12b');
-JS;
-$this->registerJs($js);
-?>
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-body buy-product text-center">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn pull-left" data-dismiss="modal">Tiếp tục mua hàng</button>
-                <a href="/cart/index" class="btn btn-default">Đơn hàng</a>
-            </div>
-        </div>
-
-    </div>
-</div>
-<div class="modal fade" id="quickViewModal" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
-                <h4 class="modal-title text-center"></h4>
-            </div>
-            <div class="modal-body text-center">
-                <div class="quick-view">
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
 

@@ -10,7 +10,7 @@
 
                 <div class="widget clearfix">
 
-                    <img src="images/footer-widget-logo.png" alt="" class="footer-logo">
+                    <img src="/images/footer-widget-logo.png" alt="" class="footer-logo">
 
                     <p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards with a Retina &amp; Responsive Approach. Browse the amazing Features this template offers.</p>
 
@@ -39,7 +39,7 @@
                             <div class="slider-wrap">
                                 <div class="slide">
                                     <div class="testi-image">
-                                        <a href="#"><img src="images/testimonials/3.jpg" alt="Customer Testimonails"></a>
+                                        <a href="#"><img src="/images/testimonials/3.jpg" alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
                                         <p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="slide">
                                     <div class="testi-image">
-                                        <a href="#"><img src="images/testimonials/2.jpg" alt="Customer Testimonails"></a>
+                                        <a href="#"><img src="/images/testimonials/2.jpg" alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
                                         <p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="slide">
                                     <div class="testi-image">
-                                        <a href="#"><img src="images/testimonials/1.jpg" alt="Customer Testimonails"></a>
+                                        <a href="#"><img src="/images/testimonials/1.jpg" alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
                                         <p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p>
