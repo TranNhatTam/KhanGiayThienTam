@@ -9,12 +9,11 @@
 namespace backend\models;
 
 
-use common\models\OrderDetails;
+use common\models\OrderDetail;
 use yii2mod\cart\models\CartItemInterface;
 
-class OrderItem extends OrderDetails implements CartItemInterface
+class OrderItem extends OrderDetail implements CartItemInterface
 {
-
     /**
      * Returns the price for the cart item
      *
@@ -52,6 +51,7 @@ class OrderItem extends OrderDetails implements CartItemInterface
     {
         return $this->product->code;
     }
+
     public function getTotalPrice()
     {
         $this->total_price = $this->quantity * $this->getPrice();

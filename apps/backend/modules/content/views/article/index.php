@@ -59,6 +59,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'filter' => ArrayHelper::map(ArticleCategory::find()->all(), 'id', 'title'),
         ],
         [
+            'attribute' => 'created_by',
+            'options' => ['style' => 'width: 10%'],
+            'value' => function ($model) {
+                return $model->author->username;
+            },
+        ],
+        [
             'class' => EnumColumn::class,
             'attribute' => 'status',
             'options' => ['style' => 'width: 10%'],

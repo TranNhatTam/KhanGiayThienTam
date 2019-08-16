@@ -21,7 +21,7 @@ use yii\helpers\Html;
 <?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
 <?php echo $form->field($model, 'slug')
-    ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
+    ->hint(Yii::t('backend', 'If you leave this field empty, the slug will be generated automatically'))
     ->textInput(['maxlength' => true]) ?>
 
 <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
@@ -29,21 +29,6 @@ use yii\helpers\Html;
     'id',
     'title'
 ), ['prompt' => '']) ?>
-
-<?php echo $form->field($model, 'description')->widget(
-    \yii\imperavi\Widget::class,
-    [
-        'plugins' => ['fullscreen', 'fontcolor', 'video'],
-        'options' => [
-            'minHeight' => 400,
-            'maxHeight' => 400,
-            'buttonSource' => true,
-            'convertDivs' => false,
-            'removeEmptyTags' => true,
-            'imageUpload' => Yii::$app->urlManager->createUrl(['/file/storage/upload-imperavi']),
-        ],
-    ]
-) ?>
 
 <?php echo $form->field($model, 'body')->widget(
     \yii\imperavi\Widget::class,
@@ -64,7 +49,8 @@ use yii\helpers\Html;
     Upload::class,
     [
         'url' => ['/file/storage/upload'],
-        'maxFileSize' => 5000000, // 5 MiB
+        'maxFileSize' => 5000000, // 5 MiB,
+        'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),
     ]);
 ?>
 

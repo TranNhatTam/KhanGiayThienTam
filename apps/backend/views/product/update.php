@@ -4,16 +4,18 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Product */
+/* @var $modelUrl common\models\Url */
 
-$this->title = 'Cập nhập sản phẩm: ' . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Danh sách sản phẩm', 'url' => ['index']];
-$this->params['breadcrumbs'][] = 'Cập nhập';
+$this->title = 'Update Product: ' . ' ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="product-update">
 
     <?php echo $this->render('_form', [
         'model' => $model,
-        'modelUrls' => $modelUrls,
+        'modelUrl' => $modelUrl,
     ]) ?>
 
 </div>

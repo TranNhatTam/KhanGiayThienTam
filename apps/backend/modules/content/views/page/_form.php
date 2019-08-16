@@ -1,6 +1,5 @@
 <?php
 
-use dosamigos\tinymce\TinyMce;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -20,18 +19,18 @@ use yii\helpers\Html;
 
 <?php echo $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-<?php echo $form->field($model, 'body')->widget(TinyMce::className(), [
-    'options' => ['rows' => 6],
-    'language' => 'vi',
-    'clientOptions' => [
-        'plugins' => [
-            "advlist autolink lists link charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table contextmenu paste image"
+<?php echo $form->field($model, 'body')->widget(
+    \yii\imperavi\Widget::class,
+    [
+        'plugins' => ['fullscreen', 'fontcolor', 'video'],
+        'options' => [
+            'minHeight' => 400,
+            'maxHeight' => 400,
+            'buttonSource' => true,
+            'imageUpload' => Yii::$app->urlManager->createUrl(['/file/storage/upload-imperavi']),
         ],
-        'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code image"
     ]
-])->label('Mô tả') ?>
+) ?>
 
 <?php echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
 

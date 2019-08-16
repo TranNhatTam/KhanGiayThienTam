@@ -17,7 +17,7 @@ class ArticleSearch extends Article
             [['id', 'category_id', 'created_by', 'updated_by', 'status'], 'integer'],
             [['published_at', 'created_at', 'updated_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
             [['published_at', 'created_at', 'updated_at'], 'default', 'value' => null],
-            [['slug', 'title', 'body', 'description'], 'safe'],
+            [['slug', 'title', 'body'], 'safe'],
         ];
     }
 
@@ -72,7 +72,6 @@ class ArticleSearch extends Article
 
         $query->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'body', $this->body]);
 
         return $dataProvider;

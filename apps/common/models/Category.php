@@ -4,41 +4,29 @@ namespace common\models;
 
 use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "category".
  *
  * @property int $id
- * @property int $url_id
- * @property string $category_code
  * @property string $name
- * @property int $priority
- * @property string $category_icon
- * @property string $description
- * @property double $extra_number
- * @property string $extra_text
- * @property double $extra_lbs
- * @property int $is_parent
- * @property int $parent_id
- * @property int $is_show
- * @property int $number
- * @property int $group_id
- * @property string $thumbnail_base_url
  * @property string $thumbnail_path
- * @property Product[] $products
- * @property Urls $urls
+ * @property string $thumbnail_base_url
+ * @property string $icon
+ * @property string $description
+ * @property int $priority
+ * @property string $created_at
+ * @property string $updated_at
+ * @property int $is_deleted
+ * @property int $url_id
  */
-class Category extends ActiveRecord
+class Category extends \yii\db\ActiveRecord
 {
-    const GROUP_BESTSELLER = 1;
-    const GROUP_PROMOTION = 2;
-    const GROUP_NORMAL = 3;
-
     /**
      * @var array
      */
     public $thumbnail;
-    public $brands;
 
     /**
      * {@inheritdoc}
@@ -46,14 +34,6 @@ class Category extends ActiveRecord
     public static function tableName()
     {
         return 'category';
-    }
-
-    /**
-     * @return ActiveQuery
-     */
-    public static function find()
-    {
-        return new ActiveQuery(get_called_class());
     }
 
     /**
@@ -77,14 +57,11 @@ class Category extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'priority'], 'required'],
-            [['priority', 'is_parent', 'parent_id', 'group_id', 'url_id', 'number', 'is_show'], 'integer'],
-            [['description', 'extra_text'], 'string'],
-            [['extra_number', 'extra_lbs'], 'number'],
-            [['category_code', 'name', 'category_icon'], 'string', 'max' => 255],
-            [['thumbnail', 'brands'], 'safe'],
-            [['thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-            ['url_id', 'default', 'value' => 0],
+            [['name', 'url_id'], 'required'],
+            [['description'], 'string'],
+            [['priority', 'is_deleted', 'url_id'], 'integer'],
+            [['thumbnail', 'updated_at', 'created_at'], 'safe'],
+            [['name', 'thumbnail_path', 'thumbnail_base_url', 'icon'], 'string', 'max' => 255],
         ];
     }
 
@@ -95,60 +72,22 @@ class Category extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'category_code' => 'Mã Thể Loại',
-            'name' => 'Tên',
-            'priority' => 'Độ Ưu Tiên',
-            'category_icon' => 'Icon Thể Loại',
-            'description' => 'Mô Tả',
-            'extra_number' => 'Extra Number',
-            'extra_text' => 'Extra Text',
-            'extra_lbs' => 'Extra Lbs',
-            'is_parent' => 'Is Parent',
-            'parent_id' => 'Parent ID',
-            'group_id' => 'Group ID',
-            'thumbnail' => 'Hình Ảnh',
-            'brands' => 'Nhà sản xuất',
-            'is_show'=>'Chế độ xem',
-            'number'=> 'Số sản phẩm hiển trang chủ',
+            'name' => 'Name',
+            'thumbnail_path' => 'Thumbnail Path',
+            'thumbnail_base_url' => 'Thumbnail Base Url',
+            'thumbnail' => 'Thumbnail',
+            'icon' => 'Icon',
+            'description' => 'Description',
+            'priority' => 'Priority',
+            'updated_at' => 'Updated At',
+            'create_at' => 'Created At',
+            'is_deleted' => 'Is Deleted',
+            'url_id' => 'Url ID',
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProductCategory()
+    public static function getArrayCategory()
     {
-        return $this->hasMany(Product::className(), ['category_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-
-    public function getProducts()
-    {
-        return $this->hasMany(Product::className(), ['category_id' => 'id'])->limit(8);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUrls()
-    {
-        return $this->hasOne(Urls::class, ['id' => 'url_id']);
-
-    }
-
-    /**
-     * @return string
-     */
-    public function getFullPathImageThumbnail()
-    {
-        if ($this->thumbnail_base_url) {
-            $image = $this->thumbnail_base_url . '/' . $this->thumbnail_path;
-        } else
-            $image = '/img/image-not-available.png';
-
-        return $image;
+        return ArrayHelper::map(Category::find()->all(), 'id', 'name');
     }
 }

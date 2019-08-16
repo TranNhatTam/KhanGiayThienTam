@@ -2,7 +2,6 @@
 
 namespace common\models;
 
-use backend\modules\rbac\models\RbacAuthAssignment;
 use common\commands\AddToTimelineCommand;
 use common\models\query\UserQuery;
 use Yii;
@@ -286,5 +285,4 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->getPrimaryKey();
     }
-
 }

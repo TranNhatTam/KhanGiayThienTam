@@ -2,19 +2,13 @@
 
 namespace backend\controllers;
 
-use backend\models\ProductForm;
-use common\helper\SlugHelper;
-use common\models\ProductTag;
-use common\models\Tag;
-use common\models\Urls;
+use common\models\Url;
 use Yii;
 use common\models\Product;
-use backend\models\ProductSearch;
+use backend\models\search\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
-//use yii2tech\ar\softdelete\SoftDeleteBehavior;
 
 /**
  * ProductController implements the CRUD actions for Product model.
@@ -69,75 +63,24 @@ class ProductController extends Controller
      */
     public function actionCreate()
     {
-        $model = new ProductForm();
-        $modelUrls = new Urls();
+        $model = new Product();
+        $modelUrl = new Url();
 
-        if ($model->load(Yii::$app->request->post()) && $modelUrls->load(Yii::$app->request->post())) {
-
-            $modelUrls->type = Urls::PRODUCT;
-            $modelUrls->created_at = time();
-            if ($modelUrls->validate()) {
-                if ($modelUrls->save()) {
-                    $model->url_id = $modelUrls->id;
-
-                    if (($model->unit_in_stock) < 0 || $model->unit_in_stock == null)
-                        $model->unit_in_stock = 0;
-                    if (($model->quantity_in_stock) < 0 || $model->quantity_in_stock == null)
-                        $model->quantity_in_stock = 0;
-                    if ($model->save()) {
-                        if ($model->tags != null) {
-                            foreach ($model->tags as $item) {
-                                $tag = Tag::find()->where(['name' => $item])->one();
-                                if (!isset($tag)) {
-                                    $url = new Urls();
-                                    $url->route = SlugHelper::to_slug($item);
-                                    $url->type = Urls::TAG;
-                                    $url->title = $item;
-                                    $url->description = $item;
-                                    $url->created_at = time();
-                                    if ($url->validate()) {
-                                        if ($url->save()) {
-                                            $tag = new Tag();
-                                            $tag->name = $item;
-                                            $tag->url_id = $url->id;
-                                            if ($tag->validate()) {
-                                                $tag->save();
-                                            }
-                                        }
-                                    }
-                                    $model->addErrors($modelUrls->getErrors());
-                                }
-                                $productTag = new ProductTag();
-                                $productTag->product_id = $model->id;
-                                $productTag->tag_name = $item;
-                                if ($productTag->validate()) {
-                                    $productTag->save();
-                                }
-                            }
-                        }
-                        return $this->redirect('index');
-                    } else {
-                        $modelUrls->delete();
-                        return $this->render('create', [
-                            'model' => $model,
-                            'modelUrls' => $modelUrls,
-                        ]);
-                    }
-
+        if ($model->load(Yii::$app->request->post()) && $modelUrl->load(Yii::$app->request->post())) {
+            $modelUrl->type = Url::TYPE_PRODUCT;
+            if ($modelUrl->validate() && $modelUrl->save()) {
+                $model->url_id = $modelUrl->id;
+                if ($model->images != null)
+                    $model->images = json_encode($model->images);
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
                 }
-            } else {
-                return $this->render('create', [
-                    'model' => $model,
-                    'modelUrls' => $modelUrls,
-                ]);
             }
-
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-                'modelUrls' => $modelUrls,
-            ]);
         }
+        return $this->render('create', [
+            'model' => $model,
+            'modelUrl' => $modelUrl,
+        ]);
     }
 
     /**
@@ -149,101 +92,15 @@ class ProductController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelUrls = $model->urls;
-        if ($modelUrls == null) {
-            $modelUrls = new Urls();
-            $modelUrls->route = SlugHelper::to_slug($model->name);
-            $modelUrls->type = Urls::PRODUCT;
-            $modelUrls->created_at = time();
+        $modelUrl = $model->url;
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-        $tags = [];
-
-        $productTag = $model->productTag;
-        if (!empty($productTag)) {
-            foreach ($productTag as $item) {
-                $model->tags[] = $item->tag_name;
-                $tags[] = $item->tag_name;
-            }
-        }
-
-        if ($model->load(Yii::$app->request->post()) && $modelUrls->load(Yii::$app->request->post())) {
-            if ($model->tags != null) {
-                foreach ($model->tags as $items) {
-                    $productsTag = ProductTag::find()->where(['product_id' => $id, 'tag_name' => $items])->one();
-                    if (!isset($productsTag)) {
-                        $tag = Tag::find()->where(['name' => $items])->one();
-                        if (!isset($tag)) {
-                            $url = new Urls();
-                            $url->route = SlugHelper::to_slug($items);
-                            $url->type = Urls::TAG;
-                            $url->title = $items;
-                            $url->description = $items;
-                            $url->created_at = time();
-                            if ($url->validate()) {
-                                if ($url->save()) {
-                                    $tag = new Tag();
-                                    $tag->name = $items;
-                                    $tag->url_id = $url->id;
-                                    if ($tag->validate()) {
-                                        $tag->save();
-                                    }
-                                }
-                            }
-                        }
-                        // Product <-> Tag relation , 1 2 3 Product , 1 2 TAG => 3 - 1
-                        $productsTag = new ProductTag();
-                        $productsTag->product_id = $id;
-                        $productsTag->tag_name = $items;
-                        $productsTag->save();
-                    }
-                }
-                $diff = array_diff($tags, $model->tags);
-                if ($diff != null) {
-                    foreach ($diff as $itemDiff) {
-                        $productsTag = ProductTag::find()->where(['product_id' => $id, 'tag_name' => $itemDiff])->one();
-                        if ($productsTag) {
-                            $productsTag->delete();
-                        }
-                    }
-
-                }
-
-            } else {
-                $productTag = $model->productTag;
-                if (!empty($productTag)) {
-                    foreach ($productTag as $itemProductTag) {
-                        $itemProductTag->delete();
-                    }
-                }
-            }
-            if ($model->quantity_in_stock == null)
-                $model->quantity_in_stock = 0;
-            if ($model->unit_in_stock == null)
-                $model->unit_in_stock = 0;
-
-            if ($modelUrls->validate() && $modelUrls->save()) {
-                // check different id url with product
-                if ($modelUrls->id != $model->url_id) {
-                    $model->url_id = $modelUrls->id;
-                }
-                if ($model->validate() && $model->save()) {
-                    return $this->redirect(['index']);
-
-                }
-            }
-            $model->addErrors($modelUrls->getErrors());
-
-            return $this->render('update', [
-                'model' => $model,
-                'modelUrls' => $modelUrls,
-            ]);
-
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-                'modelUrls' => $modelUrls,
-            ]);
-        }
+        return $this->render('update', [
+            'model' => $model,
+            'modelUrl' => $modelUrl,
+        ]);
     }
 
     /**
@@ -254,16 +111,7 @@ class ProductController extends Controller
      */
     public function actionDelete($id)
     {
-        $product = $this->findModel($id);
-        $productName = "";
-        if ($product) {
-            $productName = $product->name;
-            Yii::$app->session->setFlash('alert', [
-                'options' => ['class' => 'alert-success'],
-                'body' => Yii::t('backend', '{product_name} has been deleted....', ['product_name' => $productName])
-            ]);
-            $product->delete();
-        }
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
@@ -277,10 +125,9 @@ class ProductController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = ProductForm::findOne($id)) !== null) {
+        if (($model = Product::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

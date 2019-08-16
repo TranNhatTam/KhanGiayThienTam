@@ -16,8 +16,7 @@ class m160203_095604_user_token extends Migration
             'token' => $this->string(40)->notNull(),
             'expire_at' => $this->integer(),
             'created_at' => $this->integer(),
-            'updated_at' => $this->integer(),
-            'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
+            'updated_at' => $this->integer()
         ]);
     }
 

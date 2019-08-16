@@ -1,6 +1,6 @@
 <?php
 /**
- * @var $this    yii\web\View
+ * @var $this yii\web\View
  * @var $content string
  */
 
@@ -16,7 +16,7 @@ use yii\log\Logger;
 use yii\widgets\Breadcrumbs;
 
 $bundle = BackendAsset::register($this);
-
+Yii::info(Yii::$app->components["i18n"]["translations"]['*']['class'], 'test');
 ?>
 
 <?php $this->beginContent('@backend/views/layouts/base.php'); ?>
@@ -26,12 +26,12 @@ $bundle = BackendAsset::register($this);
     <header class="main-header">
         <a href="<?php echo Yii::$app->urlManagerFrontend->createAbsoluteUrl('/') ?>" class="logo">
             <!-- Add the class icon to your logo image or logo icon to add the margining -->
-            <img src="/img/logo.png" alt="logo">
+            <?php echo Yii::$app->name ?>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only"><?php echo Yii::t('backend', 'Toggle navigation') ?></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -134,7 +134,7 @@ $bundle = BackendAsset::register($this);
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <?php echo Menu::widget([
-                'options' => ['class' => 'sidebar-menu'],
+                'options' => ['class' => 'sidebar-menu tree', 'data' => ['widget' => 'tree']],
                 'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                 'submenuTemplate' => "\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n",
                 'activateParents' => true,
@@ -154,88 +154,70 @@ $bundle = BackendAsset::register($this);
                         'label' => Yii::t('backend', 'Users'),
                         'icon' => '<i class="fa fa-users"></i>',
                         'url' => ['/user/index'],
-                        'active' => (Yii::$app->controller->id == 'user'),
+                        'active' => Yii::$app->controller->id === 'user',
                         'visible' => Yii::$app->user->can('administrator'),
                     ],
                     [
-                        'label' => Yii::t('backend', 'Quản lý sản phẩm'),
+                        'label' => Yii::t('backend', 'Manage Product'),
                         'options' => ['class' => 'header'],
                     ],
-
+//                    [
+//                        'label' => Yii::t('backend', 'Manage Brand'),
+//                        'url' => ['/brand/index'],
+//                        'icon' => '<i class="fa fa-thumb-tack"></i>',
+//                        'active' => Yii::$app->controller->id === 'brand',
+//                    ],
                     [
-                        'label' => Yii::t('backend', 'Quản lý nhóm sản phẩm'),
+                        'label' => Yii::t('backend', 'Manage Category'),
                         'url' => ['/category/index'],
-                        'icon' => '<i class="fa fa-file-o"></i>',
-                        'active' => (Yii::$app->controller->id == 'category'),
+                        'icon' => '<i class="fa fa-thumb-tack"></i>',
+                        'active' => Yii::$app->controller->id === 'category',
                     ],
                     [
-                        'label' => Yii::t('backend', 'Quản lý nhà sản xuất'),
-                        'url' => ['/brand/index'],
-                        'icon' => '<i class="fa fa-folder-open-o"></i>',
-                        'active' => (Yii::$app->controller->id == 'brand'),
-                    ],
-                    [
-                        'label' => Yii::t('backend', 'Danh sách sản phẩm'),
+                        'label' => Yii::t('backend', 'Manage Product'),
                         'url' => ['/product/index'],
-                        'icon' => '<i class="fa fa-product-hunt"></i>',
-                        'active' => (Yii::$app->controller->id == 'page'),
+                        'icon' => '<i class="fa fa-thumb-tack"></i>',
+                        'active' => Yii::$app->controller->id === 'product',
                     ],
                     [
-                        'label' => Yii::t('backend', 'Đơn hàng'),
+                        'label' => Yii::t('backend', 'Manage Order'),
                         'options' => ['class' => 'header'],
                     ],
                     [
-                        'label' => Yii::t('backend', 'Quản lý đơn hàng'),
-                        'url' => ['/orders/index'],
-                        'icon' => '<i class="fa fa-shopping-cart"></i>',
-                        'active' => (Yii::$app->controller->id == 'page'),
+                        'label' => Yii::t('backend', 'Manage Order'),
+                        'url' => ['/order/index'],
+                        'icon' => '<i class="fa fa-thumb-tack"></i>',
+                        'active' => Yii::$app->controller->id === 'order',
                     ],
                     [
                         'label' => Yii::t('backend', 'Content'),
                         'options' => ['class' => 'header'],
                     ],
                     [
-                        'label' => Yii::t('backend', 'Thông tin công ty'),
-                        'url' => ['/business/index'],
-                        'icon' => '<i class="fa fa-address-card"></i>',
-                        'active' => (Yii::$app->controller->id == 'business'),
-                    ],
-                    [
-                        'label' => Yii::t('backend', 'Slider'),
-                        'url' => ['/slider/index'],
-                        'icon' => '<i class="fa fa-sliders"></i>',
-                        'active' => (Yii::$app->controller->id == 'slider'),
-                    ],
-                    [
-                        'label' => Yii::t('backend', 'Địa chỉ'),
-                        'url' => ['/address/index'],
-                        'icon' => '<i class="fa fa-map-marker"></i>',
-                        'active' => (Yii::$app->controller->id == 'address'),
-                    ],
-                    [
                         'label' => Yii::t('backend', 'Static pages'),
                         'url' => ['/content/page/index'],
                         'icon' => '<i class="fa fa-thumb-tack"></i>',
-                        'active' => (Yii::$app->controller->id == 'page'),
+                        'active' => Yii::$app->controller->id === 'page',
                     ],
                     [
                         'label' => Yii::t('backend', 'Articles'),
                         'url' => '#',
                         'icon' => '<i class="fa fa-files-o"></i>',
                         'options' => ['class' => 'treeview'],
-                        'active' => (Yii::$app->controller->module->id == 'article'),
+                        'active' => 'content' === Yii::$app->controller->module->id &&
+                            ('article' === Yii::$app->controller->id || 'category' === Yii::$app->controller->id),
                         'items' => [
                             [
                                 'label' => Yii::t('backend', 'Articles'),
                                 'url' => ['/content/article/index'],
                                 'icon' => '<i class="fa fa-file-o"></i>',
-                                'active' => (Yii::$app->controller->id == 'default'),
+                                'active' => Yii::$app->controller->id === 'article',
                             ],
                             [
                                 'label' => Yii::t('backend', 'Categories'),
                                 'url' => ['/content/category/index'],
                                 'icon' => '<i class="fa fa-folder-open-o"></i>',
-                                'active' => (Yii::$app->controller->id == 'category'),
+                                'active' => Yii::$app->controller->id === 'category',
                             ],
                         ],
                     ],
@@ -244,19 +226,19 @@ $bundle = BackendAsset::register($this);
                         'url' => '#',
                         'icon' => '<i class="fa fa-code"></i>',
                         'options' => ['class' => 'treeview'],
-                        'active' => (Yii::$app->controller->module->id == 'widget'),
+                        'active' => Yii::$app->controller->module->id === 'widget',
                         'items' => [
                             [
                                 'label' => Yii::t('backend', 'Text Blocks'),
                                 'url' => ['/widget/text/index'],
                                 'icon' => '<i class="fa fa-circle-o"></i>',
-                                'active' => (Yii::$app->controller->id == 'text'),
+                                'active' => Yii::$app->controller->id === 'text',
                             ],
                             [
                                 'label' => Yii::t('backend', 'Menu'),
                                 'url' => ['/widget/menu/index'],
                                 'icon' => '<i class="fa fa-circle-o"></i>',
-                                'active' => (Yii::$app->controller->id == 'menu'),
+                                'active' => Yii::$app->controller->id === 'menu',
                             ],
                             [
                                 'label' => Yii::t('backend', 'Carousel'),
@@ -269,12 +251,14 @@ $bundle = BackendAsset::register($this);
                     [
                         'label' => Yii::t('backend', 'Translation'),
                         'options' => ['class' => 'header'],
+                        'visible' => Yii::$app->components["i18n"]["translations"]['*']['class'] === \yii\i18n\DbMessageSource::class,
                     ],
                     [
                         'label' => Yii::t('backend', 'Translation'),
                         'url' => ['/translation/default/index'],
                         'icon' => '<i class="fa fa-language"></i>',
                         'active' => (Yii::$app->controller->module->id == 'translation'),
+                        'visible' => Yii::$app->components["i18n"]["translations"]['*']['class'] === \yii\i18n\DbMessageSource::class,
                     ],
                     [
                         'label' => Yii::t('backend', 'System'),
@@ -360,7 +344,7 @@ $bundle = BackendAsset::register($this);
     </aside>
 
     <!-- Right side column. Contains the navbar and content of the page -->
-    <aside class="content-wrapper">
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -386,7 +370,12 @@ $bundle = BackendAsset::register($this);
             <?php endif; ?>
             <?php echo $content ?>
         </section><!-- /.content -->
-    </aside><!-- /.right-side -->
+    </div><!-- /.right-side -->
+
+    <footer class="main-footer">
+        <strong>&copy; My Company <?php echo date('Y') ?></strong>
+        <div class="pull-right"><?php echo Yii::powered() ?></div>
+    </footer>
 </div><!-- ./wrapper -->
 
 <?php $this->endContent(); ?>

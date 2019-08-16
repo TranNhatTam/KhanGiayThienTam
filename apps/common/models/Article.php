@@ -13,33 +13,31 @@ use yii\db\ActiveRecord;
 /**
  * This is the model class for table "article".
  *
- * @property integer $id
- * @property string $slug
- * @property string $title
- * @property string $body
- * @property string $view
- * @property string $thumbnail_base_url
- * @property string $thumbnail_path
- * @property array $attachments
- * @property integer $category_id
- * @property integer $status
- * @property integer $published_at
- * @property integer $created_by
- * @property integer $updated_by
- * @property integer $created_at
- * @property integer $updated_at
- * @property string $fullPathImageThumbnail
- * @property string $description
+ * @property integer             $id
+ * @property string              $slug
+ * @property string              $title
+ * @property string              $body
+ * @property string              $view
+ * @property string              $thumbnail_base_url
+ * @property string              $thumbnail_path
+ * @property array               $attachments
+ * @property integer             $category_id
+ * @property integer             $status
+ * @property integer             $published_at
+ * @property integer             $created_by
+ * @property integer             $updated_by
+ * @property integer             $created_at
+ * @property integer             $updated_at
  *
- * @property User $author
- * @property User $updater
- * @property ArticleCategory $category
+ * @property User                $author
+ * @property User                $updater
+ * @property ArticleCategory     $category
  * @property ArticleAttachment[] $articleAttachments
  */
 class Article extends ActiveRecord
 {
     const STATUS_PUBLISHED = 1;
-    const STATUS_DRAFT = 0;
+    const STATUS_DRAFT     = 0;
 
     /**
      * @var array
@@ -118,7 +116,7 @@ class Article extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'body', 'category_id', 'description'], 'required'],
+            [['title', 'body', 'category_id'], 'required'],
             [['slug'], 'unique'],
             [['body'], 'string'],
             [['published_at'], 'default', 'value' => function () {
@@ -127,9 +125,9 @@ class Article extends ActiveRecord
             [['published_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
             [['category_id'], 'exist', 'targetClass' => ArticleCategory::class, 'targetAttribute' => 'id'],
             [['status'], 'integer'],
-            [['slug', 'thumbnail_base_url', 'thumbnail_path', 'description'], 'string', 'max' => 1024],
+            [['thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512],
-            [['view'], 'string', 'max' => 255],
+            [['view', 'slug'], 'string', 'max' => 255],
             [['attachments', 'thumbnail'], 'safe'],
         ];
     }
@@ -144,7 +142,6 @@ class Article extends ActiveRecord
             'slug' => Yii::t('common', 'Slug'),
             'title' => Yii::t('common', 'Title'),
             'body' => Yii::t('common', 'Body'),
-            'description' => Yii::t('common', 'Description'),
             'view' => Yii::t('common', 'Article View'),
             'thumbnail' => Yii::t('common', 'Thumbnail'),
             'category_id' => Yii::t('common', 'Category'),
@@ -187,18 +184,5 @@ class Article extends ActiveRecord
     public function getArticleAttachments()
     {
         return $this->hasMany(ArticleAttachment::class, ['article_id' => 'id']);
-    }
-
-    /**
-     * @return string
-     */
-    public function getFullPathImageThumbnail()
-    {
-        if ($this->thumbnail_base_url != null) {
-            $image = $this->thumbnail_base_url . '/' . $this->thumbnail_path;
-        } else {
-            $image = '/img/image-not-available.png';
-        }
-        return $image;
     }
 }

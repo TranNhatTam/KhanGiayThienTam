@@ -18,7 +18,6 @@ class m140703_123803_article extends Migration
             'status' => $this->smallInteger()->notNull()->defaultValue(0),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
-            'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
         ]);
 
         $this->createTable('{{%article}}', [
@@ -36,7 +35,6 @@ class m140703_123803_article extends Migration
             'published_at' => $this->integer(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
-            'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
         ]);
 
         $this->createTable('{{%article_attachment}}', [
@@ -47,8 +45,7 @@ class m140703_123803_article extends Migration
             'type' => $this->string(),
             'size' => $this->integer(),
             'name' => $this->string(),
-            'created_at' => $this->integer(),
-            'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
+            'created_at' => $this->integer()
         ]);
 
         $this->addForeignKey('fk_article_attachment_article', '{{%article_attachment}}', 'article_id', '{{%article}}', 'id', 'cascade', 'cascade');

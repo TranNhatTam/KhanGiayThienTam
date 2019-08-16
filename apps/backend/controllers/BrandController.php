@@ -2,9 +2,10 @@
 
 namespace backend\controllers;
 
+use common\models\Url;
 use Yii;
 use common\models\Brand;
-use backend\models\BrandSearch;
+use backend\models\search\BrandSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -63,22 +64,15 @@ class BrandController extends Controller
     public function actionCreate()
     {
         $model = new Brand();
-        if ($model->load(Yii::$app->request->post()))
-        {
-            $model->brand_image=$model->name;
-            if ($model->validate())
-            {
-                if ( $model->save()) {
-                    return $this->redirect(['index']);
-                }
+        $modelUrl = new Url();
 
-            }
-
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+        return $this->render('create', [
+            'model' => $model,
+            'modelUrl' => $modelUrl,
+        ]);
     }
 
     /**
@@ -92,12 +86,11 @@ class BrandController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -108,8 +101,7 @@ class BrandController extends Controller
      */
     public function actionDelete($id)
     {
-        $brand=$this->findModel($id);
-        $brand->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
@@ -125,8 +117,7 @@ class BrandController extends Controller
     {
         if (($model = Brand::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

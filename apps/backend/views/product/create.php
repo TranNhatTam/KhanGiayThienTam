@@ -5,16 +5,17 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Product */
+/* @var $modelUrl common\models\Url */
 
-$this->title = 'Thêm sản phẩm';
-$this->params['breadcrumbs'][] = ['label' => 'Danh sách sản phẩm', 'url' => ['index']];
+$this->title = 'Create Product';
+$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-create">
 
     <?php echo $this->render('_form', [
         'model' => $model,
-        'modelUrls' => $modelUrls,
+        'modelUrl' => $modelUrl,
     ]) ?>
 
 </div>

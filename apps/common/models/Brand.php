@@ -10,18 +10,23 @@ use Yii;
  *
  * @property int $id
  * @property string $name
- * @property string $brand_icon
- * @property string $brand_image
- * @property string $description
- * @property string $thumbnail_base_url
  * @property string $thumbnail_path
+ * @property string $thumbnail_base_url
+ * @property string $icon
+ * @property string $description
+ * @property int $priority
+ * @property string $created_at
+ * @property string $updated_at
+ * @property int $is_deleted
+ * @property int $url_id
  */
-class Brand extends ActiveRecord
+class Brand extends \yii\db\ActiveRecord
 {
     /**
      * @var array
      */
     public $thumbnail;
+
     /**
      * {@inheritdoc}
      */
@@ -31,13 +36,8 @@ class Brand extends ActiveRecord
     }
 
     /**
-     * @return ActiveQuery
+     * @inheritdoc
      */
-    public static function find()
-    {
-        return new ActiveQuery(get_called_class());
-    }
-
     public function behaviors()
     {
         return [
@@ -49,17 +49,18 @@ class Brand extends ActiveRecord
             ],
         ];
     }
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['name', 'brand_image'], 'required'],
+            [['name', 'url_id'], 'required'],
             [['description'], 'string'],
-            [['name', 'brand_icon', 'brand_image'], 'string', 'max' => 255],
-            [['thumbnail'], 'safe'],
-            [['thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
+            [['priority', 'is_deleted', 'url_id'], 'integer'],
+            [['thumbnail', 'updated_at', 'created_at'], 'safe'],
+            [['name', 'thumbnail_path', 'thumbnail_base_url', 'icon'], 'string', 'max' => 255],
         ];
     }
 
@@ -70,11 +71,17 @@ class Brand extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Tên',
-            'brand_icon' => 'Icon',
-            'brand_image' => 'Image',
-            'description' => 'Mô Tả',
-            'thumbnail' => 'Hình Ảnh',
+            'name' => 'Name',
+            'thumbnail_path' => 'Thumbnail Path',
+            'thumbnail_base_url' => 'Thumbnail Base Url',
+            'thumbnail' => 'Thumbnail',
+            'icon' => 'Icon',
+            'description' => 'Description',
+            'priority' => 'Priority',
+            'updated_at' => 'Updated At',
+            'created_at' => 'Created At',
+            'is_deleted' => 'Is Deleted',
+            'url_id' => 'Url ID',
         ];
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Category;
 use dosamigos\tinymce\TinyMce;
 use kartik\select2\Select2;
 use trntv\filekit\widget\Upload;
@@ -8,6 +9,7 @@ use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Product */
+/* @var $modelUrl common\models\Url */
 /* @var $form yii\bootstrap\ActiveForm */
 ?>
 
@@ -21,12 +23,26 @@ use yii\bootstrap\ActiveForm;
         <div class="col-md-8">
             <div class="box">
                 <div class="box-header">
-                    <h3>Thông tin</h3>
+                    <h3>Information</h3>
                 </div>
-                <div class="box-body" style="margin-left: 20px">
-                    <?php echo $form->field($model, 'name')->textInput(['id'=>'product-name','onkeyup'=>'ChangeToSlug();'])->label('Tên sản phẩm') ?>
+                <div class="box-body">
+                    <?php echo $form->field($model, 'code')->textInput() ?>
 
-                    <?php echo $form->field($model, 'code')->textInput()->label('Mã sản phẩm') ?>
+                    <?php echo $form->field($model, 'name')->textInput(['id' => 'product-name', 'onkeyup' => 'ChangeToSlug();']) ?>
+
+                    <?php echo $form->field($model, 'short_detail')->widget(TinyMce::className(), [
+                        'options' => ['rows' => 6],
+                        'language' => 'vi',
+                        'clientOptions' => [
+                            'plugins' => [
+                                "advlist autolink lists link charmap print preview anchor",
+                                "searchreplace visualblocks code fullscreen",
+                                "insertdatetime media table contextmenu paste image"
+                            ],
+                            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code image"
+                        ]
+                    ]) ?>
+
 
                     <?php echo $form->field($model, 'description')->widget(TinyMce::className(), [
                         'options' => ['rows' => 6],
@@ -39,57 +55,51 @@ use yii\bootstrap\ActiveForm;
                             ],
                             'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code image"
                         ]
-                    ])->label('Mô tả') ?>
+                    ]) ?>
 
-                    <?php echo $form->field($model, 'short_detail')->textInput()->label('Trích dẫn') ?>
+                    <?php echo $form->field($model, 'technical_detail')->widget(TinyMce::className(), [
+                        'options' => ['rows' => 6],
+                        'language' => 'vi',
+                        'clientOptions' => [
+                            'plugins' => [
+                                "advlist autolink lists link charmap print preview anchor",
+                                "searchreplace visualblocks code fullscreen",
+                                "insertdatetime media table contextmenu paste image"
+                            ],
+                            'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code image"
+                        ]
+                    ]) ?>
 
-                    <?php echo $form->field($model, 'priority')->textInput() ?>
                 </div>
             </div>
 
             <div class="box">
                 <div class="box-header">
-                    <h3>Hình ảnh</h3>
+                    <h3>Images</h3>
                 </div>
-                <div class="box-body" style="margin-left: 20px">
-                    <?php echo $form->field($model, 'thumbnail')->widget(
-                        Upload::class,
-                        [
-                            'url' => ['/file/storage/upload'],
-                            'maxFileSize' => 5000000, // 5 MiB
-                        ]);
-                    ?>
-                    <?php echo $form->field($model, 'attachments')->widget(
-                        Upload::class,
-                        [
-                            'url' => ['/file/storage/upload'],
-                            'sortable' => true,
-                            'maxFileSize' => 10000000, // 10 MiB
-                            'maxNumberOfFiles' => 10,
-                        ])->label('Đính kèm');
-                    ?>
-                </div>
-
-            </div>
-
-            <div class="box">
-                <div class="box-header">
-                    <h3>Giá sản phẩm</h3>
-                </div>
-                <div class="box-body" style="margin-left: 20px">
-                    <?php echo $form->field($model, 'unit_price')->textInput()->label('Giá') ?>
-
-                    <?php echo $form->field($model, 'discount')->textInput()->label('Giá giảm') ?>
-
-                    <?php echo $form->field($model, 'weight')->textInput(['placeholder'=>'gram'])->label('Khối lượng') ?>
+                <div class="box-body">
+                    <?php echo $form->field($model, 'thumbnail')->widget(Upload::class, [
+                        'url' => ['/file/storage/upload'],
+                        'maxFileSize' => 5000000, // 5 MiB
+                    ]); ?>
+                    <?php echo $form->field($model, 'images')->widget(Upload::class, [
+                        'url' => ['/file/storage/upload'],
+                        'sortable' => true,
+                        'maxFileSize' => 10000000, // 10 MiB
+                        'maxNumberOfFiles' => 10,
+                    ]); ?>
                 </div>
             </div>
 
             <div class="box">
                 <div class="box-header">
-                    <h3>Kho</h3>
+                    <h3>Price & Stock</h3>
                 </div>
-                <div class="box-body" style="margin-left: 20px">
+                <div class="box-body">
+                    <?php echo $form->field($model, 'unit_price')->textInput() ?>
+
+                    <?php echo $form->field($model, 'discount')->textInput() ?>
+
                     <?php echo $form->field($model, 'unit_in_stock')->textInput() ?>
 
                     <?php echo $form->field($model, 'quantity_in_stock')->textInput() ?>
@@ -98,104 +108,50 @@ use yii\bootstrap\ActiveForm;
 
             <div class="box">
                 <div class="box-header">
-                    <h3>Tối ưu SEO</h3>
-                    <p>Thiết lập các thẻ mô tả giúp khách hàng dễ dàng tìm thấy sản phẩm trên công cụ tìm kiếm như Google.</p>
+                    <h3>SEO</h3>
                 </div>
-                <div class="box-body" style="margin-left: 20px">
-                    <?php echo $form->field($modelUrls,'title')->textInput() ?>
+                <div class="box-body">
+                    <?php echo $form->field($modelUrl, 'title')->textInput() ?>
 
-                    <?php echo $form->field($modelUrls,'description')->textarea(['rows' => 4]) ?>
+                    <?php echo $form->field($modelUrl, 'description')->textarea(['rows' => 4]) ?>
 
-                    <?php echo $form->field($modelUrls,'route',[
+                    <?php echo $form->field($modelUrl, 'route', [
                         'inputTemplate' => '<div class="input-group"><span class="input-group-addon" style="border-right: none; color: lightgrey">http://demo.com/product/</span>{input}</div>'
-                    ])->textInput(['style'=>'border-left: none','id'=>'slug']) ?>
+                    ])->textInput(['style' => 'border-left: none', 'id' => 'slug']) ?>
                 </div>
             </div>
-
         </div>
-
         <div class="col-md-4">
             <div class="box">
                 <div class="box-header">
-                    <h3>Phân loại</h3>
+                    <h3>Other</h3>
                 </div>
                 <div class="box-body" style="margin-left: 20px">
-                    <?php
-                        $c_id = Yii::$app->request->get('c_id');
-                        if (isset($c_id)) {
-                            $model->category_id = $c_id;
-                            echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(),'id','name'))->label('Loại sản phẩm');
-                        } else {
-                            echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Category::find()->all(),'id','name'))->label('Loại sản phẩm');
-                        }
-
-                    ?>
-
-                    <?php echo $form->field($model, 'brand_id')->dropDownList(\yii\helpers\ArrayHelper::map(\common\models\Brand::find()->all(),'id','name'))->label('Nhà sản xuất') ?>
-
-                    <?php
-                    echo $form->field($model,'tags')->widget(Select2::className(),[
-                        'data' => \yii\helpers\ArrayHelper::map(\common\models\Tag::find()->all(),'name','name'),
-                        'options' => ['placeholder' => 'Chọn nhãn ...', 'multiple' => true],
+                    <?php echo $form->field($model, 'category_id')->widget(Select2::classname(), [
+                        'data' => Category::getArrayCategory(),
+                        'options' => ['placeholder' => 'Select a category ...'],
                         'pluginOptions' => [
-                            'allowClear' => true,
-                            'tags' => true,
-                            'tokenSeparators' => [','],
-                            'maximumInputLength' => 10
+                            'allowClear' => true
                         ],
-                    ])
-                    ?>
+                    ]) ?>
+
+                    <?php echo $form->field($model, 'status')->textInput() ?>
+
+                    <?php echo $form->field($model, 'priority')->textInput() ?>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
-
-
-    <?php //echo $form->field($model, 'discount')->textInput() ?>
-
-    <?php // echo $form->field($model, 'star_rating')->textInput() ?>
-
-    <?php //echo $form->field($model, 'total_view')->textInput() ?>
-
-    <?php //echo $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
-
-
-
-
-
-    <?php //echo $form->field($model, 'warranty')->textInput(['maxlength' => true]) ?>
-
-    <?php //echo $form->field($model, 'group_id')->textInput() ?>
-
-    <?php //echo $form->field($model, 'technical_detail')->textarea(['rows' => 6]) ?>
-
-    <?php //echo $form->field($model, 'additional_detail')->textInput(['maxlength' => true]) ?>
-
-    <?php //echo $form->field($model, 'unit_in_stock')->textInput() ?>
-
-    <?php //echo $form->field($model, 'quantity_in_stock')->textInput() ?>
-
-    <?php //echo $form->field($model, 'suppiler_id')->textInput() ?>
-
-    <?php //echo $form->field($model, 'product_ref')->textInput(['maxlength' => true]) ?>
-
     <div class="form-group">
-        <?php echo Html::a('Hủy','/product/index',['class'=>'btn btn-default'])?>
-        <?php echo Html::submitButton($model->isNewRecord ? 'Thêm' : 'Cập nhật', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?php echo Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 
 </div>
 <script>
-
-    function ChangeToSlug()
-    {
+    function ChangeToSlug() {
         var title, slug;
 
         //Lấy text từ thẻ input title

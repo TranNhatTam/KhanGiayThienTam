@@ -28,22 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'description:html',
-            [
-                'format' => 'raw',
-                'label' => 'Nhà sản xuất',
-                'value' => function($model){
-                    $categoryBrand = \common\models\CategoryBrand::find()->where(['category_id'=>$model->id])->all();
-                    $string  = '';
-                    foreach ($categoryBrand as $item){
-                        $brand = \common\models\Brand::find()->where(['id'=>$item->brand_id])->one();
-                        if ($brand){
-                            $string =  $string.' <span style="background: #0d6aad;color: #fff;padding: 5px;border-radius: 5px">'.$brand->name.'</span>';
-                        }
-                    }
-                    return $string;
-                }
-            ],
+            'thumbnail_path',
+            'thumbnail_base_url:url',
+            'icon',
+            'description:ntext',
+            'priority',
+            'updated_at',
+            'created_at',
+            'is_deleted',
+            'url_id:url',
         ],
     ]) ?>
 

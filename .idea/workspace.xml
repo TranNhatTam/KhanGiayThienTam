@@ -176,7 +176,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/frontend/web/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -185,6 +185,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web\css" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web" />
     </key>
@@ -215,7 +216,10 @@
       <workItem from="1565398964864" duration="284000" />
       <workItem from="1565409833353" duration="3421000" />
       <workItem from="1565487765042" duration="9840000" />
-      <workItem from="1565708137246" duration="1024000" />
+      <workItem from="1565708137246" duration="1441000" />
+      <workItem from="1565788636156" duration="89000" />
+      <workItem from="1565788769599" duration="7654000" />
+      <workItem from="1565966131666" duration="1427000" />
     </task>
     <servers />
   </component>

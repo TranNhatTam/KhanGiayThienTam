@@ -15,8 +15,7 @@ class m150414_195800_timeline_event extends Migration
             'category' => $this->string(64)->notNull(),
             'event' => $this->string(64)->notNull(),
             'data' => $this->text(),
-            'created_at' => $this->integer()->notNull(),
-            'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
+            'created_at' => $this->integer()->notNull()
         ]);
 
         $this->createIndex('idx_created_at', '{{%timeline_event}}', 'created_at');

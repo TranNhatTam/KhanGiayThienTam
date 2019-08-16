@@ -4,17 +4,18 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Category */
+/* @var $modelUrl common\models\Url */
 
-$this->title = 'Cập nhập nhóm sản phẩm: ' . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Nhóm sản phẩm', 'url' => ['index']];
-$this->params['breadcrumbs'][] = 'Cập nhập';
+$this->title = 'Update Category: ' . ' ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="category-update">
 
     <?php echo $this->render('_form', [
         'model' => $model,
-        'modelUrls' => $modelUrls,
-        'dataProvider' => $dataProvider,
+        'modelUrl' => $modelUrl,
     ]) ?>
 
 </div>

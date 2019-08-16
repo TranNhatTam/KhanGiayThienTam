@@ -28,7 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
+            'thumbnail_path',
+            'thumbnail_base_url:url',
+            'icon',
             'description:ntext',
+            'priority',
+            'updated_at',
+            'created_at',
+            'is_deleted',
+            'url_id:url',
         ],
     ]) ?>
 

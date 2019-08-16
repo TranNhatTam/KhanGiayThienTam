@@ -24,7 +24,6 @@ class Page extends ActiveRecord
 {
     const STATUS_DRAFT = 0;
     const STATUS_PUBLISHED = 1;
-    const RULE='chinh-sach-va-quy-dinh';
 
     /**
      * @inheritdoc

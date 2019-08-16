@@ -13,8 +13,6 @@ use yii\web\JsExpression;
 
 $this->title = Yii::t('backend', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
-$auth = \backend\modules\rbac\models\RbacAuthAssignment::find()->all();
-
 ?>
 <div class="user-index">
 
@@ -22,8 +20,8 @@ $auth = \backend\modules\rbac\models\RbacAuthAssignment::find()->all();
 
     <p>
         <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-            'modelClass' => 'User',
-        ]), ['create'], ['class' => 'btn btn-success']) ?>
+    'modelClass' => 'User',
+]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php echo GridView::widget([
@@ -69,42 +67,27 @@ $auth = \backend\modules\rbac\models\RbacAuthAssignment::find()->all();
                 ])
             ],
             // 'updated_at',
+
             [
                 'class' => 'yii\grid\ActionColumn',
-                'header' => 'Actions',
-                'headerOptions' => ['style' => 'color:#337ab7'],
-                'template' => '{view}{update}{delete}',
+                'template' => '{login} {view} {update} {delete}',
                 'buttons' => [
-                    'view' => function ($url, $model) {
-
-                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, [
-                            'title' => Yii::t('app', 'lead-view'),
-                        ]);
+                    'login' => function ($url) {
+                        return Html::a(
+                                '<i class="fa fa-sign-in" aria-hidden="true"></i>',
+                                $url,
+                                [
+                                    'title' => Yii::t('backend', 'Login')
+                                ]
+                        );
                     },
-
-                    'update' => function ($url, $model) {
-                        if ($model->username==Yii::$app->user->identity->username){
-                            return false;
-                        }
-                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, [
-                            'title' => Yii::t('app', 'lead-update'),
-                        ]);
-                    },
-                    'delete' => function ($url, $model) {
-                        if ($model->username==Yii::$app->user->identity->username){
-                            return false;
-                        }
-                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, [
-                            'title' => Yii::t('app', 'lead-delete'),
-                        ]);
-                    }
-
                 ],
+                'visibleButtons' => [
+                    'login' => Yii::$app->user->can('administrator')
+                ]
+
             ],
         ],
     ]); ?>
 
 </div>
-<script>
-
-</script>

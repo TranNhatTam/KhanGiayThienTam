@@ -18,7 +18,6 @@ class m140703_123104_page extends Migration
             'status' => $this->smallInteger()->notNull(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
-            'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
         ]);
     }
 

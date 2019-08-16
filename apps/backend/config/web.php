@@ -4,9 +4,6 @@ $config = [
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'timeline-event/index',
     'components' => [
-        'assetManager' => [
-            'linkAssets' => false
-        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -30,9 +27,6 @@ $config = [
         ],
     ],
     'modules' => [
-        'gridview' => [
-            'class' => '\kartik\grid\Module'
-        ],
         'content' => [
             'class' => backend\modules\content\Module::class,
         ],
