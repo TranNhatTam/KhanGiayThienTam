@@ -1,81 +1,196 @@
 <?php
-$this->title='Blog';
+$this->title='Tin Tức';
 ?>
 
-<?php if ($blog): ?>
-    <section class="main">
-        <div class="main-content">
-            <?php if ($slider): ?>
-                <div class="main-slider">
-                    <div class="main-slider-inner">
-                        <?php foreach ($slider as $item):
-                            /**@var $item common\models\Slider*/
-                            ?>
-                            <div class="main-slider-itm"><img src="<?php echo $item->fullPathImageThumbnail?>" alt="<?php $item->title ?>"></div>
-                        <?php endforeach; ?>
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <!-- Posts
+            ============================================= -->
+            <div id="posts" class="post-grid grid-container clearfix" data-layout="fitRows">
+
+                <div class="entry clearfix">
+                    <div class="entry-image">
+                        <a href="images/blog/full/17.jpg" data-lightbox="image"><img class="image_fade" src="/images/blog/grid/17.jpg" alt="Standard Post with Image"></a>
+                    </div>
+                    <div class="entry-title">
+                        <h2><a href="blog-single.html">This is a Standard post with a Preview Image</a></h2>
+                    </div>
+                    <ul class="entry-meta clearfix">
+                        <li><i class="icon-calendar3"></i> 10th Feb 2014</li>
+                        <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 13</a></li>
+                        <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                    </ul>
+                    <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                        <a href="blog-single.html"class="more-link">Read More</a>
                     </div>
                 </div>
-            <?php endif; ?>
-            <!-- END: Main slider-->
-            <div class="news-content">
-                <div class="container-fluid">
-                    <div class="news-list">
-                        <div class="news-list-inner">
-                            <div class="row">
-                                <?php foreach ($blog as $item):
-                                    /** @var $new common\models\Article */
-                                    ?>
-                                    <div class="col-md-3 col-sm-6 col-xs-12"><a href="/article/<?php echo $item->slug?>" class="news-itm">
-                                            <div class="news-img" style="overflow: hidden"><img src="<?php echo $item->fullPathImageThumbnail?>"  > </div>
-                                            <div class="news-ttl">
-                                                <h3><?php echo $item->title?></h3>
-                                            </div>
-                                            <div class="news-short-desc">
-                                                <p><?php echo substr($item->description, 0, 120)?></p>
-                                            </div></a></div>
-                                    <!-- END: News item-->
-                                <?php endforeach; ?>
-                            </div>
-                            <div class="paging-blk">
-                                <form method="post">
-                                    <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="page-numb"><span>Trang <?=$page+1?>/<?=$total_page?></span></div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <div class="paging-btn-blk text-right">
-                                                <button name="action" value="prev" class="prev-btn paging-btn <?=($page+1<=1 ? 'disabled' : '')?>"><i class="fa fa-angle-left"></i></button>
-                                                <button name="action" value="next" class="next-btn paging-btn <?=($page+1>=$total_page ? 'disabled' : '')?>"><i class="fa fa-angle-right"></i></button>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="page" value="<?=$page?>" />
-                                    </div>
-                                </form>
+
+                <div class="entry clearfix">
+                    <div class="entry-image">
+                        <iframe src="http://player.vimeo.com/video/87701971" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    </div>
+                    <div class="entry-title">
+                        <h2><a href="blog-single-full.html">This is a Standard post with a Vimeo Video</a></h2>
+                    </div>
+                    <ul class="entry-meta clearfix">
+                        <li><i class="icon-calendar3"></i> 16th Feb 2014</li>
+                        <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 19</a></li>
+                        <li><a href="#"><i class="icon-film"></i></a></li>
+                    </ul>
+                    <div class="entry-content">
+                        <p>Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem consectetur pariatur quibusdam veritatis quisquam laboriosam esse beatae hic perferendis velit deserunt!</p>
+                        <a href="blog-single-full.html"class="more-link">Read More</a>
+                    </div>
+                </div>
+
+                <div class="entry clearfix">
+                    <div class="entry-image">
+                        <div class="fslider" data-arrows="false" data-lightbox="gallery">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                    <div class="slide"><a href="/images/blog/full/10.jpg" data-lightbox="gallery-item"><img class="image_fade" src="/images/blog/grid/10.jpg" alt="Standard Post with Gallery"></a></div>
+                                    <div class="slide"><a href="/images/blog/full/20.jpg" data-lightbox="gallery-item"><img class="image_fade" src="/images/blog/grid/20.jpg" alt="Standard Post with Gallery"></a></div>
+                                    <div class="slide"><a href="/images/blog/full/21.jpg" data-lightbox="gallery-item"><img class="image_fade" src="/images/blog/grid/21.jpg" alt="Standard Post with Gallery"></a></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<?php else:?>
-    <section class="main">
-        <div class="main-content">
-            <div class="news-content">
-                <div class="container-fluid">
-                    <div class="blk-ttl">
-                        <h3>Tin tức</h3>
+                    <div class="entry-title">
+                        <h2><a href="blog-single-small.html">This is a Standard post with a Slider Gallery</a></h2>
                     </div>
-                    <div class="news-list">
-                        <div class="news-list-inner">
-                            <h3>Dữ liệu đang được cập nhật...</h3>
+                    <ul class="entry-meta clearfix">
+                        <li><i class="icon-calendar3"></i> 24th Feb 2014</li>
+                        <li><a href="blog-single-small.html#comments"><i class="icon-comments"></i> 21</a></li>
+                        <li><a href="#"><i class="icon-picture"></i></a></li>
+                    </ul>
+                    <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                        <a href="blog-single-small.html"class="more-link">Read More</a>
+                    </div>
+                </div>
+
+                <div class="entry clearfix">
+                    <div class="entry-image clearfix">
+                        <iframe width="100%" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/115823769&amp;auto_play=false&amp;hide_related=true&amp;visual=true"></iframe>
+                    </div>
+                    <div class="entry-title">
+                        <h2><a href="blog-single.html">This is an Embedded SoundCloud Post</a></h2>
+                    </div>
+                    <ul class="entry-meta clearfix">
+                        <li><i class="icon-calendar3"></i> 28th Apr 2014</li>
+                        <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 16</a></li>
+                        <li><a href="#"><i class="icon-music2"></i></a></li>
+                    </ul>
+                    <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                        <a href="blog-single.html"class="more-link">Read More</a>
+                    </div>
+                </div>
+
+                <div class="entry clearfix">
+                    <div class="entry-image">
+                        <iframe width="560" height="315" src="http://www.youtube.com/embed/SZEflIVnhH8" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="entry-title">
+                        <h2><a href="blog-single-full.html">This is a Standard post with a Youtube Video</a></h2>
+                    </div>
+                    <ul class="entry-meta clearfix">
+                        <li><i class="icon-calendar3"></i> 30th Apr 2014</li>
+                        <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 34</a></li>
+                        <li><a href="#"><i class="icon-film"></i></a></li>
+                    </ul>
+                    <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                        <a href="blog-single-full.html"class="more-link">Read More</a>
+                    </div>
+                </div>
+
+                <div class="entry clearfix">
+                    <div class="entry-image clearfix">
+                        <div class="fslider" data-animation="fade" data-pagi="false" data-lightbox="gallery">
+                            <div class="flexslider">
+                                <div class="slider-wrap">
+                                    <div class="slide"><a href="/images/blog/full/2.jpg" data-lightbox="gallery-item"><img class="image_fade" src="/images/blog/grid/2.jpg" alt="Standard Post with Gallery"></a></div>
+                                    <div class="slide"><a href="/images/blog/full/3.jpg" data-lightbox="gallery-item"><img class="image_fade" src="/images/blog/grid/3.jpg" alt="Standard Post with Gallery"></a></div>
+                                    <div class="slide"><a href="/images/blog/full/12.jpg" data-lightbox="gallery-item"><img class="image_fade" src="/images/blog/grid/12.jpg" alt="Standard Post with Gallery"></a></div>
+                                    <div class="slide"><a href="/images/blog/full/13.jpg" data-lightbox="gallery-item"><img class="image_fade" src="/images/blog/grid/13.jpg" alt="Standard Post with Gallery"></a></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="entry-title">
+                        <h2><a href="blog-single-thumbs.html">This is a Standard post with Fade Gallery</a></h2>
+                    </div>
+                    <ul class="entry-meta clearfix">
+                        <li><i class="icon-calendar3"></i> 3rd Mar 2014</li>
+                        <li><a href="blog-single-thumbs.html#comments"><i class="icon-comments"></i> 21</a></li>
+                        <li><a href="#"><i class="icon-picture"></i></a></li>
+                    </ul>
+                    <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                        <a href="blog-single-thumbs.html"class="more-link">Read More</a>
+                    </div>
                 </div>
-            </div>
+
+                <div class="entry clearfix">
+                    <div class="entry-image">
+                        <a href="/images/blog/full/1.jpg" data-lightbox="image"><img class="image_fade" src="/images/blog/grid/1.jpg" alt="Standard Post with Image"></a>
+                    </div>
+                    <div class="entry-title">
+                        <h2><a href="blog-single.html">This is a Standard post with another Preview Image</a></h2>
+                    </div>
+                    <ul class="entry-meta clearfix">
+                        <li><i class="icon-calendar3"></i> 5th May 2014</li>
+                        <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 6</a></li>
+                        <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                    </ul>
+                    <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                        <a href="blog-single.html"class="more-link">Read More</a>
+                    </div>
+                </div>
+
+                <div class="entry clearfix">
+                    <div class="entry-image">
+                        <iframe frameborder="0" width="480" height="270" src="http://www.dailymotion.com/embed/video/x18murk" allowfullscreen></iframe>
+                    </div>
+                    <div class="entry-title">
+                        <h2><a href="blog-single-full.html">This is a Standard post with a Dailymotion Video</a></h2>
+                    </div>
+                    <ul class="entry-meta clearfix">
+                        <li><i class="icon-calendar3"></i> 11th May 2014</li>
+                        <li><a href="blog-single-full.html#comments"><i class="icon-comments"></i> 9</a></li>
+                        <li><a href="#"><i class="icon-film"></i></a></li>
+                    </ul>
+                    <div class="entry-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                        <a href="blog-single-full.html"class="more-link">Read More</a>
+                    </div>
+                </div>
+
+            </div><!-- #posts end -->
+
+            <!-- Pagination
+            ============================================= -->
+            <ul class="pagination nobottommargin">
+                <li class="page-item disabled"><a class="page-link" href="#">&laquo;</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+            </ul>
+
         </div>
-    </section>
-<?php endif; ?>
+
+    </div>
+
+</section><!-- #content end -->
 
 

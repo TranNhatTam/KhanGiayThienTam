@@ -148,34 +148,10 @@ class SiteController extends Controller
 
     public function actionBlog()
     {
-        $pageSize=8;
-        $page=0;
-        if (Yii::$app->request->post()){
-            $page=Yii::$app->request->post('page');
-            $action=Yii::$app->request->post('action');
-            if ($action=='next'){
-                $page++;
-            }
-            else{
-                $page--;
-            }
-        }
-        $blogID=ArticleCategory::find()->where(['slug'=>ArticleCategory::CATEGORY_Blog])->andWhere(['status'=>ArticleCategory::STATUS_ACTIVE])->one();
-        $blog=Article::find()->where(['category_id'=>$blogID->id])->published()->all();
-        $total_page=ceil(count($blog)/$pageSize);
-
-        if ($total_page<1){
-            $total_page++;
-        }
-        $dataProvider=null;
-        $dataProvider= new ArrayDataProvider([
-            'allModels' => $blog,
-            'pagination' => [
-                'pageSize' => $pageSize,
-                'page' => $page,
-            ],
-        ]);
-        $slider = Slider::find()->where(['status' => Slider::STATUS_PUBLISHED])->all();
-        return $this->render('blog', ['blog'=>$dataProvider->getModels(), 'page'=>$page, 'total_page'=>(integer)$total_page, 'slider'=>$slider]);
+        return $this->render('blog');
+    }
+    public function actionAbout()
+    {
+        return $this->render('about');
     }
 }
