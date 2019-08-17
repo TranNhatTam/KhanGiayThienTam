@@ -18,8 +18,8 @@ $this->title='Liên Hệ';
 <!-- Google Map
 ============================================= -->
 <section id="google-map" class="gmap slider-parallax">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.8659623354397!2d106.68720399999987!3d10.786965998803604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x26f57dcccc27ec0!2zQ8O0bmcgVHkgVE5ISCBDw7RuZyBOZ2jhu4cgU-G7kSBOYW0gVmnhu4d0!5e0!3m2!1sen!2sus!4v1450629439815"
-            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen="">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.093677239543!2d106.69097251533456!3d10.880479360238455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d7d9249c8b5d%3A0x7adf02d13d206719!2zODEsIDE2IFbEqW5oIFBow7ogMzgsIFbEqW5oIFBow7osIFRodeG6rW4gQW4sIELDrG5oIETGsMahbmcsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1566065028491!5m2!1svi!2s"
+            width="100%" height="450" frameborder="0" style="border:0" allowfullscreen>
     </iframe>
 </section>
 

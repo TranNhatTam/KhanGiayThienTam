@@ -69,20 +69,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $categories = Category::find()->orderBy(['priority' => SORT_DESC])->visible()->all();
-
-
-        // Make by Boss
-//        $orderDetails = OrderDetails::find()->select("COUNT(*) AS num_order,product_id")->groupBy(['product_id'])->orderBy(['num_order' => SORT_DESC])->limit(4)->all();
-//        $productBestSeller = [];
-//        foreach ($orderDetails as $orderDetail) {
-//            if ($orderDetail->product) {
-//                $productBestSeller[] = $orderDetail->product;
-//            }
-//        }
-        $slider = Slider::find()->where(['status' => Slider::STATUS_PUBLISHED])->all();
-        $productBestSeller= Product::find()->orderBy(['priority'=>SORT_DESC])->visible()->limit(4)->all();
-        return $this->render('index', ['categories' => $categories, 'productBestSeller' => $productBestSeller, 'slider' => $slider]);
+        return $this->render('index');
     }
 
 
@@ -153,5 +140,9 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public function actionGallery()
+    {
+        return $this->render('gallery');
     }
 }

@@ -80,39 +80,6 @@ class ProductController extends Controller
     }
 
 
-    public function actionView($urlId, $format)
-    {
-        $urls = Urls::find()->where(['id' => $urlId])->andWhere(['type' => Urls::PRODUCT])->one();
-        if ($urls) {
-            $product = Product::find()->where(['url_id' => $urls->id])->visible()->one();
-
-            $productTag = ProductTag::find()->where(['product_id' => $product->id])->all();
-            $product_df = Product::find()->where(['category_id' => $product->category_id])->andWhere(['!=', 'id', $product->id])->visible()->all();
-
-            // Add Product to Recently View
-            $recentlyViewContainer = Yii::$app->recentlyProdView;
-            $productRecentlyList = $recentlyViewContainer->getItems();
-            $canAddNew = true;
-            /** @var Product $item */
-            foreach ($productRecentlyList as $key => $item) {
-                if ($item->id == $product->id) {
-                    $recentlyViewContainer->remove($key);
-                    $recentlyViewContainer->addItem($product);
-                    $recentlyViewContainer-> save();
-                    $canAddNew = false;
-                    break;
-                }
-
-            }
-            if ($canAddNew) {
-                $recentlyViewContainer->addItem($product);
-                $recentlyViewContainer->save();
-            }
-        }
-
-        return $this->render('view', ['product' => $product, 'productTag' => $productTag, 'product_df' => $product_df]);
-    }
-
     public function setProductView($id)
     {
         $session = Yii::$app->session;
@@ -167,5 +134,8 @@ class ProductController extends Controller
         }
     }
 
-
+    public function actionView()
+    {
+       return $this->render('view');
+    }
 }

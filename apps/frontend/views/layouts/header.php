@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Url;
+?>
+
 <style>
 
     .revo-slider-emphasis-text {
@@ -90,8 +94,8 @@
             <!-- Logo
             ============================================= -->
             <div id="logo">
-                <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/images/logo.png" alt="Canvas Logo"></a>
-                <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="Canvas Logo"></a>
+                <a href="/" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/images/logo.png" alt="Canvas Logo"></a>
+                <a href="/" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="/images/logo@2x.png" alt="Canvas Logo"></a>
             </div><!-- #logo end -->
 
             <!-- Primary Navigation
@@ -99,13 +103,13 @@
             <nav id="primary-menu">
 
                 <ul>
-                    <li class="current"><a href="#"><div>Trang Chủ</div></a></li>
-                    <li><a href="#"><div>Giới Thiệu</div></a></li>
-                    <li><a href="#"><div>Sản Phẩm</div></a></li>
-                    <li><a href="#"><div>Dịch Vụ</div></a></li>
+                    <li><a href="/"><div>Trang Chủ</div></a></li>
+                    <li><a href="/site/about"><div>Giới Thiệu</div></a></li>
+                    <li><a href="/product/view"><div>Sản Phẩm</div></a></li>
+                    <li><a href="/site/gallery"><div>Dịch Vụ</div></a></li>
                     <li><a href="#"><div>Ưu Đãi</div></a></li>
-                    <li><a href="#"><div>Tin Tức</div></a></li>
-                    <li><a href="#"><div>Liên Hệ</div></a></li>
+                    <li><a href="/site/blog"><div>Tin Tức</div></a></li>
+                    <li><a href="/site/contact"><div>Liên Hệ</div></a></li>
                 </ul>
 
                 <!-- Top Cart

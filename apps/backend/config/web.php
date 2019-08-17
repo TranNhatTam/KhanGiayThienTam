@@ -4,6 +4,9 @@ $config = [
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'timeline-event/index',
     'components' => [
+        'assetManager' => [
+            'linkAssets' => false
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
