@@ -4,9 +4,10 @@
 use yii\helpers\ArrayHelper;
 use yii\widgets\Breadcrumbs;
 
-/* @var $content string */
+Yii::app()->clientScript->registerCoreScript('jquery');
 
-$this->beginContent('@frontend/views/layouts/base.php')
+/* @var $content string */
+$this->beginContent('@frontend/views/layouts/base.php');
 ?>
 
 

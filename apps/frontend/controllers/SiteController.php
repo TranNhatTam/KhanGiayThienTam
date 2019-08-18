@@ -13,7 +13,7 @@ use common\models\Slider;
 use common\sitemap\ArticleUrlGenerator;
 use common\sitemap\PageUrlGenerator;
 use common\sitemap\UrlsIterator;
-use frontend\models\ContactForm;
+use backend\models\ContactForm;
 use function GuzzleHttp\Promise\all;
 use Sitemaped\Element\Urlset\Urlset;
 use Sitemaped\Sitemap;
@@ -78,25 +78,27 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->contact(Yii::$app->params['adminEmail'])) {
+        $modelContact = new ContactForm();
+        if ($modelContact->load(Yii::$app->request->post())) {
+
+            if ($modelContact->contact(Yii::$app->params['adminEmail'])) {
                 Yii::$app->getSession()->setFlash('alert', [
                     'body' => Yii::t('frontend', 'Thank you for contacting us. We will respond to you as soon as possible.'),
                     'options' => ['class' => 'alert-success']
                 ]);
                 return $this->refresh();
-            } else {
-                Yii::$app->getSession()->setFlash('alert', [
-                    'body' => \Yii::t('frontend', 'There was an error sending email.'),
-                    'options' => ['class' => 'alert-danger']
-                ]);
             }
+
+            Yii::$app->getSession()->setFlash('alert', [
+                'body' => \Yii::t('frontend', 'There was an error sending email.'),
+                'options' => ['class' => 'alert-danger']
+            ]);
         }
 
         return $this->render('contact', [
-            'model' => $model
+            'modelContact' => $modelContact
         ]);
+
     }
 
     /**
@@ -145,4 +147,20 @@ class SiteController extends Controller
     {
         return $this->render('gallery');
     }
+    public function actionCreateContact()
+    {
+        var_dump(1);die;
+        $model = new ContactForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            ContactForm::sendContactEmail($model);
+            Yii::$app->getSession()->setFlash('alertSuccess', 'Yêu cầu của bạn đã được chấp thuận.');
+
+        } else {
+            Yii::$app->getSession()->setFlash('alertFail', 'Có lỗi trong quá trình xử lý.');
+        }
+        return $this->redirect('contact');
+    }
+
+
 }

@@ -23,14 +23,11 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body', 'verifyCode'], 'required'],
+            [['name', 'email', 'subject', 'body','phone'], 'required'],
             // We need to sanitize them
-            [['name', 'subject', 'body'], 'filter', 'filter' => 'strip_tags'],
+            [['name', 'subject', 'body','phone'], 'filter', 'filter' => 'strip_tags'],
             // email has to be a valid email address
             ['email', 'email'],
-            // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
-
         ];
     }
 
@@ -44,7 +41,6 @@ class ContactForm extends Model
             'email' => Yii::t('frontend', 'Email'),
             'subject' => Yii::t('frontend', 'Subject'),
             'body' => Yii::t('frontend', 'Body'),
-            'verifyCode' => Yii::t('frontend', 'Verification Code')
         ];
     }
 
