@@ -4,7 +4,6 @@
 use yii\helpers\ArrayHelper;
 use yii\widgets\Breadcrumbs;
 
-Yii::app()->clientScript->registerCoreScript('jquery');
 
 /* @var $content string */
 $this->beginContent('@frontend/views/layouts/base.php');
