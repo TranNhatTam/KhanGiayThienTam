@@ -8,12 +8,10 @@
 
 namespace frontend;
 
+use common\models\Url;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\caching\DbQueryDependency;
-
-use common\models\Urls;
-use yii\helpers\VarDumper;
 
 /**
  * Bootstrap
@@ -55,7 +53,7 @@ class Bootstrap implements BootstrapInterface
 
         if (!$rules = $cache->get(__METHOD__)) {
             $rules = [];
-            $urls = Urls::find()->where(['is_deleted' => Urls::VISIBLE])->asArray()->all();
+            $urls = Url::find()->where(['is_deleted' => Url::TYPE_VISIBLE])->asArray()->all();
 
             foreach ($urls as $url) {
                 $config = [
@@ -63,13 +61,13 @@ class Bootstrap implements BootstrapInterface
                     'pattern' => $url['route'] . '<format:(\.json)?>',
                 ];
 
-                if ($url['type'] == Urls::PRODUCT) {
+                if ($url['type'] == Url::TYPE_PRODUCT) {
                     $config['route'] = 'product/view';
                     $config['suffix'] = $url['suffix'] ?? $this->app->params['defaultItemUrlSuffix'];
-                } elseif ($url['type'] == Urls::CATEGORY) {
+                } elseif ($url['type'] == Url::TYPE_CATEGORY) {
                     $config['route'] = 'category/view';
                     $config['suffix'] = $url['suffix'] ?? $this->app->params['defaultCategoryUrlSuffix'];
-                } elseif ($url['type'] == Urls::TAG) {
+                } elseif ($url['type'] == Url::TYPE_TAG) {
                     $config['route'] = 'tag/view';
                     $config['suffix'] = $url['suffix'] ?? $this->app->params['defaultTagUrlSuffix'];
                 }
@@ -79,7 +77,7 @@ class Bootstrap implements BootstrapInterface
 
             $cache->set(__METHOD__, $rules, null, Yii::createObject([
                 'class' => DbQueryDependency::class,
-                'query' => Urls::find()
+                'query' => Url::find()
                     ->select(['updated_at', 'created_at'])
                     ->orderBy(['updated_at' => SORT_DESC, 'created_at' => SORT_DESC])
                     ->asArray()

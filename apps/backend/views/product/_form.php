@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Category;
+use common\models\Product;
 use dosamigos\tinymce\TinyMce;
 use kartik\select2\Select2;
 use trntv\filekit\widget\Upload;
@@ -100,7 +101,7 @@ use yii\bootstrap\ActiveForm;
 
                     <?php echo $form->field($model, 'discount')->textInput() ?>
 
-                    <?php echo $form->field($model, 'unit_in_stock')->textInput() ?>
+                    <?php echo $form->field($model, 'unit_in_stock')->dropDownList(Product::unitInStocks()) ?>
 
                     <?php echo $form->field($model, 'quantity_in_stock')->textInput() ?>
                 </div>
@@ -135,7 +136,7 @@ use yii\bootstrap\ActiveForm;
                         ],
                     ]) ?>
 
-                    <?php echo $form->field($model, 'status')->textInput() ?>
+                    <?php echo $form->field($model, 'status')->dropDownList(Product::statuses()) ?>
 
                     <?php echo $form->field($model, 'priority')->textInput() ?>
                 </div>

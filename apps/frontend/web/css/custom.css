@@ -30,3 +30,20 @@
 .tp-caption {
     white-space: nowrap;
 }
+
+.product-overlay button {
+    display: block;
+    float: left;
+    width: 50%;
+    font-size: 13px;
+    color: #333;
+    background-color: #F5F5F5;
+    text-align: center;
+    border: 0;
+}
+
+.product-overlay button:hover {
+    background-color: #333;
+    color: #FFF;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}

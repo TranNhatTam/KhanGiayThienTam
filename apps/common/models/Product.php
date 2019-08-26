@@ -2,6 +2,8 @@
 
 namespace common\models;
 
+use common\models\query\ActiveQuery;
+use common\models\record\ActiveRecord;
 use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -36,8 +38,16 @@ use yii\helpers\ArrayHelper;
  * @property string $images
  * @property Url $url
  */
-class Product extends \yii\db\ActiveRecord
+class Product extends ActiveRecord
 {
+
+    const UNIT_IN_STOCK_TYPE_1 = 1;
+
+    const STATUS_IN_STOCK = 1;
+    const STATUS_OUT_OF_STOCK = 2;
+    const STATUS_STOP_PRODUCTION = 3;
+    const STATUS_DELETED = 4;
+
     /**
      * @var array
      */
@@ -117,6 +127,14 @@ class Product extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * @return ActiveQuery
+     */
+    public static function find()
+    {
+        return new ActiveQuery(get_called_class());
+    }
+
     public static function getArrayProduct()
     {
         return ArrayHelper::map(Product::find()->all(), 'id', 'name');
@@ -128,5 +146,37 @@ class Product extends \yii\db\ActiveRecord
     public function getUrl()
     {
         return $this->hasOne(Url::class, ['id' => 'url_id']);
+    }
+
+    /**
+     * Returns product unitInStocks list
+     * @return array|mixed
+     */
+    public static function unitInStocks()
+    {
+        return [
+            self::UNIT_IN_STOCK_TYPE_1 => Yii::t('common', 'Cái'),
+        ];
+    }
+
+    /**
+     * Returns product statuses list
+     * @return array|mixed
+     */
+    public static function statuses()
+    {
+        return [
+            self::STATUS_IN_STOCK => Yii::t('common', 'In Stock'),
+            self::STATUS_OUT_OF_STOCK => Yii::t('common', 'Out Of Stock'),
+            self::STATUS_STOP_PRODUCTION => Yii::t('common', 'Stop Production'),
+            self::STATUS_DELETED => Yii::t('common', 'Deleted')
+        ];
+    }
+
+    public function getThumbnail($default = null)
+    {
+        return $this->thumbnail_path
+            ? Yii::getAlias($this->thumbnail_base_url . '/' . $this->thumbnail_path)
+            : $default;
     }
 }

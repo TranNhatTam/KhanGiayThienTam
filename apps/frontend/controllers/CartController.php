@@ -9,12 +9,7 @@
 namespace frontend\controllers;
 
 
-use common\models\District;
-use common\models\OrderDetails;
-use common\models\Orders;
 use common\models\Product;
-use common\models\Province;
-use common\models\Ward;
 use frontend\models\CartForm;
 use frontend\models\CartItem;
 use Yii;
@@ -171,7 +166,7 @@ class CartController extends Controller
         $out = [];
         $province = Province::find()->where(['name' => $cat_id])->one();
         if ($province) {
-            $district = District::find()->where(['province_id' => $province->id])->orderBy(['name'=>SORT_ASC])->all();
+            $district = District::find()->where(['province_id' => $province->id])->orderBy(['name' => SORT_ASC])->all();
             foreach ($district as $item) {
                 $out[] = ['id' => $item->name, 'name' => $item->name];
             }
@@ -185,7 +180,7 @@ class CartController extends Controller
         $out = [];
         $district = District::find()->where(['name' => $subcat_id])->one();
         if ($district) {
-            $ward = Ward::find()->where(['district_id' => $district->id])->orderBy(['name'=>SORT_ASC])->all();
+            $ward = Ward::find()->where(['district_id' => $district->id])->orderBy(['name' => SORT_ASC])->all();
             foreach ($ward as $item) {
                 $out[] = ['id' => $item->name, 'name' => $item->name];
             }

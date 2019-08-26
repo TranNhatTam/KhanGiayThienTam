@@ -72,6 +72,7 @@ class ProductController extends Controller
                 $model->url_id = $modelUrl->id;
                 if ($model->images != null)
                     $model->images = json_encode($model->images);
+                $model->is_deleted = 0;
                 if ($model->save()) {
                     return $this->redirect(['view', 'id' => $model->id]);
                 }

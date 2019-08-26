@@ -8,65 +8,44 @@
  */
 
 /* @var $this \yii\web\View */
-/* @var $categories array|\common\models\Brand[]|\common\models\Category[]|\yii\db\ActiveRecord[] */
-/* @var $brands array|\common\models\Brand[]|\common\models\Category[]|\yii\db\ActiveRecord[] */
+/* @var $product array|\common\models\Product[]|\yii\db\ActiveRecord[] */
 $this->title = 'Danh sách sản phẩm'
 ?>
-    <section class="main">
-        <div class="main-content">
-            <div class="breadcrumb-blk">
-                <div class="container">
-                    <p>Trang chủ / Sản phẩm</p>
+    <section id="content">
+        <div class="content-wrap">
+            <div class="container clearfix">
+                <div class="postcontent nobottommargin col_last">
+                    <div id="shop" class="shop product-3 grid-container clearfix">
+                        <?php
+                        echo $this->renderAjax('_item', ['product' => $product])
+                        ?>
+                    </div>
                 </div>
-            </div>
-            <div class="product-list">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-xs-12">
-                            <?php if ($categories): ?>
-                                <div class="prod-filt-list">
-                                    <div class="filt-ttl">
-                                        <p>Lọc sản phẩm</p>
-                                    </div>
-                                    <div class="filt-inner">
-                                        <div class="filt-list">
-                                            <ul>
-                                                <?php foreach ($categories as $category): ?>
-                                                    <li><a href="/<?=$category->urls->route?>" data-id="<?=$category->id?>"
-                                                           class="filt-itm"><span><?php echo $category->name ?></span></a>
-                                                    </li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                            <!-- END: Filter blk-->
-                            <?php if ($brands): ?>
-                                <div class="prod-filt-list">
-                                    <div class="filt-ttl">
-                                        <p>Thương hiệu</p>
-                                    </div>
-                                    <div class="filt-inner">
-                                        <div class="filt-frm">
-                                            <input type="text" placeholder="Tên thương hiệu" class="brand-search-txt">
-                                            <button><i class="fa fa-search"></i></button>
-                                        </div>
-                                        <div class="filt-list brand-list">
-                                            <?=$this->renderAjax('list-brand',['brands'=>$brands])?>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-                        <!-- END: Category-->
-                        <div class="col-md-9 col-xs-12">
-                            <div class="product-list-inner">
-                                <?php
-                                    echo $this->renderAjax('list', ['product' => $product,'pages'=>$pages])
-                                ?>
 
-                            </div>
+                <div class="sidebar nobottommargin">
+                    <div class="sidebar-widgets-wrap">
+                        <div class="widget widget-filter-links clearfix">
+                            <h4>Select Category</h4>
+                            <ul class="custom-filter" data-container="#shop" data-active-class="active-filter">
+                                <li class="widget-filter-reset active-filter"><a href="#" data-filter="*">Clear</a></li>
+                                <li><a href="#" data-filter=".sf-dress">Dress</a></li>
+                                <li><a href="#" data-filter=".sf-tshirt">Tshirts</a></li>
+                                <li><a href="#" data-filter=".sf-pant">Pants</a></li>
+                                <li><a href="#" data-filter=".sf-sunglass">Sunglasses</a></li>
+                                <li><a href="#" data-filter=".sf-shoes">Shoes</a></li>
+                                <li><a href="#" data-filter=".sf-watch">Watches</a></li>
+                            </ul>
+
+                        </div>
+                        <div class="widget widget-filter-links clearfix">
+                            <h4>Sort By</h4>
+                            <ul class="shop-sorting">
+                                <li class="widget-filter-reset active-filter"><a href="#" data-sort-by="original-order">Clear</a>
+                                </li>
+                                <li><a href="#" data-sort-by="name">Name</a></li>
+                                <li><a href="#" data-sort-by="price_lh">Price: Low to High</a></li>
+                                <li><a href="#" data-sort-by="price_hl">Price: High to Low</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -176,15 +176,18 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/common/models/record" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\common\models\record" />
+      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\common\models\query" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web\css" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web" />
@@ -219,7 +222,10 @@
       <workItem from="1565708137246" duration="1441000" />
       <workItem from="1565788636156" duration="89000" />
       <workItem from="1565788769599" duration="7654000" />
-      <workItem from="1565966131666" duration="1427000" />
+      <workItem from="1565966131666" duration="1790000" />
+      <workItem from="1566224048143" duration="821000" />
+      <workItem from="1566393287048" duration="67000" />
+      <workItem from="1566620003051" duration="9355000" />
     </task>
     <servers />
   </component>

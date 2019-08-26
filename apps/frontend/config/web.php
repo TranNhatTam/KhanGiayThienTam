@@ -3,7 +3,7 @@ $config = [
     'homeUrl' => Yii::getAlias('@frontendUrl'),
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'site/index',
-    'bootstrap' => ['maintenance','frontend\Bootstrap'],
+//    'bootstrap' => ['maintenance', 'frontend\Bootstrap'],
     'modules' => [
         'user' => [
             'class' => frontend\modules\user\Module::class,
@@ -38,7 +38,7 @@ $config = [
             ]
         ],
         'recentlyProdView' => [
-            'class'=> dtsmart\helper\RecentlyViewContainer::class
+            'class' => dtsmart\helper\RecentlyViewContainer::class
         ],
 //        'recentlyProdView'=>[
 //            'class'=>'dtsmart\helper\RecentlyViewContainer',
@@ -82,9 +82,9 @@ $config = [
         ],
     ],
     'params' => [
-        'defaultItemUrlSuffix'=> null,
-        'defaultCategoryUrlSuffix'=> null,
-        'defaultTagUrlSuffix'=> null
+        'defaultItemUrlSuffix' => null,
+        'defaultCategoryUrlSuffix' => null,
+        'defaultTagUrlSuffix' => null
     ]
 
 ];

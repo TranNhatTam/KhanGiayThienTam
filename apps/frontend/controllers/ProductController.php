@@ -8,14 +8,8 @@
 
 namespace frontend\controllers;
 
-
 use common\models\Brand;
-use common\models\Category;
 use common\models\Product;
-use common\models\ProductTag;
-use common\models\Tag;
-use common\models\Urls;
-use frontend\models\CartItem;
 use Yii;
 use yii\data\Pagination;
 use yii\web\Controller;
@@ -24,20 +18,15 @@ class ProductController extends Controller
 {
     public function actionIndex()
     {
-        $categories = Category::find()->orderBy(['priority' => SORT_DESC])->visible()->all();
-        $brands = Brand::find()->visible()->all();
-
-        $category_id = Yii::$app->request->get('category');
         $query = Product::find()->visible();
-        if (isset($category_id)) {
-            $query = Product::find()->where(['category_id' => $category_id])->visible();
-        }
-
         $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>18]);
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 18]);
         $product = $query->offset($pages->offset)->limit($pages->limit)->all();
 
-        return $this->render('index', ['categories' => $categories, 'brands' => $brands, 'product' => $product, 'pages' => $pages]);
+        return $this->render('index', [
+            'product' => $product,
+            'pages' => $pages
+        ]);
     }
 
     public function actionSortProductByBrand()
@@ -53,7 +42,7 @@ class ProductController extends Controller
                 $query = Product::find()->visible();
             }
             $countQuery = clone $query;
-            $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>18]);
+            $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 18]);
             $product = $query->offset($pages->offset)->limit($pages->limit)->all();
 
             return ['data' => $this->renderAjax('list', ['product' => $product, 'pages' => $pages])];
@@ -72,7 +61,7 @@ class ProductController extends Controller
                 $query = Product::find()->visible();
             }
             $countQuery = clone $query;
-            $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>18]);
+            $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 18]);
             $product = $query->offset($pages->offset)->limit($pages->limit)->all();
 
             return ['data' => $this->renderAjax('list', ['product' => $product, 'pages' => $pages])];
@@ -127,15 +116,15 @@ class ProductController extends Controller
         $request = Yii::$app->request;
         if ($request->isAjax) {
             $id = $request->get('id');
-            $product = Product::find()->where(['id'=>$id])->one();
+            $product = Product::find()->where(['id' => $id])->one();
             if ($product) {
-                return ['result'=>$this->renderAjax('quick-view',['product'=>$product])];
+                return ['result' => $this->renderAjax('quick-view', ['product' => $product])];
             }
         }
     }
 
     public function actionView()
     {
-       return $this->render('view');
+        return $this->render('view');
     }
 }

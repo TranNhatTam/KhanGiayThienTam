@@ -47,18 +47,21 @@ class FrontendAsset extends AssetBundle
     public $js = [
         'js/jquery.js',
         'js/plugins.js',
-        'js/functions.js',
-        'include/rs-plugin/js/jquery.themepunch.tools.min.js',
-        'include/rs-plugin/js/jquery.themepunch.revolution.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.video.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.actions.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.navigation.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.migration.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.parallax.min.js',
-        'js/custom.js',
+//        'js/functions.js',
+//        'include/rs-plugin/js/jquery.themepunch.tools.min.js',
+//        'include/rs-plugin/js/jquery.themepunch.tools.min.js',
+//        'include/rs-plugin/js/jquery.themepunch.revolution.min.js',
+//        'include/rs-plugin/js/extensions/revolution.extension.video.min.js',
+//        'include/rs-plugin/js/extensions/revolution.extension.actions.min.js',
+//        'include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js',
+//        'include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js',
+//        'include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js',
+//        'include/rs-plugin/js/extensions/revolution.extension.navigation.min.js',
+//        'include/rs-plugin/js/extensions/revolution.extension.migration.min.js',
+//        'include/rs-plugin/js/extensions/revolution.extension.parallax.min.js',
+//        'js/custom.js',
+
+
     ];
 
     /**
