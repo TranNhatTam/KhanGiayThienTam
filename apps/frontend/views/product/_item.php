@@ -35,45 +35,7 @@
         </div>
     <?php }
 } ?>
-<?php
-$js = <<<JS
-$('.add-to-cart').click(function() {
-    var id = $(this).attr('data-id');
-    var quantity = 1;
-    var name = $(this).attr('data-name');
-    $.ajax({
-        'url':'/cart/add-cart',
-        'method':'GET',
-        'data':{
-            'id': id,
-            'quantity': quantity
-        },
-        'success': function(data) {
-          if (data.result === 'success') {
-                $('.buy-product').html("<i class='fa fa-check-circle' style='font-size:30px;color:#5cb85c'></i> <span style='font-size:20px'>Thêm sản phẩm "+name+" thành công.</span>");
-                $('#addToCartModal').modal('show');
-                $.pjax.reload({container:"#header-cart-pjax",'timeout':5000});
-          } 
-        }
-    });
-});
-$('.view-prod').click(function() {
-  var id = $(this).attr('data-id');
-  $.ajax({
-    'url':'/product/quick-view',
-    'method':'GET',
-    'data': {
-        'id':id,
-    },
-    'success':function(data) {
-      $('.quick-view').html(data.result);
-      $('#quickViewModal').modal('show');
-    }
-  })
-})
-JS;
-$this->registerJs($js);
-?>
+
 <div class="modal fade" id="addToCartModal" role="dialog">
     <div class="modal-dialog" id="addToCartModal">
         <div class="modal-content">
@@ -81,7 +43,7 @@ $this->registerJs($js);
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn pull-left" data-dismiss="modal">Tiếp tục mua hàng</button>
-                <a href="/cart/index" class="btn btn-default">Đơn hàng</a>
+                <a href="/cart/index" class="btn pull-right btn-default">Đơn hàng</a>
             </div>
         </div>
     </div>
@@ -100,3 +62,39 @@ $this->registerJs($js);
         </div>
     </div>
 </div>
+<div class="modal1 mfp-hide" id="myModal1">
+    <div class="block divcenter" style="background-color: #FFF; max-width: 500px;">
+        <div class="center" style="padding: 50px;">
+            <h3>A Simple Example of a Text Modal</h3>
+            <p class="nobottommargin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum delectus, tenetur obcaecati porro! Expedita nostrum tempora quia provident perspiciatis inventore, autem eaque, quod explicabo, ipsum, facilis aliquid! Sapiente, possimus quo!</p>
+        </div>
+        <div class="section center nomargin" style="padding: 30px;">
+            <a href="#" class="button" onClick="$.magnificPopup.close();return false;">Close this Modal</a>
+        </div>
+    </div>
+</div>
+<?php
+$js = <<<JS
+$( document ).ready(function() {
+  $('.add-to-cart').click(function() {
+    $('#myModal1').modal('show');
+});
+$('.view-prod').click(function() {
+  var id = $(this).attr('data-id');
+  $.ajax({
+    'url':'/product/quick-view',
+    'method':'GET',
+    'data': {
+        'id':id,
+    },
+    'success':function(data) {
+      $('.quick-view').html(data.result);
+      $('#quickViewModal').modal('show');
+    }
+  })
+})
+});
+
+JS;
+$this->registerJs($js);
+?>

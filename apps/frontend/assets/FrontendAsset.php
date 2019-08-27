@@ -35,9 +35,9 @@ class FrontendAsset extends AssetBundle
         'css/animate.css',
         'css/magnific-popup.css',
         'css/responsive.css',
-        'include/rs-plugin/css/settings.css',
-        'include/rs-plugin/css/layers.css',
-        'include/rs-plugin/css/navigation.css',
+//        'include/rs-plugin/css/settings.css',
+//        'include/rs-plugin/css/layers.css',
+//        'include/rs-plugin/css/navigation.css',
         'css/custom.css',
     ];
 
@@ -47,7 +47,7 @@ class FrontendAsset extends AssetBundle
     public $js = [
         'js/jquery.js',
         'js/plugins.js',
-//        'js/functions.js',
+        'js/functions.js',
 //        'include/rs-plugin/js/jquery.themepunch.tools.min.js',
 //        'include/rs-plugin/js/jquery.themepunch.tools.min.js',
 //        'include/rs-plugin/js/jquery.themepunch.revolution.min.js',
@@ -72,4 +72,8 @@ class FrontendAsset extends AssetBundle
 //        BootstrapAsset::class,
 //        Html5shiv::class,
     ];
+
+    public $jsOptions = array(
+        'position' => \yii\web\View::POS_HEAD
+    );
 }

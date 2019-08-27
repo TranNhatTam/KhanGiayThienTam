@@ -176,7 +176,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/common/models/record" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/frontend/web/js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -186,11 +186,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web\js" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\common\models\record" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\common\models\query" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web\css" />
-      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -226,6 +226,7 @@
       <workItem from="1566224048143" duration="821000" />
       <workItem from="1566393287048" duration="67000" />
       <workItem from="1566620003051" duration="9355000" />
+      <workItem from="1566916545600" duration="2486000" />
     </task>
     <servers />
   </component>

@@ -13,7 +13,12 @@ $config = [
     ],
     'components' => [
         'assetManager' => [
-            'linkAssets' => false
+            'linkAssets' => false,
+            'bundles' => [
+                'yii\web\JqueryAsset' => [
+                    'js' => []
+                ],
+            ],
         ],
         'authClientCollection' => [
             'class' => yii\authclient\Collection::class,
