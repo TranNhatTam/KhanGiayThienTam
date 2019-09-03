@@ -4,7 +4,7 @@
  * @copyright Copyright (c) 2016 HafidMukhlasin.com
  * @license http://www.yiiframework.com/license/
  */
- 
+
 namespace dtsmart\cart;
 
 
@@ -16,14 +16,12 @@ namespace dtsmart\cart;
  * @property int $quantity
  * @package \hscsstudio\cart
  */
- 
 interface ItemInterface
 {
-
     /** Triggered on cost calculation */
     const EVENT_COST_CALCULATION = 'costCalculation';
-	
-	/**
+
+    /**
      * @return integer
      */
     public function getPrice();
@@ -33,14 +31,11 @@ interface ItemInterface
      */
     public function getId();
 
-
     /**
      * @param bool $withDiscount
      * @return integer
      */
     public function getCost($withDiscount = true);
-
-
 
     /**
      * @param int $quantity

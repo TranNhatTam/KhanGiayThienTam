@@ -2,6 +2,8 @@
 
 namespace common\models;
 
+use common\models\query\ActiveQuery;
+use common\models\record\ActiveRecord;
 use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -21,7 +23,7 @@ use yii\helpers\ArrayHelper;
  * @property int $is_deleted
  * @property int $url_id
  */
-class Category extends \yii\db\ActiveRecord
+class Category extends ActiveRecord
 {
     /**
      * @var array
@@ -84,6 +86,14 @@ class Category extends \yii\db\ActiveRecord
             'is_deleted' => 'Is Deleted',
             'url_id' => 'Url ID',
         ];
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public static function find()
+    {
+        return new ActiveQuery(get_called_class());
     }
 
     public static function getArrayCategory()

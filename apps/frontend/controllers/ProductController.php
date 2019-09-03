@@ -9,6 +9,7 @@
 namespace frontend\controllers;
 
 use common\models\Brand;
+use common\models\Category;
 use common\models\Product;
 use Yii;
 use yii\data\Pagination;
@@ -18,12 +19,14 @@ class ProductController extends Controller
 {
     public function actionIndex()
     {
+        $category = Category::find()->visible()->all();
         $query = Product::find()->visible();
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 18]);
         $product = $query->offset($pages->offset)->limit($pages->limit)->all();
 
         return $this->render('index', [
+            'category' => $category,
             'product' => $product,
             'pages' => $pages
         ]);
@@ -116,11 +119,12 @@ class ProductController extends Controller
         $request = Yii::$app->request;
         if ($request->isAjax) {
             $id = $request->get('id');
-            $product = Product::find()->where(['id' => $id])->one();
+            $product = Product::findOne($id);
             if ($product) {
-                return ['result' => $this->renderAjax('quick-view', ['product' => $product])];
+                return ['result' => $this->renderAjax('_quick-view', ['product' => $product])];
             }
         }
+        return $this->redirect('index');
     }
 
     public function actionView()

@@ -1,34 +1,24 @@
-.revo-slider-emphasis-text {
-    font-size: 58px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-family: 'Raleway', sans-serif;
-    padding: 15px 20px;
-    border-top: 2px solid #FFF;
-    border-bottom: 2px solid #FFF;
+.modal-footer {
+    justify-content: normal;
+    display: block;
 }
 
-.revo-slider-desc-text {
-    font-size: 20px;
-    font-family: 'Lato', sans-serif;
-    width: 650px;
-    text-align: center;
-    line-height: 1.5;
+.pull-right {
+    float: right !important;
 }
 
-.revo-slider-caps-text {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 3px;
-    font-family: 'Raleway', sans-serif;
+.pull-left {
+    float: left !important;
 }
 
-.tp-video-play-button {
-    display: none !important;
+.media-right,
+.media > .pull-right {
+    padding-left: 10px;
 }
 
-.tp-caption {
-    white-space: nowrap;
+.media-left,
+.media > .pull-left {
+    padding-right: 10px;
 }
 
 .product-overlay button {
@@ -39,11 +29,21 @@
     color: #333;
     background-color: #F5F5F5;
     text-align: center;
-    border: 0;
+    border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+.product-overlay button.add-to-cart{
+    border-left: 0;
+}
+
+.product-overlay button.item-quick-view{
+    border-right: 0;
 }
 
 .product-overlay button:hover {
     background-color: #333;
     color: #FFF;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
+
+

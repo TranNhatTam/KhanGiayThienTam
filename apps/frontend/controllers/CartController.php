@@ -22,7 +22,7 @@ class CartController extends Controller
     {
         $cart = CartItem::findOne($id);
         if ($cart) {
-            Yii::$app->carts->create($cart, $quantity);
+            Yii::$app->cart->add($cart, $quantity);
         }
         return $this->redirect('index');
     }
@@ -38,10 +38,10 @@ class CartController extends Controller
             if ($cart) {
                 Yii::$app->carts->create($cart, $quantity);
             }
-            return ['result' => 'success'];
+            return ['result' => true];
         }
 
-        return ['result' => 'fail'];
+        return ['result' => false];
     }
 
     public function actionIndex()

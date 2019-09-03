@@ -61,7 +61,7 @@
     "yii2mod/yii2-cart": "*",
     "kartik-v/dependent-dropdown": "dev-master",
 	"kartik-v/yii2-krajee-base": "dev-master",
-	"kartik-v/yii2-widget-depdrop": "dev-master"
+	"kartik-v/yii2-widget-depdrop": "dev-master",
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

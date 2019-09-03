@@ -105,7 +105,7 @@ use yii\helpers\Url;
                 <ul>
                     <li><a href="/"><div>Trang Chủ</div></a></li>
                     <li><a href="/site/about"><div>Giới Thiệu</div></a></li>
-                    <li><a href="/product/view"><div>Sản Phẩm</div></a></li>
+                    <li><a href="/product/index"><div>Sản Phẩm</div></a></li>
                     <li><a href="/site/gallery"><div>Dịch Vụ</div></a></li>
                     <li><a href="#"><div>Ưu Đãi</div></a></li>
                     <li><a href="/site/blog"><div>Tin Tức</div></a></li>
