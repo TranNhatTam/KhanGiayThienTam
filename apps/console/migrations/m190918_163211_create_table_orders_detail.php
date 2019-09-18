@@ -3,22 +3,21 @@
 use yii\db\Migration;
 
 /**
- * Class m190814_133355_create_table_order_detail
+ * Class m190918_163211_create_table_orders_detail
  */
-class m190814_133355_create_table_order_detail extends Migration
+class m190918_163211_create_table_orders_detail extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%order_detail}}', [
+        $this->createTable('{{%orders_detail}}', [
             'id' => $this->bigPrimaryKey(),
             'order_id' => $this->bigInteger()->notNull(),
             'product_id' => $this->bigInteger()->notNull(),
@@ -39,7 +38,7 @@ class m190814_133355_create_table_order_detail extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%order_detail}}');
+        $this->dropTable('{{%orders_detail}}');
     }
 
     /*
@@ -51,7 +50,7 @@ class m190814_133355_create_table_order_detail extends Migration
 
     public function down()
     {
-        echo "m190814_133355_create_table_order_detail cannot be reverted.\n";
+        echo "m190918_163211_create_table_orders_detail cannot be reverted.\n";
 
         return false;
     }

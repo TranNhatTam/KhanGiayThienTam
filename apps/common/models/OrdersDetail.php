@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "order_detail".
+ * This is the model class for table "orders_detail".
  *
  * @property int $id
  * @property int $order_id
@@ -20,14 +20,14 @@ use Yii;
  * @property string $updated_at
  * @property int $is_deleted
  */
-class OrderDetail extends \yii\db\ActiveRecord
+class OrdersDetail extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'order_detail';
+        return 'orders_detail';
     }
 
     /**

@@ -1,190 +1,138 @@
 <?php
+/* @var $orderDetailModel OrdersDetail[] */
 
-/**
- * Created by PhpStorm.
- * User: SMART DIGITECH
- * Date: 10/18/2018
- * Time: 3:24 PM
- */
+/* @var $model Orders */
 
-use kartik\depdrop\DepDrop;
-use yii\helpers\Url;
-use yii\widgets\ActiveForm;
+use common\models\Orders;
+use common\models\OrdersDetail;
+use common\models\Product;
 
-/* @var $this \yii\web\View */
-/* @var $products \dtsmart\cart\ItemInterface[] */
-$this->title = 'Giỏ hàng';
 ?>
-<section class="main">
-    <div class="main-content">
-        <div class="breadcrumb-blk">
-            <div class="container">
-                <p>Trang chủ / Đơn hàng</p>
-            </div>
-        </div>
-        <div class="cart-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-xs-12 cart-tb">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <tr>
-                                    <th class="text-center">Sản phẩm</th>
-                                    <th class="text-center">Đơn giá</th>
-                                    <th class="text-center">Số lượng</th>
-                                    <th class="text-center">Tổng cộng</th>
+<!-- Page Title
+    ============================================= -->
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Giỏ Hàng</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Trang Chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Giỏ Hàng</li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+============================================= -->
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="row clearfix">
+                <div class="col-lg-6">
+                    <h4>Đơn Hàng Của Bạn</h4>
+                    <div class="table-responsive">
+                        <table class="table cart">
+                            <thead>
+                            <tr>
+                                <th class="cart-product-thumbnail">&nbsp;</th>
+                                <th class="cart-product-name">Sản Phẩm</th>
+                                <th class="cart-product-quantity">Số Lượng</th>
+                                <th class="cart-product-subtotal">Tổng Cộng</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            $totalPrice = 0;
+                            /* @var $item OrdersDetail */
+                            foreach ($orderDetailModel as $item) {
+                                $product = Product::findOne($item->product_id);
+                                ?>
+                                <tr class="cart_item" id="item-<?= $item->id ?>">
+                                    <td class="cart-product-thumbnail">
+                                        <a href="/<?= $product->url->route ?>"><img width="64" height="64"
+                                                                                    src="<?= $product->getThumbnail() ?>"
+                                                                                    alt="<?= $product->name ?>"></a>
+                                    </td>
+                                    <td class="cart-product-name">
+                                        <a href="/<?= $product->url->route ?>"><?= $product->name ?></a>
+                                    </td>
+
+                                    <td class="cart-product-quantity">
+                                        <div class="quantity clearfix">
+                                            <?= $item->quantity ?>
+                                        </div>
+                                    </td>
+                                    <td class="cart-product-subtotal">
+                                        <span class="amount"><?= number_format($item->total_price, 0, '', '.') . ' đ' ?></span>
+                                    </td>
                                 </tr>
                                 <?php
-                                $totalPrice = 0;
-                                /* @var $item \common\models\OrderDetails */
-                                if (!empty($orderDetailModel)) {
-                                    foreach ($orderDetailModel as $item) {
-                                        ?>
-                                        <tr>
-                                            <td>
-                                                <div class="cart-img"><img src="<?= $item->product->fullPathImageThumbnail ?>"
-                                                                           alt></div>
-                                                <h3 class="cart-name"><?= $item->product->name ?></h3>
-                                            </td>
-                                            <td class="text-center"><?= ($item->unit_price != null ? number_format($item->unit_price, 0, '', '.') . ' đ' : 'Liên Hệ') ?></td>
-                                            <td class="text-center">
-                                                <?= $item->quantity ?>
-                                            </td>
-                                            <td class="text-center"><?= ($item->unit_price != null ? number_format($item->total_price, 0, '', '.') . ' đ' : 'Liên Hệ') ?></td>
-                                        </tr>
-                                        <!-- END: Cart itm tr-->
-                                        <?php
-                                    }
-                                }
-                                ?>
-
-                            </table>
-                        </div>
+                            } ?>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="cart-ship-info">
-                        <div class="cart-ship-info-inner">
-                            <h3>Thông tin giao hàng</h3>
-                            <div class="ship-form">
-<!--                                <div class="not-login"><a href="#">Đăng ký tài khoản mua hàng </a><a href="#">Đăng nhập</a></div>-->
-                                <div class="buy-wihtout-login">
-<!--                                    <p>Mua hàng không cần đăng nhập</p>-->
-                                    <form>
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Họ và tên" value="<?=$model->ship_name?>" disabled>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Số điện thoại" value="<?=$model->ship_phone?>" disabled>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Email" value="<?=$model->ship_email?>" disabled>
-                                        </div>
-                                        <div class="form-group">
-                                            <?php
-                                                $district = \common\models\District::find()->where(['name'=>$model->ship_district])->one();
-                                                $ward = \common\models\Ward::find()->where(['name'=>$model->ship_ward])->one();
-                                                if ($district) {
-                                                    $type_dis = '';
-                                                    if ($district->type == 'quan') $type_dis = "Quận";
-                                                    if ($district->type == 'huyen') $type_dis = "Huyện";
-                                                    if ($district->type == 'thanh-pho') $type_dis = "Thành phố";
-                                                    $name_dis = $type_dis.' '.$district->name;
-                                                } else {
-                                                    $name_dis = $model->ship_district;
-                                                }
-                                                if ($ward) {
-                                                    $type_ward = '';
-                                                    if ($ward->type == 'phuong') $type_ward = "Phường";
-                                                    if ($ward->type == 'xa') $type_ward = "Xã";
-                                                    $name_ward = $type_ward.' '.$ward->name;
-                                                } else {
-                                                    $name_ward = $model->ship_ward;
-                                                }
-                                            ?>
-                                            <input type="text" placeholder="Địa chỉ" value="<?=$model->ship_address.', '.$name_ward.', '.$name_dis.', '.$model->ship_city?>" disabled>
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea rows="3" placeholder="Ghi chú" disabled><?=$model->note?></textarea>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                    <hr>
+                    <h4>Tổng Đơn</h4>
+                    <div class="table-responsive">
+                        <table class="table cart">
+                            <tbody>
+                            <tr class="cart_item">
+                                <td class="notopborder cart-product-name">
+                                    <strong>Tạm Tính</strong>
+                                </td>
+
+                                <td class="notopborder cart-product-name">
+                                    <span class="amount"><?= number_format($model->total_price, 0, '', '.') . ' đ' ?></span>
+                                </td>
+                            </tr>
+                            <tr class="cart_item">
+                                <td class="cart-product-name">
+                                    <strong>Phí Ship</strong>
+                                </td>
+
+                                <td class="cart-product-name">
+                                    <span class="amount">0 đ</span>
+                                </td>
+                            </tr>
+                            <tr class="cart_item">
+                                <td class="cart-product-name">
+                                    <strong>Tổng Cộng</strong>
+                                </td>
+
+                                <td class="cart-product-name">
+                                    <span class="amount color lead"><strong><?= number_format($model->total_price, 0, '', '.') . ' đ' ?></strong></span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="cart-summary">
-                        <div class="cart-sum-inner">
-                            <h3 class="text-center">Chi tiết đơn hàng</h3>
-                            <div class="cart-total-price">
-                                <p><span class="ttl">Tạm tính:</span><span
-                                        class="val"><?= number_format($model->total_price, 0, '', '.') . ' đ' ?></span></p>
-                                <p><span class="ttl">Phí ship:</span><span class="val">0đ</span></p>
-                                <p class="cart-total"><span class="ttl">Tổng cộng:</span><span
-                                        class="val"><?= number_format($model->total_price, 0, '', '.') . ' đ' ?></span></p>
-
-                            </div>
-                            <div class="payment-type" style="padding-bottom: 0px">
-                                <h4><strong>Phương thức thanh toán</strong></h4>
-                                <div class="custom-rdo">
-                                    <label>
-                                        <span>- <?=$model->description?></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="note-cart">
-                                <p>- Thời gian giao hàng từ 3 - 5 ngày làm việc</p>
-                                <p>- Đổi trả hàng trong vòng 90 ngày</p>
-                                <p>- Miễn phí giao hàng toàn quốc</p>
-                                <p>- Thanh toán khi nhận hàng / Thanh toán online</p>
-                            </div>
-
-                        </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4>Thông Tin Đặt Hàng</h4>
+                    <div class="col_half">
+                        <label for="shipping-form-name">Họ Và Tên:</label>
+                        <input type="text" id="shipping-form-name" name="shipping-form-name"
+                               value="<?= $model->ship_name ?>" readonly
+                               class="sm-form-control"/>
+                    </div>
+                    <div class="col_half col_last">
+                        <label for="shipping-form-address">Địa Chỉ:</label>
+                        <input type="text" id="shipping-form-address" name="shipping-form-address"
+                               value="<?= $model->ship_address ?>" readonly
+                               class="sm-form-control"/>
+                    </div>
+                    <div class="col_full">
+                        <label for="shipping-form-tel">Điện Thoại:</label>
+                        <input type="text" id="shipping-form-tel" name="shipping-form-tel"
+                               value="<?= $model->ship_phone ?>" readonly
+                               class="sm-form-control"/>
+                    </div>
+                    <div class="col_full">
+                        <label for="shipping-form-note">Ghi Chú:</label>
+                        <textarea class="sm-form-control" id="shipping-form-message" name="shipping-form-message" readonly rows="6" cols="30"></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<?php
-$token = Yii::$app->request->getCsrfToken();
-$js = <<<JS
-$('.incre').click(function() {
-    var id  = $(this).attr('data-id');
-    var quantity = $(this).parent().find('input').val();
-    quantity = +quantity + 1;
-    $.ajax({
-        'url':'/cart/update-cart-item-quantity',
-        'method':'POST',
-        'data':{
-            'id':id,
-            'quantity':quantity,
-            '_csrf': '$token',
-        },
-        'success': function(data) {
-            if (data.result == 'success') {
-                window.location.reload();
-            } 
-        }
-    })
-});
-$('.decre').click(function() {
-    var id  = $(this).attr('data-id');
-    var quantity = $(this).parent().find('input').val();
-    quantity = +quantity - 1;
-    $.ajax({
-        'url':'/cart/update-cart-item-quantity',
-        'method':'POST',
-        'data':{
-            'id':id,
-            'quantity':quantity,
-            '_csrf': '$token',
-        },
-        'success': function(data) {
-            if (data.result == 'success') {
-                window.location.reload();
-            } 
-        }
-    })
-});
-
-JS;
-$this->registerJs($js);
-?>
+</section><!-- #content end -->

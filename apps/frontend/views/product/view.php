@@ -206,7 +206,7 @@ $js = <<<JS
 $(document).ready(function ($) {
     $('.add-to-cart').click(function() {
         var id = $(this).attr('data-id');
-        var quantity = 1;
+        var quantity = $('.qty').val();
         $.ajax({
             'url':'/cart/add-cart',
             'method':'GET',

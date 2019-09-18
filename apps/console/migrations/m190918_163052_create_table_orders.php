@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m190814_132934_create_table_order
+ * Class m190918_163052_create_table_orders
  */
-class m190814_132934_create_table_order extends Migration
+class m190918_163052_create_table_orders extends Migration
 {
     /**
      * {@inheritdoc}
@@ -17,7 +17,7 @@ class m190814_132934_create_table_order extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%order}}', [
+        $this->createTable('{{%orders}}', [
             'id' => $this->bigPrimaryKey(),
             'customer_id' => $this->bigInteger(),
             'employee_id' => $this->bigInteger(),
@@ -39,7 +39,7 @@ class m190814_132934_create_table_order extends Migration
             'ship_country' => $this->string(),
             'total_price' => $this->double()->notNull(),
             'total_tax' => $this->double(),
-            'status' => $this->string()->notNull(),
+            'status' => $this->integer()->notNull(),
             'ship_status' => $this->integer(),
             'payment_status' => $this->integer(),
             'note' => $this->text(),
@@ -56,7 +56,7 @@ class m190814_132934_create_table_order extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%order}}');
+        $this->dropTable('{{%orders}}');
     }
 
     /*
@@ -68,7 +68,7 @@ class m190814_132934_create_table_order extends Migration
 
     public function down()
     {
-        echo "m190814_132934_create_table_order cannot be reverted.\n";
+        echo "m190918_163052_create_table_orders cannot be reverted.\n";
 
         return false;
     }

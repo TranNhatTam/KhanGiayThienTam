@@ -9,6 +9,8 @@
 namespace frontend\controllers;
 
 
+use common\models\Orders;
+use common\models\OrdersDetail;
 use common\models\Product;
 use frontend\models\CartForm;
 use frontend\models\CartItem;
@@ -53,7 +55,7 @@ class CartController extends Controller
         if ($num == 0) {
             return $this->redirect('/site/index');
         }
-        
+
         return $this->render('index', [
             'products' => $carts,
             'model' => $model
@@ -196,12 +198,10 @@ class CartController extends Controller
         $modelOrder = new Orders();
         $cart = Yii::$app->carts;
         if ($model->load(Yii::$app->request->post())) {
-            $modelOrder->order_date = date('Y-m-d H:i:s');
-            $modelOrder->type = "COD";
-            $modelOrder->description = "Chuyển khoản qua ngân hàng";
             $modelOrder->freight = 0;
             $modelOrder->status = Orders::STATUS_PENDING;
-            $modelOrder->ship = "{}";
+            $modelOrder->total_price = $model->total_price;
+            $modelOrder->order_date = date('Y-m-d H:i:s');
             $modelOrder->ship_name = $model->ship_name;
             $modelOrder->ship_phone = $model->ship_phone;
             $modelOrder->ship_email = $model->ship_email;
@@ -210,51 +210,44 @@ class CartController extends Controller
             $modelOrder->ship_district = $model->ship_district;
             $modelOrder->ship_ward = $model->ship_ward;
             $modelOrder->note = $model->note;
-            $modelOrder->total_price = $model->total_price;
-            if ($model->validate()) {
-                if ($modelOrder->validate()) {
-                    if ($modelOrder->save()) {
-                        $items = $cart->getItems();
-                        // Check exist product
-                        /* @var $item Product */
-                        foreach ($items as $item) {
-                            // access any attribute/method from the model
-                            $orderDetailModel = new OrderDetails();
-                            $orderDetailModel->order_id = $modelOrder->id;
-                            $orderDetailModel->product_id = $item->id;
-                            $orderDetailModel->product_code = $item->code;
-                            $orderDetailModel->unit_price = $item->unit_price;
-                            if ($item->discount != null || $item->discount != '') {
-                                $orderDetailModel->unit_price = $item->discount;
-                            }
-                            $orderDetailModel->quantity = $item->quantity;
-                            $orderDetailModel->tax_value = 0;
-                            $orderDetailModel->discount = 0;
-                            $orderDetailModel->weight = $item->weight;
-                            $orderDetailModel->total_price = $orderDetailModel->unit_price * $orderDetailModel->quantity;
+            if ($modelOrder->validate() && $modelOrder->save()) {
+                $items = $cart->getItems();
+                // Check exist product
+                /* @var $item Product */
+                foreach ($items as $item) {
+                    // access any attribute/method from the model
+                    $orderDetailModel = new OrdersDetail();
+                    $orderDetailModel->order_id = $modelOrder->id;
+                    $orderDetailModel->product_id = $item->id;
+                    $orderDetailModel->unit_price = $item->unit_price;
+                    if ($item->discount != null || $item->discount != '') {
+                        $orderDetailModel->unit_price = $item->discount;
+                    }
+                    $orderDetailModel->quantity = $item->quantity;
+                    $orderDetailModel->tax_value = 0;
+                    $orderDetailModel->discount = 0;
+                    $orderDetailModel->total_price = $orderDetailModel->unit_price * $orderDetailModel->quantity;
 
-                            if ($orderDetailModel->validate()) {
-                                $orderDetailModel->save();
-                            }
-                        }
-                        $cart->checkOut(false);
-                        return $this->redirect('view?id=' . $modelOrder->id);
-                    } else {
-                        Yii::$app->session->setFlash('error', $model->getErrors());
-                        return $this->redirect('index');
+                    if ($orderDetailModel->validate()) {
+                        $orderDetailModel->save();
                     }
                 }
+                $cart->checkOut(false);
+                return $this->redirect('view?id=' . $modelOrder->id);
+            } else {
+                Yii::$app->session->setFlash('error', $model->getErrors());
+                return $this->redirect('index');
             }
-        } else {
-            return $this->redirect('index');
         }
+
+        return $this->redirect('index');
     }
 
     public function actionView($id)
     {
         $model = Orders::find()->where(['id' => $id])->one();
         if ($model) {
-            $orderDetailModel = OrderDetails::find()->where(['order_id' => $id])->all();
+            $orderDetailModel = OrdersDetail::find()->where(['order_id' => $id])->all();
 
             return $this->render('view', ['model' => $model, 'orderDetailModel' => $orderDetailModel]);
         }

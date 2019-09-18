@@ -3,9 +3,7 @@
 use yii\helpers\Url;
 use yii\widgets\Pjax;
 
-$this->registerJsFile('js/jquery.js');
-$this->registerJsFile('js/plugins.js');
-$this->registerJsFile('js/functions.js');
+
 ?>
 
 <style>
@@ -134,49 +132,8 @@ $this->registerJsFile('js/functions.js');
                 <!-- Top Cart
                 ============================================= -->
                 <?php Pjax::begin(['id' => 'top-cart', 'timeout' => 5000]); ?>
-                <a href="/" id="top-cart-trigger"><i
+                <a href="/cart/index" id="go-to-cart"><i
                             class="icon-shopping-cart"></i><span><?= Yii::$app->carts->getCount() ?></span></a>
-                <div class="top-cart-content">
-                    <div class="top-cart-title">
-                        <h4>Shopping Cart</h4>
-                    </div>
-                    <div class="top-cart-items">
-                        <?php
-                        /* @var $item \common\models\Product */
-                        $product = Yii::$app->carts->getItems();
-                        $total = 0;
-                        foreach ($product as $item) {
-                            if ($item->discount != null || $item->discount != 0) {
-                                $itemTotalPrice = $item->discount * $item->quantity;
-                            } else {
-                                $itemTotalPrice = $item->unit_price * $item->quantity;
-                            }
-                            $total += $itemTotalPrice;
-                            ?>
-                            <div class="top-cart-item clearfix">
-                                <div class="top-cart-item-image">
-                                    <a href="<?= $item->url->route ?>"><img src="<?= $item->getThumbnail() ?>"
-                                                                            alt="<?= $item->name ?>"/></a>
-                                </div>
-                                <div class="top-cart-item-desc">
-                                    <a href="<?= $item->url->route ?>"><?= $item->name ?></a>
-                                    <?php if ($item->discount != null || $item->discount != 0) { ?>
-                                        <span class="top-cart-item-price"><?= number_format($item->discount, 0, '', '.') . ' đ' ?></span>
-                                    <?php } else { ?>
-                                        <span class="top-cart-item-price"><?= number_format($item->unit_price, 0, '', '.') . ' đ' ?></span>
-                                    <?php } ?>
-                                    <span class="top-cart-item-quantity">x <?= $item->quantity ?></span>
-                                </div>
-                            </div>
-                        <?php } ?>
-
-                    </div>
-                    <div class="top-cart-action clearfix">
-                        <span class="fleft top-checkout-price"><?= number_format($total, 0, '', '.') . ' đ' ?></span>
-                        <button class="button button-3d button-small nomargin fright" id="go-to-cart">Xem Giỏ Hàng
-                        </button>
-                    </div>
-                </div>
                 <?php
                 $js = <<<JS
     $('#go-to-cart').click(function() {

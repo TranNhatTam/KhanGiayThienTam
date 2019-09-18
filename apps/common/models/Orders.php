@@ -3,10 +3,9 @@
 namespace common\models;
 
 use Yii;
-use yii2tech\ar\dynattribute\DynamicAttributeBehavior;
 
 /**
- * This is the model class for table "order".
+ * This is the model class for table "orders".
  *
  * @property int $id
  * @property int $customer_id
@@ -29,7 +28,7 @@ use yii2tech\ar\dynattribute\DynamicAttributeBehavior;
  * @property string $ship_country
  * @property double $total_price
  * @property double $total_tax
- * @property string $status
+ * @property int $status
  * @property int $ship_status
  * @property int $payment_status
  * @property string $note
@@ -39,7 +38,7 @@ use yii2tech\ar\dynattribute\DynamicAttributeBehavior;
  * @property string $updated_at
  * @property int $is_deleted
  */
-class Order extends \yii\db\ActiveRecord
+class Orders extends \yii\db\ActiveRecord
 {
     const STATUS_PENDING = 0;
     const STATUS_PROCESSED = 1;
@@ -61,7 +60,7 @@ class Order extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'order';
+        return 'orders';
     }
 
     /**
@@ -70,12 +69,12 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['customer_id', 'employee_id', 'shipper_id', 'ship_status', 'payment_status', 'payment_type', 'notification_type', 'is_deleted'], 'integer'],
+            [['customer_id', 'employee_id', 'shipper_id', 'status', 'ship_status', 'payment_status', 'payment_type', 'notification_type', 'is_deleted'], 'integer'],
             [['order_date', 'ship_date', 'created_at', 'updated_at'], 'safe'],
-            [['fee_info', 'billing_info', 'payment_info', 'note',], 'string'],
+            [['fee_info', 'billing_info', 'payment_info', 'note'], 'string'],
             [['freight', 'total_price', 'status'], 'required'],
             [['freight', 'total_price', 'total_tax'], 'number'],
-            [['ship_name', 'ship_phone', 'ship_email', 'ship_address', 'ship_city', 'ship_district', 'ship_ward', 'ship_postcode', 'ship_country', 'status'], 'string', 'max' => 255],
+            [['ship_name', 'ship_phone', 'ship_email', 'ship_address', 'ship_city', 'ship_district', 'ship_ward', 'ship_postcode', 'ship_country'], 'string', 'max' => 255],
         ];
     }
 

@@ -28,10 +28,10 @@ class CartForm extends Model
     public function rules()
     {
         return [
-            [['ship_ward','ship_district','ship_name','ship_phone','ship_address','total_price','ship_city'],'required','message' => '{attribute} không được bỏ trống!'],
-            [['ship_name','ship_phone','ship_email','ship_address','ship_district','ship_ward','type','ship_city'],'string','max' => 255],
-            ['total_price','double'],
-            ['note','safe'],
+            [['ship_ward', 'ship_district', 'ship_name', 'ship_phone', 'ship_address', 'total_price', 'ship_city'], 'required', 'message' => '{attribute} không được bỏ trống!'],
+            [['ship_name', 'ship_phone', 'ship_email', 'ship_address', 'ship_district', 'ship_ward', 'type', 'ship_city'], 'string', 'max' => 255],
+            ['total_price', 'double'],
+            ['note', 'safe'],
         ];
     }
 
