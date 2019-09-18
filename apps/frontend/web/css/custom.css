@@ -46,4 +46,18 @@
     text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
+.not-login {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.checkout-btn {
+    display: block;
+    background-color: #5a9d17;
+    color: #fff;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 2px;
+}
 

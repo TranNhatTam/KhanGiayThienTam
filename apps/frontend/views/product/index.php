@@ -22,6 +22,9 @@ $this->title = 'Danh sách sản phẩm'
                         echo 'Không có sản phẩm nào phù hợp với kết quả tìm kiếm.';
                     <?php } else {
                         foreach ($product as $item) {
+                            if ($item->url == null) {
+                                continue;
+                            }
                             echo $this->render('_item', ['item' => $item]);
                         }
                     } ?>

@@ -187,10 +187,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web\js" />
+      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\console\migrations" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\common\models\record" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\common\models\query" />
       <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps" />
-      <recent name="E:\MoneyForPassion\web-apps\yii\KhanGiayThienTam\apps\frontend\web\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -228,7 +228,10 @@
       <workItem from="1566620003051" duration="9355000" />
       <workItem from="1566916545600" duration="2486000" />
       <workItem from="1567176272462" duration="7087000" />
-      <workItem from="1567515075371" duration="4220000" />
+      <workItem from="1567515075371" duration="6715000" />
+      <workItem from="1568037083271" duration="3383000" />
+      <workItem from="1568208102129" duration="203000" />
+      <workItem from="1568810959694" duration="9182000" />
     </task>
     <servers />
   </component>

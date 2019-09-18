@@ -81,7 +81,7 @@ use yii\bootstrap\ActiveForm;
                 <div class="box-body">
                     <?php echo $form->field($model, 'thumbnail')->widget(Upload::class, [
                         'url' => ['/file/storage/upload'],
-                        'maxFileSize' => 5000000, // 5 MiB
+                        'maxFileSize' => 10000000, // 5 MiB
                     ]); ?>
                     <?php echo $form->field($model, 'images')->widget(Upload::class, [
                         'url' => ['/file/storage/upload'],

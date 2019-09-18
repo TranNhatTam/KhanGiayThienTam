@@ -3,30 +3,30 @@
 
 use common\models\Product;
 
+$route = $item->url->route;
 ?>
 <div class="product sf-dress clearfix">
     <div class="product-image">
-        <a href="#"><img src="<?= $item->getThumbnail() ?>"
-                         alt="<?= $item->code ?>"></a>
+        <a href="/<?= $route ?>"><img src="<?= $item->getThumbnail() ?>"
+                                     alt="<?= $item->code ?>"></a>
         <?php if ($item->discount != null || $item->discount != 0) { ?>
-            <div class="sale-flash"><?= $item->discount ?></div>
+            <div class="sale-flash"> Sale!</div>
         <?php } ?>
         <div class="product-overlay">
             <div class="product-overlay">
-                <button class="add-to-cart" data-id="<?= $item->id ?>"><i class="icon-shopping-cart"></i><span> Đặt Hàng</span></button>
+                <button class="add-to-cart" data-id="<?= $item->id ?>"><i
+                            class="icon-shopping-cart"></i><span> Đặt Hàng</span></button>
                 <button class="item-quick-view" data-id="<?= $item->id ?>"><i
                             class="icon-zoom-in2"></i><span> Xem Nhanh</span></button>
             </div>
         </div>
     </div>
     <div class="product-desc center">
-        <div class="product-title"><h3><a href="#"><?= $item->name ?></a></h3></div>
+        <div class="product-title"><h3><a href="/<?= $route ?>"><?= $item->name ?></a></h3></div>
         <div class="product-price">
             <?php if ($item->discount != null || $item->discount != 0) { ?>
-                <?php if ($item->discount != null || $item->discount != 0) { ?>
-                    <del><?= $item->unit_price != null ? number_format($item->unit_price, 0, '', '.') . ' đ' : 'Liên Hệ' ?></del>
-                    <ins><?= $item->discount != null ? number_format($item->discount, 0, '', '.') . ' đ' : 'Liên Hệ' ?></ins>
-                <?php } ?>
+                <del><?= $item->unit_price != null ? number_format($item->unit_price, 0, '', '.') . ' đ' : 'Liên Hệ' ?></del>
+                <ins><?= $item->discount != null ? number_format($item->discount, 0, '', '.') . ' đ' : 'Liên Hệ' ?></ins>
             <?php } else { ?>
                 <ins><?= $item->unit_price != null ? number_format($item->unit_price, 0, '', '.') . ' đ' : 'Liên Hệ' ?></ins>
             <?php } ?>
@@ -81,7 +81,7 @@ $(document).ready(function ($) {
             'success': function(data) {
                 if (data.result === true) {
                     $('#add-cart-modal').modal('show');
-                    $.pjax.reload({container:"#header-cart-pjax",'timeout':5000});
+                    $.pjax.reload({container:"#top-cart",'timeout':5000});
                 } 
             }
         });

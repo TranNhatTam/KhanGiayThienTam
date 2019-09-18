@@ -9,37 +9,21 @@
 namespace frontend\models;
 
 use common\models\Product;
-use yii2mod\cart\models\CartItemInterface;
+use dtsmart\cart\ItemInterface;
+use dtsmart\cart\ItemTrait;
 
-class CartItem extends Product implements CartItemInterface
+class CartItem extends Product implements ItemInterface
 {
-    /**
-     * Returns the label for the cart item (displayed in cart etc)
-     *
-     * @return int|string
-     */
-    public function getLabel()
+    use ItemTrait;
+
+    public function getPrice()
     {
-        return $this->name;
+        return $this->unit_price;
     }
 
-    /**
-     * Returns unique id to associate cart item with product
-     *
-     * @return int|string
-     */
-    public function getUniqueId()
+    public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * Returns the price for the cart item
-     *
-     * @return int
-     */
-    public function getPrice(): int
-    {
-        return $this->unit_price;
-    }
 }

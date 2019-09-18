@@ -11,6 +11,7 @@ namespace frontend\controllers;
 use common\models\Brand;
 use common\models\Category;
 use common\models\Product;
+use common\models\Url;
 use Yii;
 use yii\data\Pagination;
 use yii\web\Controller;
@@ -127,8 +128,34 @@ class ProductController extends Controller
         return $this->redirect('index');
     }
 
-    public function actionView()
+    public function actionView($urlId, $format)
     {
-        return $this->render('view');
+        $url = Url::find()->where(['id' => $urlId])->andWhere(['type' => Url::TYPE_PRODUCT])->one();
+        if ($url) {
+            $product = Product::find()->where(['url_id' => $url->id])->visible()->one();
+            $product_df = Product::find()->where(['category_id' => $product->category_id])->andWhere(['!=', 'id', $product->id])->visible()->all();
+
+            // Add Product to Recently View
+            $recentlyViewContainer = Yii::$app->recentlyProdView;
+            $productRecentlyList = $recentlyViewContainer->getItems();
+            $canAddNew = true;
+            /** @var Product $item */
+            foreach ($productRecentlyList as $key => $item) {
+                if ($item->id == $product->id) {
+                    $recentlyViewContainer->remove($key);
+                    $recentlyViewContainer->addItem($product);
+                    $recentlyViewContainer->save();
+                    $canAddNew = false;
+                    break;
+                }
+
+            }
+            if ($canAddNew) {
+                $recentlyViewContainer->addItem($product);
+                $recentlyViewContainer->save();
+            }
+        }
+
+        return $this->render('view', ['product' => $product, 'productRelates' => $product_df]);
     }
 }

@@ -53,6 +53,7 @@ class CartController extends Controller
         if ($num == 0) {
             return $this->redirect('/site/index');
         }
+        
         return $this->render('index', [
             'products' => $carts,
             'model' => $model

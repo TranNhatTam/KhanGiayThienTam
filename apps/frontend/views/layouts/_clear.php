@@ -9,6 +9,7 @@ use yii\helpers\Html;
 \frontend\assets\FrontendAsset::register($this);
 $widget_Text = WidgetText::find()->where(['like', 'key', 'frontend.plugin.header'])->andWhere(['status' => WidgetText::STATUS_ACTIVE])->all();
 $widget_Text2 = WidgetText::find()->where(['like', 'key', 'frontend.plugin.footer'])->andWhere(['status' => WidgetText::STATUS_ACTIVE])->all();
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
