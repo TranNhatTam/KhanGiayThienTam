@@ -2,22 +2,12 @@
 $this->title = 'Khăn Giấy Thiện Tâm'
 ?>
 <section id="slider" class="slider-element slider-parallax revslider-wrap ohidden clearfix">
-
-    <!--
-    #################################
-        - THEMEPUNCH BANNER -
-    #################################
-    -->
     <div id="rev_slider_ishop_wrapper" class="rev_slider_wrapper fullwidth-container" data-alias="default-slider"
          style="padding:0px;">
-        <!-- START REVOLUTION SLIDER 5.1.4 fullwidth mode -->
         <div id="rev_slider_ishop" class="rev_slider fullwidthbanner" style="display:none;" data-version="5.1.4">
-            <ul>    <!-- SLIDE  -->
+            <ul>
                 <li data-transition="fade" data-slotamount="1" data-masterspeed="1500" data-delay="5000"
                     data-saveperformance="off" data-title="Latest Collections" style="background-color: #F6F6F6;">
-                    <!-- LAYERS -->
-
-                    <!-- LAYER NR. 2 -->
                     <div class="tp-caption ltl tp-resizeme revo-slider-caps-text uppercase"
                          data-x="100"
                          data-y="50"
@@ -30,9 +20,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-elementdelay="0.01"
                          data-endelementdelay="0.1"
                          data-endspeed="1000"
-                         data-endeasing="Power4.easeIn" style=""><img src="/images/slider/rev/shop/girl1.jpg" alt="Girl">
+                         data-endeasing="Power4.easeIn" style=""><img src="images/slider/rev/shop/girl1.jpg" alt="Girl">
                     </div>
-
                     <div class="tp-caption ltl tp-resizeme revo-slider-caps-text uppercase"
                          data-x="570"
                          data-y="75"
@@ -47,7 +36,6 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-endspeed="1000"
                          data-endeasing="Power4.easeIn" style=" color: #333;">Get your Shopping Bags Ready
                     </div>
-
                     <div class="tp-caption ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
                          data-x="570"
                          data-y="105"
@@ -63,7 +51,6 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-endeasing="Power4.easeIn" style=" color: #333; max-width: 430px; line-height: 1.15;">
                         Latest Fashion<br>Collections
                     </div>
-
                     <div class="tp-caption ltl tp-resizeme revo-slider-desc-text tleft"
                          data-x="570"
                          data-y="275"
@@ -79,7 +66,6 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-endeasing="Power4.easeIn" style=" color: #333; max-width: 550px; white-space: normal;">We
                         have created a Design that looks Awesome, performs Brilliantly &amp; senses Orientations.
                     </div>
-
                     <div class="tp-caption ltl tp-resizeme"
                          data-x="570"
                          data-y="375"
@@ -95,13 +81,9 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-endeasing="Power4.easeIn" style=""><a href="#"
                                                                     class="button button-border button-large button-rounded tright nomargin"><span>Start Shopping</span>
                             <i class="icon-angle-right"></i></a></div>
-
                 </li>
-                <!-- SLIDE  -->
                 <li data-transition="slideup" data-slotamount="1" data-masterspeed="1500" data-delay="5000"
                     data-saveperformance="off" data-title="Messenger bags" style="background-color: #E9E8E3;">
-                    <!-- LAYERS -->
-
                     <div class="tp-caption ltl tp-resizeme revo-slider-caps-text uppercase"
                          data-x="630"
                          data-y="78"
@@ -114,10 +96,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-elementdelay="0.01"
                          data-endelementdelay="0.1"
                          data-endspeed="1000"
-                         data-endeasing="Power4.easeIn" style=""><img src="/images/slider/rev/shop/bag.png" alt="Bag">
+                         data-endeasing="Power4.easeIn" style=""><img src="images/slider/rev/shop/bag.png" alt="Bag">
                     </div>
-
-                    <!-- LAYER NR. 2 -->
                     <div class="tp-caption ltl tp-resizeme revo-slider-caps-text uppercase"
                          data-x="0"
                          data-y="110"
@@ -132,7 +112,6 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-endspeed="1000"
                          data-endeasing="Power4.easeIn" style=" color: #333;">Buy Stylish Bags at Discounted Prices
                     </div>
-
                     <div class="tp-caption ltl tp-resizeme revo-slider-emphasis-text nopadding noborder"
                          data-x="0"
                          data-y="140"
@@ -147,7 +126,6 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-endspeed="1000"
                          data-endeasing="Power4.easeIn" style=" color: #333; line-height: 1.15;">Messenger Bags
                     </div>
-
                     <div class="tp-caption ltl tp-resizeme revo-slider-desc-text tleft"
                          data-x="0"
                          data-y="240"
@@ -164,7 +142,6 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                         Grantees insurmountable challenges invest protect, growth improving quality social
                         entrepreneurship.
                     </div>
-
                     <div class="tp-caption ltl tp-resizeme"
                          data-x="0"
                          data-y="340"
@@ -180,7 +157,6 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-endeasing="Power4.easeIn" style=""><a href="#"
                                                                     class="button button-border button-large button-rounded tright nomargin"><span>Start Shopping</span>
                             <i class="icon-angle-right"></i></a></div>
-
                     <div class="tp-caption utb tp-resizeme revo-slider-caps-text uppercase"
                          data-x="510"
                          data-y="0"
@@ -193,15 +169,14 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                          data-elementdelay="0.01"
                          data-endelementdelay="0.1"
                          data-endspeed="1000"
-                         data-endeasing="Power4.easeIn" style=""><img src="/images/slider/rev/shop/tag.png" alt="Bag">
+                         data-endeasing="Power4.easeIn" style=""><img src="images/slider/rev/shop/tag.png" alt="Bag">
                     </div>
-
                 </li>
             </ul>
         </div>
-    </div><!-- END REVOLUTION SLIDER -->
-
+    </div>
 </section>
+
 <section id="content">
 
     <div class="content-wrap">
@@ -328,7 +303,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="/images/shop/dress/2.jpg" alt="Light Blue Denim Dress"></a>
+                                    <a href="#"><img src="/images/shop/dress/2.jpg"
+                                                     alt="Light Blue Denim Dress"></a>
                                     <a href="#"><img src="/images/shop/dress/2-2.jpg" alt="Light Blue Denim Dress"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
@@ -360,7 +336,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
                             <div class="product clearfix">
                                 <div class="product-image">
-                                    <a href="#"><img src="/images/shop/sunglasses/1.jpg" alt="Unisex Sunglasses"></a>
+                                    <a href="#"><img src="/images/shop/sunglasses/1.jpg"
+                                                     alt="Unisex Sunglasses"></a>
                                     <a href="#"><img src="/images/shop/sunglasses/1-1.jpg" alt="Unisex Sunglasses"></a>
                                     <div class="sale-flash">Sale!</div>
                                     <div class="product-overlay">
@@ -389,7 +366,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                             <div class="product clearfix">
                                 <div class="product-image">
                                     <a href="#"><img src="/images/shop/tshirts/1.jpg" alt="Blue Round-Neck Tshirt"></a>
-                                    <a href="#"><img src="/images/shop/tshirts/1-1.jpg" alt="Blue Round-Neck Tshirt"></a>
+                                    <a href="#"><img src="/images/shop/tshirts/1-1.jpg"
+                                                     alt="Blue Round-Neck Tshirt"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -413,7 +391,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                             <div class="product clearfix">
                                 <div class="product-image">
                                     <a href="#"><img src="/images/shop/watches/1.jpg" alt="Silver Chrome Watch"></a>
-                                    <a href="#"><img src="/images/shop/watches/1-1.jpg" alt="Silver Chrome Watch"></a>
+                                    <a href="#"><img src="/images/shop/watches/1-1.jpg"
+                                                     alt="Silver Chrome Watch"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -437,7 +416,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                             <div class="product clearfix">
                                 <div class="product-image">
                                     <a href="#"><img src="/images/shop/shoes/2.jpg" alt="Men Grey Casual Shoes"></a>
-                                    <a href="#"><img src="/images/shop/shoes/2-1.jpg" alt="Men Grey Casual Shoes"></a>
+                                    <a href="#"><img src="/images/shop/shoes/2-1.jpg"
+                                                     alt="Men Grey Casual Shoes"></a>
                                     <div class="sale-flash">Sale!</div>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
@@ -475,11 +455,14 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                                         <div class="flexslider">
                                             <div class="slider-wrap">
                                                 <div class="slide"><a href="#"><img src="/images/shop/dress/3.jpg"
-                                                                                    alt="Pink Printed Dress"></a></div>
+                                                                                    alt="Pink Printed Dress"></a>
+                                                </div>
                                                 <div class="slide"><a href="#"><img src="/images/shop/dress/3-1.jpg"
-                                                                                    alt="Pink Printed Dress"></a></div>
+                                                                                    alt="Pink Printed Dress"></a>
+                                                </div>
                                                 <div class="slide"><a href="#"><img src="/images/shop/dress/3-2.jpg"
-                                                                                    alt="Pink Printed Dress"></a></div>
+                                                                                    alt="Pink Printed Dress"></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -535,7 +518,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                                 <div class="product-image">
                                     <a href="#"><img src="/images/shop/sunglasses/2.jpg"
                                                      alt="Men Aviator Sunglasses"></a>
-                                    <a href="#"><img src="/images/shop/sunglasses/2-1.jpg" alt="Men Aviator Sunglasses"></a>
+                                    <a href="#"><img src="/images/shop/sunglasses/2-1.jpg"
+                                                     alt="Men Aviator Sunglasses"></a>
                                     <div class="product-overlay">
                                         <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
                                         <a href="include/ajax/shop-item.html" class="item-quick-view"
@@ -624,7 +608,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                     <h4>Connect with Us</h4>
                 </div>
 
-                <a href="#" class="social-icon si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                <a href="#" class="social-icon si-facebook" data-toggle="tooltip" data-placement="top"
+                   title="Facebook">
                     <i class="icon-facebook"></i>
                     <i class="icon-facebook"></i>
                 </a>
@@ -645,7 +630,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                     <i class="icon-flattr"></i>
                 </a>
 
-                <a href="#" class="social-icon si-android" data-toggle="tooltip" data-placement="top" title="Android">
+                <a href="#" class="social-icon si-android" data-toggle="tooltip" data-placement="top"
+                   title="Android">
                     <i class="icon-android"></i>
                     <i class="icon-android"></i>
                 </a>
@@ -790,7 +776,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                         <span>Our App scales beautifully to different Devices.</span>
                     </div>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet cumque, perferendis accusamus
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet cumque, perferendis
+                        accusamus
                         porro illo exercitationem molestias.</p>
 
                     <div class="widget-subscribe-form-result"></div>
@@ -800,7 +787,8 @@ $this->title = 'Khăn Giấy Thiện Tâm'
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="icon-email2"></i></div>
                             </div>
-                            <input type="email" name="widget-subscribe-form-email" class="form-control required email"
+                            <input type="email" name="widget-subscribe-form-email"
+                                   class="form-control required email"
                                    placeholder="Enter your Email">
                             <div class="input-group-append">
                                 <button class="btn btn-danger" type="submit">Subscribe Now</button>
@@ -895,3 +883,76 @@ $this->registerJs($js);
     </div>
 </div>
 
+<script>
+
+    var tpj = jQuery;
+    tpj.noConflict();
+
+    tpj(document).ready(function () {
+
+        var apiRevoSlider = tpj('#rev_slider_ishop').show().revolution(
+            {
+                sliderType: "standard",
+                jsFileLocation: "include/rs-plugin/js/",
+                sliderLayout: "fullwidth",
+                dottedOverlay: "none",
+                delay: 9000,
+                navigation: {},
+                responsiveLevels: [1200, 992, 768, 480, 320],
+                gridwidth: 1140,
+                gridheight: 500,
+                lazyType: "none",
+                shadow: 0,
+                spinner: "off",
+                autoHeight: "off",
+                disableProgressBar: "on",
+                hideThumbsOnMobile: "off",
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                debugMode: false,
+                fallbacks: {
+                    simplifyAll: "off",
+                    disableFocusListener: false,
+                },
+                navigation: {
+                    keyboardNavigation: "off",
+                    keyboard_direction: "horizontal",
+                    mouseScrollNavigation: "off",
+                    onHoverStop: "off",
+                    touch: {
+                        touchenabled: "on",
+                        swipe_threshold: 75,
+                        swipe_min_touches: 1,
+                        swipe_direction: "horizontal",
+                        drag_block_vertical: false
+                    },
+                    arrows: {
+                        style: "ares",
+                        enable: true,
+                        hide_onmobile: false,
+                        hide_onleave: false,
+                        tmp: '<div class="tp-title-wrap">	<span class="tp-arr-titleholder">{{title}}</span> </div>',
+                        left: {
+                            h_align: "left",
+                            v_align: "center",
+                            h_offset: 10,
+                            v_offset: 0
+                        },
+                        right: {
+                            h_align: "right",
+                            v_align: "center",
+                            h_offset: 10,
+                            v_offset: 0
+                        }
+                    }
+                }
+            });
+
+        apiRevoSlider.bind("revolution.slide.onloaded", function (e) {
+            SEMICOLON.slider.sliderParallaxDimensions();
+        });
+
+    }); //ready
+
+</script>
