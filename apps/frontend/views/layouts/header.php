@@ -50,7 +50,7 @@ use yii\widgets\Pjax;
 
         <div class="col_half nobottommargin">
 
-            <p class="nobottommargin"><strong>Call:</strong> 1800-547-2145 | <strong>Email:</strong> info@canvas.com</p>
+            <p class="nobottommargin"><strong>Call:</strong> 0909 453 218 | <strong>Email:</strong> khanlanhthientam@gmail.com</p>
 
         </div>
 

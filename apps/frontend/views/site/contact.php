@@ -92,7 +92,7 @@ if (Yii::$app->session->getFlash('alertFail') != null) {
                         </div>
 
                         <div class="reservation-btn text-center">
-                            <?= \yii\helpers\Html::submitButton('<span>Gửi Yêu Cầu</span>', ['class' => 'default-btn']) ?>
+                            <?= \yii\helpers\Html::submitButton('<span>Gửi Yêu Cầu</span>', ['class' => 'default-btn btn-info']) ?>
                         </div>
 
 
@@ -106,30 +106,16 @@ if (Yii::$app->session->getFlash('alertFail') != null) {
             <div class="sidebar col_last nobottommargin">
 
                 <address>
-                    <strong>Headquarters:</strong><br>
-                    795 Folsom Ave, Suite 600<br>
-                    San Francisco, CA 94107<br>
+                    <strong>Địa Chỉ</strong><br>
+                    81/16 đường Vĩnh Phú 38<br>
+                    Thị Xã Thuận An,Tỉnh Bình Dương<br>
                 </address>
-                <abbr title="Phone Number"><strong>Phone:</strong></abbr> (91) 8547 632521<br>
-                <abbr title="Fax"><strong>Fax:</strong></abbr> (91) 11 4752 1433<br>
-                <abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
+                <abbr title="Phone Number"><strong>Phone:</strong></abbr> 0909 453 218<br>
+                <abbr title="Email Address"><strong>Email:</strong></abbr> khanlanhthientam@gmail.com
 
                 <div class="widget noborder notoppadding">
 
-                    <div class="fslider customjs testimonial twitter-scroll twitter-feed" data-username="envato" data-count="3" data-animation="slide" data-arrows="false">
-                        <i class="i-plain i-small color icon-twitter nobottommargin" style="margin-right: 15px;"></i>
-                        <div class="flexslider" style="width: auto;">
-                            <div class="slider-wrap">
-                                <div class="slide"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="widget noborder notoppadding">
-
-                    <a href="#" class="social-icon si-small si-dark si-facebook">
+                    <a href="https://www.facebook.com/Khanlanhthientam/" class="social-icon si-small si-dark si-facebook">
                         <i class="icon-facebook"></i>
                         <i class="icon-facebook"></i>
                     </a>

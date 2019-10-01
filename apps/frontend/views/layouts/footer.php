@@ -10,19 +10,20 @@
 
                 <div class="widget clearfix">
 
-                    <img src="/images/footer-widget-logo.png" alt="" class="footer-logo">
-
-                    <p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards with a Retina &amp; Responsive Approach. Browse the amazing Features this template offers.</p>
-
+                    <h3 style="color: #0b93d5">KHĂN LẠNH THIỆN TÂM</h3>
+                    <ul>
+                        <li>Chuyên cung cấp các loại khăn lạnh chất lượng tốt.</li>
+                        <li>Đảm bảo vệ sinh sạch sẽ, an toàn khi sử dụng</li>
+                        <li>Nhận làm khăn theo yêu cầu cho các nhà hàng, khách sạn, quán ăn, các trung tâm du lịch, nhà xe,.....</li>
+                    </ul>
                     <div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
                         <address>
-                            <strong>Headquarters:</strong><br>
-                            795 Folsom Ave, Suite 600<br>
-                            San Francisco, CA 94107<br>
+                            <strong>Địa Chỉ</strong><br>
+                            81/16 đường Vĩnh Phú 38<br>
+                            Thị Xã Thuận An,Tỉnh Bình Dương<br>
                         </address>
-                        <abbr title="Phone Number"><strong>Phone:</strong></abbr> (91) 8547 632521<br>
-                        <abbr title="Fax"><strong>Fax:</strong></abbr> (91) 11 4752 1433<br>
-                        <abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
+                        <abbr title="Phone Number"><strong>Phone:</strong></abbr> 0909 453 218<br>
+                        <abbr title="Email Address"><strong>Email:</strong></abbr> khanlanhthientam@gmail.com
                     </div>
 
                 </div>
@@ -32,7 +33,7 @@
             <div class="col_one_third">
 
                 <div class="widget clearfix">
-                    <h4>Client Testimonials</h4>
+                    <h3 style="color: #0b93d5">QUAN ĐIỂM</h3>
 
                     <div class="fslider testimonial no-image nobg noborder noshadow nopadding" data-animation="slide" data-arrows="false">
                         <div class="flexslider">
@@ -42,10 +43,11 @@
                                         <a href="#"><img src="/images/testimonials/3.jpg" alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
-                                        <p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
+                                        <p>Bạn đang băn khoăn và đau đầu không biết tìm địa chỉ nào cung cấp khăn lạnh uy tín và chất lượng, giá cả lại phải chăng.
+                                            Hãy đến với Thiện Tâm chúng tôi, chuyên thiết kế in ấn khăn lạnh phục vụ cho nhà hàng, khách sạn, quán nhậu, nhà xe… uy tín, chất lượng, đa dạng về mẫu mã.</p>
                                         <div class="testi-meta">
-                                            Steve Jobs
-                                            <span>Apple Inc.</span>
+                                            Lê Hàn Quốc
+                                            <span>CEO</span>
                                         </div>
                                     </div>
                                 </div>
@@ -54,10 +56,10 @@
                                         <a href="#"><img src="/images/testimonials/2.jpg" alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
-                                        <p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
+                                        <p>Niềm vui mỗi ngày là khi máy được khởi động cùng những chiếc khăn đẹp và chất lượng ra đời.🥰🥰🥰</p>
                                         <div class="testi-meta">
-                                            Collis Ta'eed
-                                            <span>Envato Inc.</span>
+                                            Lê Hàn Quốc
+                                            <span>CEO</span>
                                         </div>
                                     </div>
                                 </div>
@@ -66,10 +68,11 @@
                                         <a href="#"><img src="/images/testimonials/1.jpg" alt="Customer Testimonails"></a>
                                     </div>
                                     <div class="testi-content">
-                                        <p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p>
+                                        <p>💯💯 Sự kết hợp ăn ý " Khăn Lạnh - Bao Đũa" đã tạo nên ấn tượng, điểm nhấn cho nhà hàng của bạn.
+                                            #khanlanhthientam chuyên sản xuất Khăn Lạnh và Bao Đũa theo yêu cầu, Với đội ngũ nhân viên trẻ, năng động và sản phẩm chất lượng, sẽ làm hài lòng quý khách hàng.</p>
                                         <div class="testi-meta">
-                                            John Doe
-                                            <span>XYZ Inc.</span>
+                                            Lê Hàn Quốc
+                                            <span>CEO</span>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +84,7 @@
 
                 <div class="widget clearfix">
 
-                    <a href="#" class="social-icon si-small si-rounded si-facebook">
+                    <a href="https://www.facebook.com/Khanlanhthientam/" class="social-icon si-small si-rounded si-facebook">
                         <i class="icon-facebook"></i>
                         <i class="icon-facebook"></i>
                     </a>
@@ -129,7 +132,7 @@
 
                 <div class="widget quick-contact-widget clearfix">
 
-                    <h4>Send Message</h4>
+                    <h3 style="color: #0b93d5">GỬI YÊU CẦU</h3>
 
                     <div class="quick-contact-form-result"></div>
 
@@ -170,13 +173,13 @@
         <div class="container clearfix">
 
             <div class="col_half">
-                Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.
+                Copyrights &copy; 2019 All Rights Reserved by TNT
             </div>
 
             <div class="col_half col_last tright">
                 <div class="fright clearfix">
                     <div class="copyrights-menu copyright-links nobottommargin">
-                        <a href="#">Home</a>/<a href="#">About</a>/<a href="#">Features</a>/<a href="#">Portfolio</a>/<a href="#">FAQs</a>/<a href="#">Contact</a>
+                        <a href="/">Trang chủ</a>/<a href="/site/about">Giới thiệu</a>/<a href="/san-pham">Sản phẩm</a>/<a href="/site/gallery">Dịch vụ</a>/<a href="#">Ưu đãi</a>/<a href="/site/blog">Tin tức</a>/<a href="/site/contact">Liên hệ</a>
                     </div>
                 </div>
             </div>

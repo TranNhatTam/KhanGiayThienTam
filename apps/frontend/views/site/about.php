@@ -4,7 +4,7 @@ $this->title='Giới Thiệu';
 <section id="page-title" class="page-title-parallax page-title-dark" style="padding: 250px 0; background-image: url('/images/about/parallax.jpg'); background-size: cover; background-position: center center;" data-bottom-top="background-position:0px 400px;" data-top-bottom="background-position:0px -500px;">
 
     <div class="container clearfix">
-        <h1>About Us</h1>
+        <h1>Giới Thiệu</h1>
         <span>Everything you need to know about our Company</span>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
