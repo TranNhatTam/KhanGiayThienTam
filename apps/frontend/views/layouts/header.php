@@ -98,10 +98,8 @@ use yii\widgets\Pjax;
             <!-- Logo
             ============================================= -->
             <div id="logo">
-                <a href="/" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="/images/logo.png"
-                                                                                             alt="Canvas Logo"></a>
-                <a href="/" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="/images/logo@2x.png"
-                                                                                              alt="Canvas Logo"></a>
+                <a href="/" class="standard-logo" data-dark-logo="images/logo-dark.png" style="padding-top: 10px;">
+                    <img src="/images/logo/a.png" alt="Thiện Tâm Logo" style="width: 80px;height:80px;"></a>
             </div><!-- #logo end -->
             <!-- Primary Navigation
             ============================================= -->

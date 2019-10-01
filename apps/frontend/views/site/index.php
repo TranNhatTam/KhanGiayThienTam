@@ -817,3 +817,81 @@ $this->title = 'Khăn Giấy Thiện Tâm'
 
 </section><!-- #content end -->
 
+<?php
+$js = <<<JS
+$('.buy-prod').click(function() {
+    var id = $(this).attr('data-id');
+    var quantity = 1;
+    var name = $(this).attr('data-name');
+  $.ajax({
+    'url':'/cart/add-cart',
+    'method':'GET',
+    'data':{
+        'id':id,
+        'quantity':quantity
+    },
+    'success': function(data) {
+      if (data.result == 'success') {
+          $('.buy-product').html("<i class='fa fa-check-circle' style='font-size:30px;color:#5cb85c'></i> <span style='font-size:20px'>Thêm sản phẩm "+name+" thành công.</span>");
+         $('#myModal').modal('show');
+          $.pjax.reload({container:"#header-cart-pjax",'timeout':5000});
+      } 
+    }
+  });
+});
+$('.view-prod').click(function() {
+  var id = $(this).attr('data-id');
+  $.ajax({
+    'url':'/product/quick-view',
+    'method':'GET',
+    'data': {
+        'id':id,
+    },
+    'success':function(data) {
+      $('.quick-view').html(data.result);
+      $('#quickViewModal').modal('show');
+    }
+  })
+});
+$('.cate-1').css('background-color','#5b8827');
+$('.cate-2').css('background-color','#c8e34c');
+$('.cate-3').css('background-color','#96b12b');
+JS;
+$this->registerJs($js);
+?>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body buy-product text-center">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn pull-left" data-dismiss="modal">Tiếp tục mua hàng</button>
+                <a href="/cart/index" class="btn btn-default">Đơn hàng</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="quickViewModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
+                <h4 class="modal-title text-center"></h4>
+            </div>
+            <div class="modal-body text-center">
+                <div class="quick-view">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
