@@ -5,11 +5,10 @@ $this->title='Giới Thiệu';
 
     <div class="container clearfix">
         <h1>Giới Thiệu</h1>
-        <span>Everything you need to know about our Company</span>
+        <span>Tất cả mọi thứ bạn cần biết về chúng tôi</span>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Giới thiệu</li>
         </ol>
     </div>
 
@@ -23,7 +22,7 @@ $this->title='Giới Thiệu';
             <div class="col_one_third">
 
                 <div class="heading-block fancy-title nobottomborder title-bottom-border">
-                    <h4>Why choose <span>Us</span>.</h4>
+                    <h4>Tại sao chọn <span>CHÚNG TÔI</span>.</h4>
                 </div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi quidem minus id omnis, nam expedita, ea fuga commodi voluptas iusto, hic autem deleniti dolores explicabo labore enim repellat earum perspiciatis.</p>
@@ -33,7 +32,7 @@ $this->title='Giới Thiệu';
             <div class="col_one_third">
 
                 <div class="heading-block fancy-title nobottomborder title-bottom-border">
-                    <h4>Our <span>Mission</span>.</h4>
+                    <h4><span>Sứ mệnh</span> của chúng tôi.</h4>
                 </div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi quidem minus id omnis, nam expedita, ea fuga commodi voluptas iusto, hic autem deleniti dolores explicabo labore enim repellat earum perspiciatis.</p>
@@ -43,7 +42,7 @@ $this->title='Giới Thiệu';
             <div class="col_one_third col_last">
 
                 <div class="heading-block fancy-title nobottomborder title-bottom-border">
-                    <h4>What we <span>Do</span>.</h4>
+                    <h4>Chúng tôi <span> làm gì</span>.</h4>
                 </div>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi quidem minus id omnis, nam expedita, ea fuga commodi voluptas iusto, hic autem deleniti dolores explicabo labore enim repellat earum perspiciatis.</p>
@@ -58,7 +57,7 @@ $this->title='Giới Thiệu';
                 <div class="col_one_fourth nobottommargin center" data-animate="bounceIn">
                     <i class="i-plain i-xlarge divcenter icon-line2-directions"></i>
                     <div class="counter counter-lined"><span data-from="100" data-to="846" data-refresh-interval="50" data-speed="2000"></span>K+</div>
-                    <h5>Lines of Codes</h5>
+                    <h5>Số khách hàng sử dụng</h5>
                 </div>
 
                 <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="200">
@@ -84,21 +83,20 @@ $this->title='Giới Thiệu';
 
         <div class="row common-height clearfix">
 
-            <div class="col-md-5 col-padding" style="background: url('/images/team/3.jpg') center center no-repeat; background-size: cover;"></div>
+            <div class="col-md-5 col-padding" style="background: url('/images/team/team.jpg') center center no-repeat; background-size: cover;"></div>
 
             <div class="col-md-7 col-padding">
                 <div>
                     <div class="heading-block">
                         <span class="before-heading color">CEO &amp; Co-Founder</span>
-                        <h3>John Doe</h3>
+                        <h3>Lê Hàn Quốc</h3>
                     </div>
 
                     <div class="row clearfix">
-
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <p>Employment respond committed meaningful fight against oppression social challenges rural legal aid governance. Meaningful work, implementation, process cooperation, campaign inspire.</p>
                             <p>Advancement, promising development John Lennon, our ambitions involvement underprivileged billionaire philanthropy save the world transform. Carbon rights maintain healthcare emergent, implementation inspire social change solve clean water livelihoods.</p>
-                            <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                            <a href="https://www.facebook.com/LeHanQuoc" class="social-icon inline-block si-small si-light si-rounded si-facebook">
                                 <i class="icon-facebook"></i>
                                 <i class="icon-facebook"></i>
                             </a>
@@ -111,127 +109,19 @@ $this->title='Giới Thiệu';
                                 <i class="icon-gplus"></i>
                             </a>
                         </div>
-
-                        <div class="col-lg-6">
-                            <ul class="skills">
-                                <li data-percent="80">
-                                    <span>Wordpress</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="80" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                                <li data-percent="60">
-                                    <span>CSS3</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="60" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                                <li data-percent="90">
-                                    <span>HTML5</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="90" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                                <li data-percent="70">
-                                    <span>jQuery</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="70" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                                <li data-percent="85">
-                                    <span>Ruby</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="85" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
                     </div>
 
                 </div>
             </div>
 
         </div>
-
-        <div class="row common-height bottommargin-lg clearfix">
-
-            <div class="col-md-7 col-padding" style="background-color: #F5F5F5;">
-                <div>
-                    <div class="heading-block">
-                        <span class="before-heading color">Developer &amp; Evangelist</span>
-                        <h3>Mary Jane</h3>
-                    </div>
-
-                    <div class="row clearfix">
-
-                        <div class="col-lg-6">
-                            <p>Employment respond committed meaningful fight against oppression social challenges rural legal aid governance. Meaningful work, implementation, process cooperation, campaign inspire.</p>
-                            <p>Advancement, promising development John Lennon, our ambitions involvement underprivileged billionaire philanthropy save the world transform. Carbon rights maintain healthcare emergent, implementation inspire social change solve clean water livelihoods.</p>
-                            <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
-                                <i class="icon-facebook"></i>
-                                <i class="icon-facebook"></i>
-                            </a>
-                            <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
-                                <i class="icon-twitter"></i>
-                                <i class="icon-twitter"></i>
-                            </a>
-                            <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
-                                <i class="icon-gplus"></i>
-                                <i class="icon-gplus"></i>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <ul class="skills">
-                                <li data-percent="80">
-                                    <span>Wordpress</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="80" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                                <li data-percent="60">
-                                    <span>CSS3</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="60" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                                <li data-percent="90">
-                                    <span>HTML5</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="90" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                                <li data-percent="70">
-                                    <span>jQuery</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="70" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                                <li data-percent="85">
-                                    <span>Ruby</span>
-                                    <div class="progress">
-                                        <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="85" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-md-5 col-padding" style="background: url('/images/team/8.jpg') center center no-repeat; background-size: cover;"></div>
-
-        </div>
-
+        <div class="clearfix"><br></div>
         <div class="container clearfix">
 
             <div class="clear"></div>
 
             <div class="heading-block center">
-                <h4>Our Clients</h4>
+                <h4>Khách hàng của chúng tôi</h4>
             </div>
 
             <ul class="clients-grid grid-6 nobottommargin clearfix">
@@ -253,44 +143,46 @@ $this->title='Giới Thiệu';
 
         <div class="section footer-stick">
 
-            <h4 class="uppercase center">What <span>Clients</span> Say?</h4>
+            <h4 class="uppercase center"><span>Quan điểm</span></h4>
 
             <div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
                 <div class="flexslider">
                     <div class="slider-wrap">
                         <div class="slide">
                             <div class="testi-image">
-                                <a href="#"><img src="/images/testimonials/3.jpg" alt="Customer Testimonails"></a>
+                                <a href="#"><img src="/images/team/abc.jpg" alt="Customer Testimonails"></a>
                             </div>
                             <div class="testi-content">
-                                <p>Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?</p>
+                                <p>Bạn đang băn khoăn và đau đầu không biết tìm địa chỉ nào cung cấp khăn lạnh uy tín và chất lượng, giá cả lại phải chăng.
+                                    Hãy đến với Thiện Tâm chúng tôi, chuyên thiết kế in ấn khăn lạnh phục vụ cho nhà hàng, khách sạn, quán nhậu, nhà xe… uy tín, chất lượng, đa dạng về mẫu mã.</p>
                                 <div class="testi-meta">
-                                    Steve Jobs
-                                    <span>Apple Inc.</span>
+                                    Lê Hàn Quốc
+                                    <span>CEO</span>
                                 </div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="testi-image">
-                                <a href="#"><img src="/images/testimonials/2.jpg" alt="Customer Testimonails"></a>
+                                <a href="#"><img src="/images/testimonials/abc.jpg" alt="Customer Testimonails"></a>
                             </div>
                             <div class="testi-content">
-                                <p>Natus voluptatum enim quod necessitatibus quis expedita harum provident eos obcaecati id culpa corporis molestias.</p>
+                                <p>Niềm vui mỗi ngày là khi máy được khởi động cùng những chiếc khăn đẹp và chất lượng ra đời.🥰🥰🥰</p>
                                 <div class="testi-meta">
-                                    Collis Ta'eed
-                                    <span>Envato Inc.</span>
+                                    Lê Hàn Quốc
+                                    <span>CEO</span>
                                 </div>
                             </div>
                         </div>
                         <div class="slide">
                             <div class="testi-image">
-                                <a href="#"><img src="/images/testimonials/1.jpg" alt="Customer Testimonails"></a>
+                                <a href="#"><img src="/images/testimonials/abc.jpg" alt="Customer Testimonails"></a>
                             </div>
                             <div class="testi-content">
-                                <p>Incidunt deleniti blanditiis quas aperiam recusandae consequatur ullam quibusdam cum libero illo rerum!</p>
+                                <p>💯💯 Sự kết hợp ăn ý " Khăn Lạnh - Bao Đũa" đã tạo nên ấn tượng, điểm nhấn cho nhà hàng của bạn.
+                                    #khanlanhthientam chuyên sản xuất Khăn Lạnh và Bao Đũa theo yêu cầu, Với đội ngũ nhân viên trẻ, năng động và sản phẩm chất lượng, sẽ làm hài lòng quý khách hàng.</p>
                                 <div class="testi-meta">
-                                    John Doe
-                                    <span>XYZ Inc.</span>
+                                    Lê Hàn Quốc
+                                    <span>CEO</span>
                                 </div>
                             </div>
                         </div>
