@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Order;
+use common\models\Orders;
 use common\models\Product;
 use kartik\depdrop\DepDrop;
 use kartik\select2\Select2;
@@ -9,11 +10,11 @@ use yii\bootstrap\ActiveForm;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Order */
+/* @var $model common\models\Orders */
 /* @var $form yii\bootstrap\ActiveForm */
 ?>
 
-    <div class="order-form">
+    <div class="orders-form">
 
         <?php $form = ActiveForm::begin(); ?>
 
@@ -56,13 +57,13 @@ use yii\helpers\Url;
                                 <?php echo $form->field($model, 'note')->textarea(['rows' => 6]) ?>
                             </div>
                             <div class="col-md-6">
-                                <?php echo $form->field($model, 'status')->dropDownList(Order::statuses()) ?>
+                                <?php echo $form->field($model, 'status')->dropDownList(Orders::statuses()) ?>
 
-                                <?php echo $form->field($model, 'payment_status')->dropDownList(Order::paymentStatues()) ?>
+                                <?php echo $form->field($model, 'payment_status')->dropDownList(Orders::paymentStatues()) ?>
 
-                                <?php echo $form->field($model, 'ship_status')->dropDownList(Order::shipStatuses()) ?>
+                                <?php echo $form->field($model, 'ship_status')->dropDownList(Orders::shipStatuses()) ?>
 
-                                <?php echo $form->field($model, 'payment_type')->dropDownList(Order::paymentTypes()) ?>
+                                <?php echo $form->field($model, 'payment_type')->dropDownList(Orders::paymentTypes()) ?>
 
                             </div>
                         </div>
@@ -119,7 +120,7 @@ use yii\helpers\Url;
         function RemoveProductCart(idProductCart) {
             console.log(idProductCart);
             $.ajax({
-                'url': '/order/remove-product-cart',
+                'url': '/orders/remove-product-cart',
                 'method': 'POST',
                 'data': {
                     'id': idProductCart
@@ -142,7 +143,7 @@ $js = <<< JS
                         quantity = 1;
                     }
                 $.ajax({
-                    'url':'/order/add-product',
+                    'url':'/orders/add-product',
                     'method':'POST',
                     'data': {
                         'id' : id,

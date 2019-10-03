@@ -3,6 +3,7 @@
 use common\models\Order;
 use common\models\OrderDetail;
 use common\models\Orders;
+use common\models\OrdersDetail;
 use common\models\Product;
 use kartik\depdrop\DepDrop;
 use kartik\editable\Editable;
@@ -14,15 +15,15 @@ use yii\widgets\ActiveForm;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Order */
-/* @var $searchModel backend\models\search\OrderSearch */
+/* @var $model common\models\Orders */
+/* @var $searchModel backend\models\search\OrdersSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="order-view">
+<div class="orders-view">
     <?php echo Html::a('Xóa đơn hàng', ['delete', 'id' => $model->id], [
         'class' => 'btn btn-danger',
         'style' => 'margin-bottom: 10px',
@@ -155,7 +156,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <tbody>
                                 <tr>
                                     <?php
-                                    $orderDetail = OrderDetail::find()->where(['order_id' => $model->id])->all();
+                                    $orderDetail = OrdersDetail::find()->where(['order_id' => $model->id])->all();
                                     $totalPrice = 0;
                                     $totalDiscount = 0;
                                     $totalTax = 0;
@@ -239,9 +240,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'header' => 'Status',
                                         'format' => Editable::FORMAT_BUTTON,
                                         'inputType' => Editable::INPUT_DROPDOWN_LIST,
-                                        'data' => Order::shipStatuses(),
+                                        'data' => Orders::shipStatuses(),
                                         'options' => ['class' => 'form-control', 'prompt' => 'Chọn trạng thái...'],
-                                        'displayValueConfig' => Order::shipStatuses(),
+                                        'displayValueConfig' => Orders::shipStatuses(),
                                         'formOptions' => [
                                             'action' => '/orders/edit-ship-status?id=' . $model->id,
                                         ],
@@ -261,9 +262,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'header' => 'Status',
                                         'format' => Editable::FORMAT_BUTTON,
                                         'inputType' => Editable::INPUT_DROPDOWN_LIST,
-                                        'data' => Order::paymentStatues(),
+                                        'data' => Orders::paymentStatues(),
                                         'options' => ['class' => 'form-control', 'prompt' => 'Chọn trạng thái...'],
-                                        'displayValueConfig' => Order::paymentStatues(),
+                                        'displayValueConfig' => Orders::paymentStatues(),
                                         'formOptions' => [
                                             'action' => '/orders/edit-payment-status?id=' . $model->id,
                                         ],
@@ -283,9 +284,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                         'header' => 'Status',
                                         'format' => Editable::FORMAT_BUTTON,
                                         'inputType' => Editable::INPUT_DROPDOWN_LIST,
-                                        'data' => Order::statuses(),
+                                        'data' => Orders::statuses(),
                                         'options' => ['class' => 'form-control', 'prompt' => 'Chọn trạng thái...'],
-                                        'displayValueConfig' => Order::statuses(),
+                                        'displayValueConfig' => Orders::statuses(),
                                         'formOptions' => [
                                             'action' => '/orders/edit-status?id=' . $model->id,
                                         ],

@@ -86,8 +86,8 @@ class Product extends ActiveRecord
             [['name', 'code', 'category_id', 'url_id'], 'required'],
             [['unit_price', 'discount'], 'number'],
             [['unit_in_stock', 'quantity_in_stock', 'star_rating', 'total_view', 'status', 'priority', 'is_deleted', 'brand_id', 'category_id', 'url_id'], 'integer'],
-            [['short_detail', 'description', 'technical_detail', 'additional_detail', 'images'], 'string'],
-            [['thumbnail', 'created_at', 'updated_at'], 'safe'],
+            [['short_detail', 'description', 'technical_detail', 'additional_detail'], 'string'],
+            [['thumbnail', 'created_at', 'updated_at', 'images'], 'safe'],
             [['name', 'code', 'thumbnail_path', 'thumbnail_base_url', 'warranty'], 'string', 'max' => 255],
             [['code'], 'unique'],
         ];
