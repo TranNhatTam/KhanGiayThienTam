@@ -185,7 +185,7 @@ Yii::info(Yii::$app->components["i18n"]["translations"]['*']['class'], 'test');
                     ],
                     [
                         'label' => Yii::t('backend', 'Manage Order'),
-                        'url' => ['/order/index'],
+                        'url' => ['/orders/index'],
                         'icon' => '<i class="fa fa-thumb-tack"></i>',
                         'active' => Yii::$app->controller->id === 'order',
                     ],
@@ -198,6 +198,12 @@ Yii::info(Yii::$app->components["i18n"]["translations"]['*']['class'], 'test');
                         'url' => ['/slider/index'],
                         'icon' => '<i class="fa fa-thumb-tack"></i>',
                         'active' => Yii::$app->controller->id === 'slider',
+                    ],
+                    [
+                        'label' => Yii::t('backend', 'Posts'),
+                        'url' => ['/posts/index'],
+                        'icon' => '<i class="fa fa-thumb-tack"></i>',
+                        'active' => Yii::$app->controller->id === 'posts',
                     ],
 //                    [
 //                        'label' => Yii::t('backend', 'Articles'),

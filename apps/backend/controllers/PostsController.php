@@ -2,18 +2,21 @@
 
 namespace backend\controllers;
 
-use common\models\Url;
+use common\models\User;
+use Intervention\Image\ImageManagerStatic;
+use trntv\filekit\actions\DeleteAction;
+use trntv\filekit\actions\UploadAction;
 use Yii;
-use common\models\Product;
-use backend\models\search\ProductSearch;
+use common\models\Posts;
+use backend\models\search\PostsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductController implements the CRUD actions for Product model.
+ * PostsController implements the CRUD actions for Posts model.
  */
-class ProductController extends Controller
+class PostsController extends Controller
 {
 
     /** @inheritdoc */
@@ -29,13 +32,33 @@ class ProductController extends Controller
         ];
     }
 
+    public function actions()
+    {
+        return [
+            'thumbnail-upload' => [
+                'class' => UploadAction::class,
+                'deleteRoute' => 'thumbnail-delete',
+                'on afterSave' => function ($event) {
+                    /* @var $file \League\Flysystem\File */
+                    $file = $event->file;
+                    $img = ImageManagerStatic::make($file->read())->fit(2000, 1326);
+                    $file->put($img->encode());
+                }
+            ],
+            'thumbnail-delete' => [
+                'class' => DeleteAction::class
+            ]
+        ];
+    }
+
+
     /**
-     * Lists all Product models.
+     * Lists all Posts models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProductSearch();
+        $searchModel = new PostsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +68,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Displays a single Product model.
+     * Displays a single Posts model.
      * @param integer $id
      * @return mixed
      */
@@ -57,65 +80,44 @@ class ProductController extends Controller
     }
 
     /**
-     * Creates a new Product model.
+     * Creates a new Posts model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Product();
-        $modelUrl = new Url();
+        $model = new Posts();
+        $user = User::findOne(Yii::$app->getUser()->id);
+        $model->username = $user->username ?? '(not set)';
 
-        if ($model->load(Yii::$app->request->post()) && $modelUrl->load(Yii::$app->request->post())) {
-            $modelUrl->type = Url::TYPE_PRODUCT;
-            if ($modelUrl->validate() && $modelUrl->save()) {
-                $model->url_id = $modelUrl->id;
-                if ($model->images != null)
-                    $model->images = json_encode($model->images);
-                $model->is_deleted = 0;
-                if ($model->save()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('create', [
             'model' => $model,
-            'modelUrl' => $modelUrl,
         ]);
     }
 
     /**
-     * Updates an existing Product model.
+     * Updates an existing Posts model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
-     * @throws NotFoundHttpException
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $modelUrl = $model->url;
 
-        if ($model->load(Yii::$app->request->post()) && $modelUrl->load(Yii::$app->request->post())) {
-            $modelUrl->type = Url::TYPE_PRODUCT;
-            if ($modelUrl->validate() && $modelUrl->save()) {
-                $model->url_id = $modelUrl->id;
-                if ($model->images != null)
-                    $model->images = json_encode($model->images);
-                $model->is_deleted = 0;
-                if ($model->save()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
         return $this->render('update', [
             'model' => $model,
-            'modelUrl' => $modelUrl,
         ]);
     }
 
     /**
-     * Deletes an existing Product model.
+     * Deletes an existing Posts model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -128,15 +130,15 @@ class ProductController extends Controller
     }
 
     /**
-     * Finds the Product model based on its primary key value.
+     * Finds the Posts model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Product the loaded model
+     * @return Posts the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Posts::findOne($id)) !== null) {
             return $model;
         }
         throw new NotFoundHttpException('The requested page does not exist.');

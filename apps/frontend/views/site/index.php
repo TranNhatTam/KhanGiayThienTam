@@ -1,10 +1,12 @@
 <?php
 
+use common\models\Product;
 use common\models\Slider;
 
-$this->title = 'Khăn Giấy Thiện Tâm';
+/* @var $slider array|\common\models\Slider[]|\yii\db\ActiveRecord[] */
+/* @var $category array|\common\models\Category[]|\yii\db\ActiveRecord[] */
 
-$slider = Slider::find()->where(['status' => 1])->orderBy(['order' => SORT_ASC])->all();
+$this->title = 'Khăn Giấy Thiện Tâm';
 ?>
 <?php if ($slider != null) { ?>
     <section id="slider" class="slider-element slider-parallax revslider-wrap ohidden clearfix">
@@ -44,351 +46,29 @@ $slider = Slider::find()->where(['status' => 1])->orderBy(['order' => SORT_ASC])
     <div class="content-wrap">
         <div class="container clearfix">
             <div class="tabs topmargin-lg clearfix" id="tab-3">
-                <ul class="tab-nav clearfix">
-                    <li><a href="#tabs-9">New Arrivals</a></li>
-                    <li><a href="#tabs-10">Best sellers</a></li>
-                    <li><a href="#tabs-11">You may like</a></li>
-                </ul>
-                <div class="tab-container">
-                    <div class="tab-content clearfix" id="tabs-9">
-                        <div id="shop" class="shop clearfix">
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/dress/1.jpg" alt="Checked Short Dress"></a>
-                                    <a href="#"><img src="/images/shop/dress/1-1.jpg" alt="Checked Short Dress"></a>
-                                    <div class="sale-flash">50% Off*</div>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Checked Short Dress</a></h3></div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$12.49</ins>
-                                    </div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-half-full"></i>
-                                    </div>
+                <?php if ($category != null) { ?>
+                    <ul class="tab-nav clearfix">
+                        <?php foreach ($category as $item) { ?>
+                            <li><a href="#<?= $item->id ?>"><?= $item->name ?></a></li>
+                        <?php } ?>
+                    </ul>
+                    <div class="tab-container">
+                        <?php foreach ($category as $item) {
+                            $listProduct = Product::findAll(['category_id' => $item->id]); ?>
+                            <div class="tab-content clearfix" id="<?= $item->id ?>">
+                                <div id="shop" class="shop clearfix">
+                                    <?php if ($listProduct == null) { ?>
+                                        echo 'Không có sản phẩm nào phù hợp với kết quả tìm kiếm.';
+                                    <?php } else {
+                                        foreach ($listProduct as $product) {
+                                            echo $this->render('_item', ['item' => $product]);
+                                        }
+                                    } ?>
                                 </div>
                             </div>
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/pants/1-1.jpg" alt="Slim Fit Chinos"></a>
-                                    <a href="#"><img src="/images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Slim Fit Chinos</a></h3></div>
-                                    <div class="product-price">$39.99</div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-half-full"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/pants/1-1.jpg" alt="Slim Fit Chinos"></a>
-                                    <a href="#"><img src="/images/shop/pants/1.jpg" alt="Slim Fit Chinos"></a>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Slim Fit Chinos</a></h3></div>
-                                    <div class="product-price">$39.99</div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-half-full"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/dress/2.jpg"
-                                                     alt="Light Blue Denim Dress"></a>
-                                    <a href="#"><img src="/images/shop/dress/2-2.jpg" alt="Light Blue Denim Dress"></a>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Light Blue Denim Dress</a></h3></div>
-                                    <div class="product-price">$19.95</div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
-                    <div class="tab-content clearfix" id="tabs-10">
-                        <div id="shop" class="shop clearfix">
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/sunglasses/1.jpg"
-                                                     alt="Unisex Sunglasses"></a>
-                                    <a href="#"><img src="/images/shop/sunglasses/1-1.jpg" alt="Unisex Sunglasses"></a>
-                                    <div class="sale-flash">Sale!</div>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Unisex Sunglasses</a></h3></div>
-                                    <div class="product-price">
-                                        <del>$19.99</del>
-                                        <ins>$11.99</ins>
-                                    </div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-empty"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/tshirts/1.jpg" alt="Blue Round-Neck Tshirt"></a>
-                                    <a href="#"><img src="/images/shop/tshirts/1-1.jpg"
-                                                     alt="Blue Round-Neck Tshirt"></a>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Blue Round-Neck Tshirt</a></h3></div>
-                                    <div class="product-price">$9.99</div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-half-full"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/watches/1.jpg" alt="Silver Chrome Watch"></a>
-                                    <a href="#"><img src="/images/shop/watches/1-1.jpg"
-                                                     alt="Silver Chrome Watch"></a>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Silver Chrome Watch</a></h3></div>
-                                    <div class="product-price">$129.99</div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-half-full"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/shoes/2.jpg" alt="Men Grey Casual Shoes"></a>
-                                    <a href="#"><img src="/images/shop/shoes/2-1.jpg"
-                                                     alt="Men Grey Casual Shoes"></a>
-                                    <div class="sale-flash">Sale!</div>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Men Grey Casual Shoes</a></h3></div>
-                                    <div class="product-price">
-                                        <del>$45.99</del>
-                                        <ins>$39.49</ins>
-                                    </div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-half-full"></i>
-                                        <i class="icon-star-empty"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="tab-content clearfix" id="tabs-11">
-
-                        <div id="shop" class="shop clearfix">
-
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <div class="fslider" data-arrows="false">
-                                        <div class="flexslider">
-                                            <div class="slider-wrap">
-                                                <div class="slide"><a href="#"><img src="/images/shop/dress/3.jpg"
-                                                                                    alt="Pink Printed Dress"></a>
-                                                </div>
-                                                <div class="slide"><a href="#"><img src="/images/shop/dress/3-1.jpg"
-                                                                                    alt="Pink Printed Dress"></a>
-                                                </div>
-                                                <div class="slide"><a href="#"><img src="/images/shop/dress/3-2.jpg"
-                                                                                    alt="Pink Printed Dress"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Pink Printed Dress</a></h3></div>
-                                    <div class="product-price">$39.49</div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-empty"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/pants/5.jpg" alt="Green Trousers"></a>
-                                    <a href="#"><img src="/images/shop/pants/5-1.jpg" alt="Green Trousers"></a>
-                                    <div class="sale-flash">Sale!</div>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Green Trousers</a></h3></div>
-                                    <div class="product-price">
-                                        <del>$24.99</del>
-                                        <ins>$21.99</ins>
-                                    </div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-half-full"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/sunglasses/2.jpg"
-                                                     alt="Men Aviator Sunglasses"></a>
-                                    <a href="#"><img src="/images/shop/sunglasses/2-1.jpg"
-                                                     alt="Men Aviator Sunglasses"></a>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Men Aviator Sunglasses</a></h3></div>
-                                    <div class="product-price">$13.49</div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star-empty"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product clearfix">
-                                <div class="product-image">
-                                    <a href="#"><img src="/images/shop/tshirts/4.jpg" alt="Black Polo Tshirt"></a>
-                                    <a href="#"><img src="/images/shop/tshirts/4-1.jpg" alt="Black Polo Tshirt"></a>
-                                    <div class="product-overlay">
-                                        <a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Add to Cart</span></a>
-                                        <a href="include/ajax/shop-item.html" class="item-quick-view"
-                                           data-lightbox="ajax"><i
-                                                    class="icon-zoom-in2"></i><span> Quick View</span></a>
-                                    </div>
-                                </div>
-                                <div class="product-desc">
-                                    <div class="product-title"><h3><a href="#">Black Polo Tshirt</a></h3></div>
-                                    <div class="product-price">$11.49</div>
-                                    <div class="product-rating">
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                        <i class="icon-star3"></i>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+                <?php } ?>
             </div>
 
             <div class="clear bottommargin-sm"></div>

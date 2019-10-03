@@ -9,10 +9,10 @@
 namespace backend\models;
 
 
-use common\models\OrderDetail;
+use common\models\OrdersDetail;
 use yii2mod\cart\models\CartItemInterface;
 
-class OrderItem extends OrderDetail implements CartItemInterface
+class OrderItem extends OrdersDetail implements CartItemInterface
 {
     /**
      * Returns the price for the cart item

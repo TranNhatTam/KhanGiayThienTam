@@ -77,6 +77,7 @@ class Slider extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'is_deleted' => 'Is Deleted',
+            'picture' => 'Picture',
         ];
     }
 

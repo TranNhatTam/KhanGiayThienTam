@@ -5,12 +5,12 @@ namespace backend\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Order;
+use common\models\Orders;
 
 /**
- * OrderSearch represents the model behind the search form about `common\models\Order`.
+ * OrdersSearch represents the model behind the search form about `common\models\Orders`.
  */
-class OrderSearch extends Order
+class OrdersSearch extends Orders
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class OrderSearch extends Order
     public function rules()
     {
         return [
-            [['id', 'customer_id', 'employee_id', 'shipper_id', 'ship_status', 'payment_status', 'payment_type', 'notification_type', 'is_deleted'], 'integer'],
-            [['order_date', 'ship_date', 'fee_info', 'billing_info', 'payment_info', 'ship_name', 'ship_phone', 'ship_email', 'ship_address', 'ship_city', 'ship_district', 'ship_ward', 'ship_postcode', 'ship_country', 'status', 'note', 'created_at', 'updated_at'], 'safe'],
+            [['id', 'customer_id', 'employee_id', 'shipper_id', 'status', 'ship_status', 'payment_status', 'payment_type', 'notification_type', 'is_deleted'], 'integer'],
+            [['order_date', 'ship_date', 'fee_info', 'billing_info', 'payment_info', 'ship_name', 'ship_phone', 'ship_email', 'ship_address', 'ship_city', 'ship_district', 'ship_ward', 'ship_postcode', 'ship_country', 'note', 'created_at', 'updated_at'], 'safe'],
             [['freight', 'total_price', 'total_tax'], 'number'],
         ];
     }
@@ -42,7 +42,7 @@ class OrderSearch extends Order
      */
     public function search($params)
     {
-        $query = Order::find();
+        $query = Orders::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -62,6 +62,7 @@ class OrderSearch extends Order
             'freight' => $this->freight,
             'total_price' => $this->total_price,
             'total_tax' => $this->total_tax,
+            'status' => $this->status,
             'ship_status' => $this->ship_status,
             'payment_status' => $this->payment_status,
             'payment_type' => $this->payment_type,
@@ -83,7 +84,6 @@ class OrderSearch extends Order
             ->andFilterWhere(['like', 'ship_ward', $this->ship_ward])
             ->andFilterWhere(['like', 'ship_postcode', $this->ship_postcode])
             ->andFilterWhere(['like', 'ship_country', $this->ship_country])
-            ->andFilterWhere(['like', 'status', $this->status])
             ->andFilterWhere(['like', 'note', $this->note]);
 
         return $dataProvider;

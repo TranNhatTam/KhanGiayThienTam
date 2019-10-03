@@ -14,6 +14,7 @@ use common\sitemap\ArticleUrlGenerator;
 use common\sitemap\PageUrlGenerator;
 use common\sitemap\UrlsIterator;
 use backend\models\ContactForm;
+use yii\data\Pagination;
 use function GuzzleHttp\Promise\all;
 use Sitemaped\Element\Urlset\Urlset;
 use Sitemaped\Sitemap;
@@ -69,7 +70,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $slider = Slider::find()->where(['status' => 1])->orderBy(['order' => SORT_ASC])->all();
+        $category = Category::find()->visible()->all();
+
+        return $this->render('index', [
+            'slider' => $slider,
+            'category' => $category,
+        ]);
     }
 
 
@@ -139,17 +146,21 @@ class SiteController extends Controller
     {
         return $this->render('blog');
     }
+
     public function actionAbout()
     {
         return $this->render('about');
     }
+
     public function actionGallery()
     {
         return $this->render('gallery');
     }
+
     public function actionCreateContact()
     {
-        var_dump(1);die;
+        var_dump(1);
+        die;
         $model = new ContactForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

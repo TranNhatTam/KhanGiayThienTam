@@ -5,12 +5,12 @@ namespace backend\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\OrderDetail;
+use common\models\OrdersDetail;
 
 /**
- * OrderDetailSearch represents the model behind the search form about `common\models\OrderDetail`.
+ * OrdersDetailSearch represents the model behind the search form about `common\models\OrdersDetail`.
  */
-class OrderDetailSearch extends OrderDetail
+class OrdersDetailSearch extends OrdersDetail
 {
     /**
      * @inheritdoc
@@ -42,7 +42,7 @@ class OrderDetailSearch extends OrderDetail
      */
     public function search($params)
     {
-        $query = OrderDetail::find();
+        $query = OrdersDetail::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

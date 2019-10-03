@@ -24,7 +24,7 @@ class CartController extends Controller
     {
         $cart = CartItem::findOne($id);
         if ($cart) {
-            Yii::$app->cart->add($cart, $quantity);
+            Yii::$app->carts->create($cart, $quantity);
         }
         return $this->redirect('index');
     }
