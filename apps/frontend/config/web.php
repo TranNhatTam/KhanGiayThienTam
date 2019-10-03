@@ -18,6 +18,12 @@ $config = [
                 'yii\web\JqueryAsset' => [
                     'js' => []
                 ],
+                'yii\web\YiiAsset' => [
+                    'js' => []
+                ],
+                'yii\widgets\PjaxAsset' => [
+                    'js' => []
+                ],
             ],
         ],
         'authClientCollection' => [
@@ -43,11 +49,8 @@ $config = [
             ]
         ],
         'recentlyProdView' => [
-            'class' => dtsmart\helper\RecentlyViewContainer::class
+            'class' => 'dtsmart\helper\RecentlyViewContainer',
         ],
-//        'recentlyProdView'=>[
-//            'class'=>'dtsmart\helper\RecentlyViewContainer',
-//        ],
         'errorHandler' => [
             'errorAction' => 'site/error'
         ],

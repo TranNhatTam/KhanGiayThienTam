@@ -22,7 +22,7 @@ class FrontendAsset extends AssetBundle
      */
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
+//    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
 
     /**
      * @var array
@@ -62,7 +62,10 @@ class FrontendAsset extends AssetBundle
         'include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js',
         'include/rs-plugin/js/extensions/revolution.extension.navigation.min.js',
         'include/rs-plugin/js/extensions/revolution.extension.migration.min.js',
-        'include/rs-plugin/js/extensions/revolution.extension.parallax.min.js'
+        'include/rs-plugin/js/extensions/revolution.extension.parallax.min.js',
+
+        'js/yii.js',
+        'js/jquery.pjax.js',
     ];
 
     /**
