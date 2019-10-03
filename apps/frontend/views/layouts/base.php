@@ -12,7 +12,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
     <header class="header">
         <?= $this->render('header') ?>
     </header>
-<?php echo $content ?>
+    <?php echo $content ?>
+
     <footer class="footer">
         <?= $this->render('footer') ?>
     </footer>
