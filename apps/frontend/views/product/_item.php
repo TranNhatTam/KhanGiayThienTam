@@ -81,7 +81,8 @@ $(document).ready(function ($) {
             'success': function(data) {
                 if (data.result === true) {
                     $('#add-cart-modal').modal('show');
-                    $.pjax.reload({container:"#top-cart",'timeout':5000});
+                    $.pjax.reload({container:"#cart-count", 'timeout':5000, async:false});
+                    $.pjax.reload({container:"#cart-info", 'timeout':5000, async:false});
                 } 
             }
         });

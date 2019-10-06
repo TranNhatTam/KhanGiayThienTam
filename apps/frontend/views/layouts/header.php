@@ -1,8 +1,10 @@
 <?php
 
+use common\models\Product;
+use frontend\assets\FrontendAsset;
+use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
-
 
 ?>
 
@@ -50,7 +52,8 @@ use yii\widgets\Pjax;
 
         <div class="col_half nobottommargin">
 
-            <p class="nobottommargin"><strong>Call:</strong> 0909 453 218 | <strong>Email:</strong> khanlanhthientam@gmail.com</p>
+            <p class="nobottommargin"><strong>Call:</strong> 0909 453 218 | <strong>Email:</strong>
+                khanlanhthientam@gmail.com</p>
 
         </div>
     </div>
@@ -93,20 +96,63 @@ use yii\widgets\Pjax;
                             <div>Liên Hệ</div>
                         </a></li>
                 </ul>
+
                 <!-- Top Cart
                 ============================================= -->
-                <?php Pjax::begin(['id' => 'top-cart', 'timeout' => 5000]); ?>
-                <a href="/cart/index" id="go-to-cart"><i
-                            class="icon-shopping-cart"></i><span><?= Yii::$app->carts->getCount() ?></span></a>
-                <?php
-                $js = <<<JS
-    $('#go-to-cart').click(function() {
-        window.location.href = '/cart/index';
-    })
-JS;
-                $this->registerJs($js);
-                Pjax::end(); ?>
-                <!-- #top-cart end -->
+                <div id="top-cart">
+                    <a href="#" id="top-cart-trigger"><i class="icon-shopping-cart"></i>
+                        <span>
+                         <?php Pjax::begin(['id' => 'cart-count', 'timeout' => 5000]); ?>
+                         <?= Yii::$app->carts->getCount() ?>
+                         <?php Pjax::end(); ?>
+                    </span>
+                    </a>
+                    <div class="top-cart-content">
+                        <div class="top-cart-title">
+                            <h4>Shopping Cart</h4>
+                        </div>
+                        <?php Pjax::begin(['id' => 'cart-info', 'timeout' => 5000]); ?>
+                        <div class="top-cart-items">
+                            <?php
+                            $total = 0;
+                            if (Yii::$app->carts->getCount() > 0) {
+                                /* @var $item \common\models\Product */
+                                $product = Yii::$app->carts->getItems();
+                                foreach ($product as $item) {
+                                    $product = Product::findOne($item->id); ?>
+                                    <div class="top-cart-item clearfix">
+                                        <div class="top-cart-item-image">
+                                            <img src="<?= $product->getThumbnail() ?>" alt="<?= $product->name ?>"/>
+                                        </div>
+                                        <div class="top-cart-item-desc">
+                                            <p class="item-desc"><?= $item->name ?></p>
+                                            <span class="top-cart-item-price">
+                                                <?php
+                                                if ($item->discount != null || $item->discount != 0) {
+                                                    echo($item->unit_price != null ? number_format($item->discount, 0, '', '.') . ' đ' : 'Liên Hệ');
+                                                } else {
+                                                    echo($item->unit_price != null ? number_format($item->unit_price, 0, '', '.') . ' đ' : 'Liên Hệ');
+                                                }
+                                                ?>
+                                            </span>
+                                            <span class="top-cart-item-quantity">x <?= $item->quantity ?></span>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    $total += $item->unit_price * $item->quantity;
+                                }
+                            } ?>
+                        </div>
+                        <div class="top-cart-action clearfix">
+                            <span class="fleft top-checkout-price"><?php echo($total != null ? number_format($total, 0, '', '.') . ' đ' : 'Liên Hệ'); ?></span>
+                            <button class="button button-3d button-small nomargin fright"
+                                    onclick="location.href='/cart/index';">View Cart
+                            </button>
+                        </div>
+                        <?php Pjax::end(); ?>
+                    </div>
+                </div>
+
                 <!-- Top Search
                 ============================================= -->
                 <div id="top-search">
@@ -115,6 +161,7 @@ JS;
                         <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
                     </form>
                 </div><!-- #top-search end -->
+
             </nav><!-- #primary-menu end -->
         </div>
     </div>
