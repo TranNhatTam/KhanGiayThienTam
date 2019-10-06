@@ -18,21 +18,7 @@ $this->title = 'Khăn Giấy Thiện Tâm';
                         <li data-transition="fade" data-slotamount="1" data-masterspeed="1500" data-delay="5000"
                             data-saveperformance="off" data-title="Latest Collections"
                             style="background-color: #F6F6F6;">
-                            <div class="tp-caption ltl tp-resizeme revo-slider-caps-text uppercase"
-                                 data-x="0"
-                                 data-y="0"
-                                 data-transform_in="x:-200;y:0;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;s:700;e:Power4.easeOutQuad;"
-                                 data-speed="400"
-                                 data-start="1000"
-                                 data-easing="easeOutQuad"
-                                 data-splitin="none"
-                                 data-splitout="none"
-                                 data-elementdelay="0.01"
-                                 data-endelementdelay="0.1"
-                                 data-endspeed="1000"
-                                 data-endeasing="Power4.easeIn" style=""><img src="<?= Slider::getImage($item->id) ?>"
-                                                                              alt="Girl">
-                            </div>
+                            <img src="<?= Slider::getImage($item->id) ?>" alt="Girl">
                         </li>
                     <?php } ?>
                 </ul>

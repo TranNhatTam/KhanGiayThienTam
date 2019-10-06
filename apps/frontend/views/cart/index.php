@@ -131,7 +131,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <button type="submit" class="button button-3d notopmargin fright" style="width: 100%">Hoành Thành
+                    <button type="submit" class="button button-3d notopmargin fright" style="width: 100%">Hoàn Thành
                     </button>
                 </div>
                 <?php ActiveForm::end(); ?>

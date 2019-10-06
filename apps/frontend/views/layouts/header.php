@@ -53,40 +53,6 @@ use yii\widgets\Pjax;
             <p class="nobottommargin"><strong>Call:</strong> 0909 453 218 | <strong>Email:</strong> khanlanhthientam@gmail.com</p>
 
         </div>
-
-        <div class="col_half col_last fright nobottommargin">
-
-            <!-- Top Links
-            ============================================= -->
-            <div class="top-links">
-                <ul>
-                    <li><a href="#">Login</a>
-                        <div class="top-link-section">
-                            <form id="top-login" role="form">
-                                <div class="input-group" id="top-login-username">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="icon-user"></i></div>
-                                    </div>
-                                    <input type="email" class="form-control" placeholder="Email address" required="">
-                                </div>
-                                <div class="input-group" id="top-login-password">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text"><i class="icon-key"></i></div>
-                                    </div>
-                                    <input type="password" class="form-control" placeholder="Password" required="">
-                                </div>
-                                <label class="checkbox">
-                                    <input type="checkbox" value="remember-me"> Remember me
-                                </label>
-                                <button class="btn btn-danger btn-block" type="submit">Sign in</button>
-                            </form>
-                        </div>
-                    </li>
-                </ul>
-            </div><!-- .top-links end -->
-
-        </div>
-
     </div>
 
 </div><!-- #top-bar end -->

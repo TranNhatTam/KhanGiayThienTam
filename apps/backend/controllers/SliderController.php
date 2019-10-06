@@ -40,7 +40,7 @@ class SliderController extends Controller
                 'on afterSave' => function ($event) {
                     /* @var $file \League\Flysystem\File */
                     $file = $event->file;
-                    $img = ImageManagerStatic::make($file->read())->fit(1200, 630);
+                    $img = ImageManagerStatic::make($file->read())->fit(2553, 945);
                     $file->put($img->encode());
                 }
             ],
