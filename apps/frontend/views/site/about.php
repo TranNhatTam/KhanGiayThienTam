@@ -163,7 +163,7 @@ $this->title='Giới Thiệu';
                         </div>
                         <div class="slide">
                             <div class="testi-image">
-                                <a href="#"><img src="/images/testimonials/abc.jpg" alt="Customer Testimonails"></a>
+                                <a href="#"><img src="/images/team/abc.jpg" alt="Customer Testimonails"></a>
                             </div>
                             <div class="testi-content">
                                 <p>Niềm vui mỗi ngày là khi máy được khởi động cùng những chiếc khăn đẹp và chất lượng ra đời.🥰🥰🥰</p>
@@ -175,7 +175,7 @@ $this->title='Giới Thiệu';
                         </div>
                         <div class="slide">
                             <div class="testi-image">
-                                <a href="#"><img src="/images/testimonials/abc.jpg" alt="Customer Testimonails"></a>
+                                <a href="#"><img src="/images/team/abc.jpg" alt="Customer Testimonails"></a>
                             </div>
                             <div class="testi-content">
                                 <p>💯💯 Sự kết hợp ăn ý " Khăn Lạnh - Bao Đũa" đã tạo nên ấn tượng, điểm nhấn cho nhà hàng của bạn.

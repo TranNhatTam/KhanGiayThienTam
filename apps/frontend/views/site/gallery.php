@@ -1,11 +1,11 @@
 <section id="page-title">
 
     <div class="container clearfix">
-        <h1>Portfolio</h1>
-        <span>Showcase of Our Awesome Works in 4 Columns</span>
+        <h1>Dịch Vụ</h1>
+        <span>Trưng bày các sản phẩm tuyệt vời của chúng tôi</span>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Dịch vụ</li>
         </ol>
     </div>
 
