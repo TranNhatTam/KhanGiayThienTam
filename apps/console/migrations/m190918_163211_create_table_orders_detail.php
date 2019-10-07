@@ -27,8 +27,8 @@ class m190918_163211_create_table_orders_detail extends Migration
             'discount' => $this->double()->notNull(),
             'total_price' => $this->double()->notNull(),
             'note' => $this->text(),
-            'update_at' => $this->timestamp()->notNull(),
-            'create_at' => $this->timestamp()->notNull(),
+            'updated_at' => $this->timestamp()->notNull(),
+            'created_at' => $this->timestamp()->notNull(),
             'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
         ], $tableOptions);
     }

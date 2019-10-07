@@ -45,8 +45,8 @@ class m190918_163052_create_table_orders extends Migration
             'note' => $this->text(),
             'payment_type' => $this->integer(),
             'notification_type' => $this->integer(),
-            'update_at' => $this->timestamp()->notNull(),
-            'create_at' => $this->timestamp()->notNull(),
+            'updated_at' => $this->timestamp()->notNull(),
+            'created_at' => $this->timestamp()->notNull(),
             'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
         ], $tableOptions);
     }

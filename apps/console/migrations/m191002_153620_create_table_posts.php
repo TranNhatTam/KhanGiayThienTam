@@ -26,8 +26,8 @@ class m191002_153620_create_table_posts extends Migration
             'type' => $this->smallInteger()->notNull(),
             'status' => $this->smallInteger()->notNull(),
             'username' => $this->string(),
-            'update_at' => $this->timestamp()->notNull(),
-            'create_at' => $this->timestamp()->notNull(),
+            'updated_at' => $this->timestamp()->notNull(),
+            'created_at' => $this->timestamp()->notNull(),
             'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
         ], $tableOptions);
     }

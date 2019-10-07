@@ -24,8 +24,8 @@ class m191001_151106_create_table_slider extends Migration
             'url' => $this->string(1024),
             'status' => $this->smallInteger()->notNull(),
             'order' => $this->integer(),
-            'update_at' => $this->timestamp()->notNull(),
-            'create_at' => $this->timestamp()->notNull(),
+            'updated_at' => $this->timestamp()->notNull(),
+            'created_at' => $this->timestamp()->notNull(),
             'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
         ], $tableOptions);
     }

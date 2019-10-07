@@ -23,8 +23,8 @@ class m190811_014438_create_table_url extends Migration
             'suffix' => $this->string(16),
             'type' => $this->tinyInteger(1)->notNull(),
             'seo' => $this->text(),
-            'update_at' => $this->timestamp()->notNull(),
-            'create_at' => $this->timestamp()->notNull(),
+            'updated_at' => $this->timestamp()->notNull(),
+            'created_at' => $this->timestamp()->notNull(),
             'is_deleted' => $this->tinyInteger(1)->defaultValue(0)
         ], $tableOptions);
     }
