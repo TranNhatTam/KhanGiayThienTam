@@ -25,8 +25,8 @@ class m190811_020410_create_table_brand extends Migration
             'icon' => $this->string(),
             'description' => $this->text(),
             'priority' => $this->integer()->notNull()->defaultValue('0'),
-            'create_at' => $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
-            'updated_at' => $this->timestamp()->defaultValue(null)->append('ON UPDATE CURRENT_TIMESTAMP'),
+            'update_at' => $this->timestamp()->notNull(),
+            'create_at' => $this->timestamp()->notNull(),
             'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
             'url_id' => $this->integer()->unsigned()->notNull(),
         ], $tableOptions);

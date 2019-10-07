@@ -27,8 +27,8 @@ class m190918_163211_create_table_orders_detail extends Migration
             'discount' => $this->double()->notNull(),
             'total_price' => $this->double()->notNull(),
             'note' => $this->text(),
-            'created_at' => $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
-            'updated_at' => $this->timestamp()->defaultValue(null)->append('ON UPDATE CURRENT_TIMESTAMP'),
+            'update_at' => $this->timestamp()->notNull(),
+            'create_at' => $this->timestamp()->notNull(),
             'is_deleted' => $this->tinyInteger(1)->defaultValue(0),
         ], $tableOptions);
     }

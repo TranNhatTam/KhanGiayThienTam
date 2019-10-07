@@ -31,9 +31,7 @@ class m160117_225613_create_cart_table extends Migration
      */
     public function down()
     {
-        echo "m160117_225613_create_cart_table cannot be reverted.\n";
         $this->dropTable('cart');
-        return false;
     }
 
     /*
