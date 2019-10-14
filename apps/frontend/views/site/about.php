@@ -94,7 +94,8 @@ $this->title='Giới Thiệu';
 
                     <div class="row clearfix">
                         <div class="col-lg-12">
-                            <p>Employment respond committed meaningful fight against oppression social challenges rural legal aid governance. Meaningful work, implementation, process cooperation, campaign inspire.</p>
+                            <p>Trải qua nhiều năm kinh nghiệm trong nghành cung cấp khăn lạnh, khăn ướt. Khăn Lạnh Thiện Tâm chúng tôi tự hào là doanh nghiệp chuyên cung cấp khăn lạnh chất lượng, giá thành tốt nhất thị trường với nhiều mẫu mã và thiết kế đa dạng cho quý khách lựa chọn, sản phẩm luôn đảm bảo chất lượng hợp vệ sinh thân thiện với môi trường. Phương châm của chúng tôi khi cung cấp khăn lạnh đến quý khách là chất lượng - uy tín – giá sản phẩm cực hấp dẫn.
+                            </p>
                             <p>Advancement, promising development John Lennon, our ambitions involvement underprivileged billionaire philanthropy save the world transform. Carbon rights maintain healthcare emergent, implementation inspire social change solve clean water livelihoods.</p>
                             <a href="https://www.facebook.com/LeHanQuoc" class="social-icon inline-block si-small si-light si-rounded si-facebook">
                                 <i class="icon-facebook"></i>

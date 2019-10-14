@@ -7,13 +7,13 @@ use yii\web\JqueryAsset;
 /* @var $slider array|\common\models\Slider[]|\yii\db\ActiveRecord[] */
 /* @var $category array|\common\models\Category[]|\yii\db\ActiveRecord[] */
 
-$this->title = 'Khăn Giấy Thiện Tâm';
+$this->title = 'Khăn Lạnh Thiện Tâm';
 ?>
 <?php if ($slider != null) { ?>
     <section id="slider" class="slider-element slider-parallax revslider-wrap ohidden clearfix">
         <div id="rev_slider_ishop_wrapper" class="rev_slider_wrapper fullwidth-container" data-alias="default-slider"
              style="padding:0px;">
-            <div id="rev_slider_ishop" class="rev_slider fullwidthbanner" style="display:none;" data-version="5.1.4">
+            <div id="rev_slider_ishop" class="rev_slider fullwidthbanner" style="display:none;height:600px;" data-version="5.1.4">
                 <ul>
                     <?php foreach ($slider as $item) { ?>
                         <li data-transition="fade" data-slotamount="1" data-masterspeed="1500" data-delay="5000"
@@ -247,46 +247,6 @@ $this->title = 'Khăn Giấy Thiện Tâm';
 
             </div>
         </div>
-
-        <div class="section notopborder nobottomborder nomargin nopadding nobg footer-stick">
-            <div class="container clearfix">
-
-                <div class="col_half nobottommargin topmargin">
-                    <img src="/images/services/4.jpg" alt="Image" class="nobottommargin">
-                </div>
-
-                <div class="col_half subscribe-widget nobottommargin col_last">
-
-                    <div class="heading-block topmargin-lg">
-                        <h3><strong>GET 20% OFF*</strong></h3>
-                        <span>Our App scales beautifully to different Devices.</span>
-                    </div>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet cumque, perferendis
-                        accusamus
-                        porro illo exercitationem molestias.</p>
-
-                    <div class="widget-subscribe-form-result"></div>
-                    <form id="widget-subscribe-form3" action="include/subscribe.php" role="form" method="post"
-                          class="nobottommargin">
-                        <div class="input-group" style="max-width:400px;">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text"><i class="icon-email2"></i></div>
-                            </div>
-                            <input type="email" name="widget-subscribe-form-email"
-                                   class="form-control required email"
-                                   placeholder="Enter your Email">
-                            <div class="input-group-append">
-                                <button class="btn btn-danger" type="submit">Subscribe Now</button>
-                            </div>
-                        </div>
-                    </form>
-
-                </div>
-
-            </div>
-        </div>
-
     </div>
 
 </section><!-- #content end -->

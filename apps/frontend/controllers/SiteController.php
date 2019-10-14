@@ -8,6 +8,7 @@ use common\models\ArticleCategory;
 use common\models\Brand;
 use common\models\Category;
 use common\models\OrderDetails;
+use common\models\Posts;
 use common\models\Product;
 use common\models\Slider;
 use common\sitemap\ArticleUrlGenerator;
@@ -144,7 +145,10 @@ class SiteController extends Controller
 
     public function actionBlog()
     {
-        return $this->render('blog');
+        $model = Posts::find()->where(['type' => 1])->all();
+        return $this->render('blog',[
+            'model' => $model
+        ]);
     }
 
     public function actionAbout()
